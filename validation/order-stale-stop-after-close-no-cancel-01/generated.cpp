@@ -166,7 +166,7 @@ extern "C" {
         std::string itf = input_tf ? input_tf : "";
         std::string stf = script_tf ? script_tf : "";
         bool needs_full_run = (bar_magnifier != 0)
-            || (!itf.empty() && !stf.empty() && itf != stf);
+            || !itf.empty() || !stf.empty();
         if (!needs_full_run) {
             strat->run(bars, n);
         } else {

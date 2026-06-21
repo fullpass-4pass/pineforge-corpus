@@ -99,7 +99,7 @@ public:
     ta::RSI _ta_rsi_2;
     std::vector<double> _precalc__ta_rsi_2;
     bool _use_precalc = false;
-    Series<double> _s_close;
+    Series<double> _s_close{500};
     int i_sma_len = 0;
     int i_rsi_offset = 0;
     int i_deep_lag = 0;
@@ -207,7 +207,7 @@ public:
              bool bar_magnifier = false,
              int magnifier_samples = 4,
              MagnifierDistribution magnifier_dist = MagnifierDistribution::ENDPOINTS) {
-        bool needs_dynamic = bar_magnifier || (!input_tf.empty() && !script_tf.empty() && input_tf != script_tf);
+        bool needs_dynamic = bar_magnifier || !input_tf.empty() || !script_tf.empty();
         if (needs_dynamic) {
             _use_precalc = false;
         } else {
@@ -236,7 +236,7 @@ extern "C" {
         std::string itf = input_tf ? input_tf : "";
         std::string stf = script_tf ? script_tf : "";
         bool needs_full_run = (bar_magnifier != 0)
-            || (!itf.empty() && !stf.empty() && itf != stf);
+            || !itf.empty() || !stf.empty();
         if (!needs_full_run) {
             strat->run(bars, n);
         } else {

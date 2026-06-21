@@ -103,8 +103,8 @@ public:
     ta::Crossover _ta_crossover_4;
     ta::Crossunder _ta_crossunder_5;
     bool _use_precalc = false;
-    Series<double> _s_close;
-    Series<double> kama;
+    Series<double> _s_close{500};
+    Series<double> kama{500};
     int tick_counter;
     int i_kama_len = 0;
     int i_kama_fast = 0;
@@ -253,7 +253,7 @@ public:
              bool bar_magnifier = false,
              int magnifier_samples = 4,
              MagnifierDistribution magnifier_dist = MagnifierDistribution::ENDPOINTS) {
-        bool needs_dynamic = bar_magnifier || (!input_tf.empty() && !script_tf.empty() && input_tf != script_tf);
+        bool needs_dynamic = bar_magnifier || !input_tf.empty() || !script_tf.empty();
         if (needs_dynamic) {
             _use_precalc = false;
         } else {
@@ -282,7 +282,7 @@ extern "C" {
         std::string itf = input_tf ? input_tf : "";
         std::string stf = script_tf ? script_tf : "";
         bool needs_full_run = (bar_magnifier != 0)
-            || (!itf.empty() && !stf.empty() && itf != stf);
+            || !itf.empty() || !stf.empty();
         if (!needs_full_run) {
             strat->run(bars, n);
         } else {

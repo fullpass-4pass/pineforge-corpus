@@ -98,7 +98,7 @@ public:
     ta::Crossover _ta_crossover_2;
     ta::Crossunder _ta_crossunder_3;
     bool _use_precalc = false;
-    Series<double> gatedSrc;
+    Series<double> gatedSrc{500};
     int64_t sessId = 0.0;
     double deepRef = 0.0;
     double src = 0.0;
@@ -180,7 +180,7 @@ extern "C" {
         std::string itf = input_tf ? input_tf : "";
         std::string stf = script_tf ? script_tf : "";
         bool needs_full_run = (bar_magnifier != 0)
-            || (!itf.empty() && !stf.empty() && itf != stf);
+            || !itf.empty() || !stf.empty();
         if (!needs_full_run) {
             strat->run(bars, n);
         } else {

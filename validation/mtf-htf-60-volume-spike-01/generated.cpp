@@ -187,7 +187,7 @@ public:
              bool bar_magnifier = false,
              int magnifier_samples = 4,
              MagnifierDistribution magnifier_dist = MagnifierDistribution::ENDPOINTS) {
-        bool needs_dynamic = bar_magnifier || (!input_tf.empty() && !script_tf.empty() && input_tf != script_tf);
+        bool needs_dynamic = bar_magnifier || !input_tf.empty() || !script_tf.empty();
         if (needs_dynamic) {
             _use_precalc = false;
         } else {
