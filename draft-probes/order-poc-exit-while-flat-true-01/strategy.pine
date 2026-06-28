@@ -1,0 +1,43 @@
+// This Pine Script® code is licensed under Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
+// © PineForge contributors 2026
+//
+// Probe: process_orders_on_close=true x a from_entry strategy.exit issued while
+// FLAT (in the same evaluation as a pending LIMIT strategy.entry that fills on
+// a LATER bar). Community strategies routinely set SL/TP at signal time next to
+// a limit entry, before the entry actually fills.
+//
+// What it pins: that the from_entry bracket SURVIVES the gap until its entry
+// fills and then fires at the stop/limit level. Verified 2026-06-28 on
+// data/ohlcv_ETH-USDT-USDT_15m.csv: engine output is IDENTICAL for
+// process_orders_on_close true vs false (179 trades each; 12 bracket fills
+// [11 stop + 1 TP], 167 opposite-cross). No divergence -> the on_close path
+// does NOT drop the orphaned-then-activated exit. (An earlier 5-bar synthetic
+// suggested a drop; that was a contrived-feed artifact, disproven here.)
+//
+// TV setup: 15m chart, ETH-USDT-USDT (Binance), same window as
+// data/ohlcv_ETH-USDT-USDT_15m.csv. Manual TV capture -> tv_trades.csv to
+// confirm engine<->TV parity for this pattern.
+//@version=6
+strategy("PF poc exit-while-flat true", shorttitle="POC_EWF_true", overlay=true,
+     initial_capital=1000000, currency=currency.USD,
+     commission_type=strategy.commission.percent, commission_value=0, slippage=0,
+     default_qty_type=strategy.fixed, default_qty_value=1, pyramiding=1,
+     process_orders_on_close=true)
+
+emaFast = ta.ema(close, 9)
+emaSlow = ta.ema(close, 21)
+sig     = ta.crossover(emaFast, emaSlow)
+exitSig = ta.crossunder(emaFast, emaSlow)
+
+// Issue the limit entry AND the protective bracket together, while flat.
+if sig and strategy.position_size == 0
+    lvl = close
+    strategy.entry("L", strategy.long, limit=lvl * 0.98)
+    strategy.exit("X", from_entry="L", stop=lvl * 0.965, limit=lvl * 1.04)
+
+// Fallback close on the opposite cross so positions cannot ride forever when
+// the bracket is (incorrectly) dropped — keeps the probe trade count healthy
+// and makes the bracket-vs-opposite-cross divergence visible per trade.
+if exitSig and strategy.position_size > 0
+    strategy.close("L", comment="opp")
