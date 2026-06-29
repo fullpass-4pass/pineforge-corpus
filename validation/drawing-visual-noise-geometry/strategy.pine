@@ -1,0 +1,25 @@
+//@version=6
+strategy("drawing-visual-noise-geometry", overlay=true, pyramiding=0, default_qty_type=strategy.fixed, default_qty_value=1, max_labels_count=50)
+sma = ta.sma(close, 14)
+var line lv = na
+var line lv2 = na
+var linefill lf = na
+if na(lv)
+    lv := line.new(bar_index, sma, bar_index + 1, sma, color = close > open ? color.green : color.red, style = line.style_dashed, width = close > sma ? 3 : 1, extend = extend.both, xloc = xloc.bar_index)
+    lv2 := line.new(bar_index, sma, bar_index + 1, sma, color = color.blue)
+    lf := linefill.new(lv, lv2, color.new(color.purple, 90))
+else
+    line.set_y1(lv, sma)
+    line.set_y2(lv, sma)
+    line.set_color(lv, color.new(color.blue, 50))
+    line.set_width(lv, 2)
+    line.set_style(lv, line.style_dotted)
+lbl = label.new(bar_index, high, text = str.tostring(sma), color = color.red, textcolor = color.white, style = label.style_label_down, size = size.small)
+label.set_text(lbl, "x")
+level = line.get_y2(lv)
+eUp = ta.crossover(close, level)
+eDn = ta.crossunder(close, level)
+if eUp
+    strategy.entry("L", strategy.long)
+if strategy.position_size > 0 and eDn
+    strategy.close("L")

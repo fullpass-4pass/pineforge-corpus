@@ -1,0 +1,24 @@
+//@version=6
+strategy("drawing-udt-alias-identity", overlay=true, pyramiding=0, default_qty_type=strategy.fixed, default_qty_value=1)
+type Store
+    line[] lines
+var Store s = Store.new(array.new<line>())
+var line alias = na
+target = ta.sma(close, 18)
+if na(alias)
+    l = line.new(bar_index, target, bar_index, target)
+    array.push(s.lines, l)
+    alias := l
+float lvl = na
+if array.size(s.lines) > 0
+    e = array.get(s.lines, 0)
+    line.set_y2(e, target)
+    lvl := line.get_y2(alias)
+ref = nz(lvl, close)
+ready = not na(lvl)
+eUp = ta.crossover(close, ref)
+eDn = ta.crossunder(close, ref)
+if ready and eUp
+    strategy.entry("L", strategy.long)
+if strategy.position_size > 0 and ready and eDn
+    strategy.close("L")

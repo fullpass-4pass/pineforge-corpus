@@ -1,14 +1,14 @@
 # PineForge Corpus Validation Report
 
-**Generated:** 2026-06-10 (UTC) — engine `a6d107b`, corpus `38a1cc0`
+**Generated:** 2026-06-29 (UTC) — engine `02c7564`, corpus `1a6f693`
 
 All probes live under `corpus/validation/`; categories below are derived
 from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
 
 ## Headline
 
-- **Total probes verified:** 246
-- **Excellent:** 245 (99.6%)
+- **Total probes verified:** 252
+- **Excellent:** 251 (99.6%)
 - **Strong:** 0
 - **Moderate:** 0
 - **Weak:** 0
@@ -36,6 +36,7 @@ captured in the probe's `inputs.json` notes field where present.
 | `bracket` | 13 | 13 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `cap` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `composite` | 52 | 52 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `drawing` | 6 | 6 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `input` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `ltf` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `magnifier` | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -66,20 +67,20 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`analyzer-parity-edge-margin-50-pct-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/analyzer-parity-edge-margin-50-pct-01/) | `analyzer` | excellent | `strict` | 57 | 57 | 57 | 0.0000% | 0.0000% | 0.0000% | 0.0701% |
 | [`analyzer-parity-percent-of-equity-sizing-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/analyzer-parity-percent-of-equity-sizing-01/) | `analyzer` | excellent | `strict` | 57 | 57 | 57 | 0.0000% | 0.0000% | 0.0000% | 0.0006% |
 | [`analyzer-parity-small-equity-fraction-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/analyzer-parity-small-equity-fraction-01/) | `analyzer` | excellent | `strict` | 57 | 57 | 57 | 0.0000% | 0.0000% | 0.0000% | 0.0698% |
-| [`analyzer-parity-stop-limit-timing-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/analyzer-parity-stop-limit-timing-01/) | `analyzer` | excellent | `strict` | 778 | 778 | 778 | 0.0000% | 0.0000% | 0.0004% | 0.1008% |
+| [`analyzer-parity-stop-limit-timing-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/analyzer-parity-stop-limit-timing-01/) | `analyzer` | excellent | `strict` | 778 | 778 | 778 | 0.0000% | 0.0000% | 0.0000% | 0.0860% |
 | [`analyzer-self-test-multi-mode-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/analyzer-self-test-multi-mode-01/) | `analyzer` | excellent | `strict` | 147 | 147 | 147 | 0.0000% | 0.0000% | 0.0000% | 0.0687% |
 | [`anomaly-equity-mirror-strategy-equity-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/anomaly-equity-mirror-strategy-equity-01/) | `anomaly` | anomaly | `strict` | 24 | 25 | 13 | 4.0000% | 0.0000% | 0.0000% | 2.3202% |
 | [`barstate-isconfirmed-magnifier-off-01b`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/barstate-isconfirmed-magnifier-off-01b/) | `barstate` | excellent | `strict` | 871 | 871 | 871 | 0.0000% | 0.0000% | 0.0000% | 0.0829% |
 | [`barstate-isconfirmed-magnifier-on-01a`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/barstate-isconfirmed-magnifier-on-01a/) | `barstate` | excellent | `strict` | 871 | 871 | 871 | 0.0000% | 0.0000% | 0.0000% | 0.0829% |
 | [`bracket-atr-trail-series-int-points-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-atr-trail-series-int-points-01/) | `bracket` | excellent | `production` | 792 | 792 | 792 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
 | [`bracket-atr-trailing-stop-state-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-atr-trailing-stop-state-01/) | `bracket` | excellent | `strict` | 5073 | 5073 | 5073 | 0.0000% | 0.0000% | 0.0000% | 0.0786% |
-| [`bracket-entry-exit-same-pass-attach-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-entry-exit-same-pass-attach-01/) | `bracket` | excellent | `strict` | 728 | 728 | 728 | 0.0000% | 0.0000% | 0.0005% | 0.1130% |
+| [`bracket-entry-exit-same-pass-attach-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-entry-exit-same-pass-attach-01/) | `bracket` | excellent | `strict` | 728 | 728 | 728 | 0.0000% | 0.0000% | 0.0000% | 0.0948% |
 | [`bracket-exit-stop-limit-trail-same-bar-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-exit-stop-limit-trail-same-bar-01/) | `bracket` | excellent | `production` | 732 | 732 | 732 | 0.0000% | 0.0000% | 0.0000% | 0.0755% |
 | [`bracket-exit-three-way-set-once-entry-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-exit-three-way-set-once-entry-01/) | `bracket` | excellent | `production` | 792 | 792 | 792 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
-| [`bracket-exit-tp-sl-fixed-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-exit-tp-sl-fixed-01/) | `bracket` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0005% | 0.1320% |
+| [`bracket-exit-tp-sl-fixed-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-exit-tp-sl-fixed-01/) | `bracket` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0000% | 0.0880% |
 | [`bracket-narrow-stop-limit-with-trail8-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-narrow-stop-limit-with-trail8-01/) | `bracket` | excellent | `production` | 792 | 792 | 792 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
-| [`bracket-partial-exit-qty-percent-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-partial-exit-qty-percent-01/) | `bracket` | excellent | `strict` | 725 | 725 | 725 | 0.0000% | 0.0000% | 0.0004% | 0.1594% |
-| [`bracket-same-id-exit-replace-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-same-id-exit-replace-01/) | `bracket` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0004% | 0.1584% |
+| [`bracket-partial-exit-qty-percent-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-partial-exit-qty-percent-01/) | `bracket` | excellent | `strict` | 725 | 725 | 725 | 0.0000% | 0.0000% | 0.0000% | 0.0863% |
+| [`bracket-same-id-exit-replace-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-same-id-exit-replace-01/) | `bracket` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0000% | 0.1066% |
 | [`bracket-tp-sl-oca-reduce-isolate-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-tp-sl-oca-reduce-isolate-01/) | `bracket` | excellent | `strict` | 2240 | 2240 | 2240 | 0.0000% | 0.0000% | 0.0000% | 0.0561% |
 | [`bracket-trail-points-no-offset-explicit-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-trail-points-no-offset-explicit-01/) | `bracket` | excellent | `production` | 782 | 782 | 782 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
 | [`bracket-trail-points-with-offset-only-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-trail-points-with-offset-only-01/) | `bracket` | excellent | `production` | 710 | 710 | 710 | 0.0000% | 0.0000% | 0.0000% | 0.0935% |
@@ -97,7 +98,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`composite-ies-adx-regime-classify-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-adx-regime-classify-01/) | `composite` | excellent | `strict` | 682 | 683 | 682 | 0.1464% | 0.0000% | 0.0000% | 0.0770% |
 | [`composite-ies-bb-kc-squeeze-release-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-bb-kc-squeeze-release-01/) | `composite` | excellent | `strict` | 902 | 902 | 902 | 0.0000% | 0.0000% | 0.0000% | 0.0799% |
 | [`composite-ies-cooldown-daily-cap-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-cooldown-daily-cap-01/) | `composite` | excellent | `strict` | 727 | 727 | 727 | 0.0000% | 0.0000% | 0.0000% | 0.0838% |
-| [`composite-ies-equity-feedback-sizing-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-equity-feedback-sizing-01/) | `composite` | excellent | `strict` | 79 | 79 | 79 | 0.0000% | 0.0000% | 0.0005% | 0.0891% |
+| [`composite-ies-equity-feedback-sizing-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-equity-feedback-sizing-01/) | `composite` | excellent | `strict` | 79 | 79 | 79 | 0.0000% | 0.0000% | 0.0000% | 0.0940% |
 | [`composite-ies-integration-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-integration-01/) | `composite` | excellent | `strict` | 537 | 537 | 537 | 0.0000% | 0.0000% | 0.0000% | 0.0771% |
 | [`composite-ies-pivot-liquidity-sweep-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-pivot-liquidity-sweep-01/) | `composite` | excellent | `strict` | 706 | 706 | 706 | 0.0000% | 0.0000% | 0.0000% | 0.0786% |
 | [`composite-ies-pressure-gauge-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-pressure-gauge-01/) | `composite` | excellent | `strict` | 2207 | 2207 | 2207 | 0.0000% | 0.0000% | 0.0000% | 0.0786% |
@@ -138,6 +139,12 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`composite-wunderscalper-alert-templates-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-wunderscalper-alert-templates-01/) | `composite` | excellent | `strict` | 3097 | 3097 | 3097 | 0.0000% | 0.0000% | 0.0000% | 0.0833% |
 | [`composite-wunderscalper-explicit-reverse-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-wunderscalper-explicit-reverse-01/) | `composite` | excellent | `strict` | 3097 | 3097 | 3097 | 0.0000% | 0.0000% | 0.0000% | 0.0833% |
 | [`composite-wunderscalper-integration-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-wunderscalper-integration-01/) | `composite` | excellent | `strict` | 3097 | 3097 | 3097 | 0.0000% | 0.0000% | 0.0000% | 0.0833% |
+| [`drawing-box-zone-reentry`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/drawing-box-zone-reentry/) | `drawing` | excellent | `strict` | 1403 | 1406 | 1403 | 0.2134% | 0.0000% | 0.0000% | 0.0000% |
+| [`drawing-chartpoint-trendline`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/drawing-chartpoint-trendline/) | `drawing` | excellent | `strict` | 2379 | 2379 | 2379 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
+| [`drawing-delete-halt`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/drawing-delete-halt/) | `drawing` | excellent | `strict` | 2504 | 2504 | 2504 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
+| [`drawing-line-level-breakout`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/drawing-line-level-breakout/) | `drawing` | excellent | `strict` | 2265 | 2265 | 2265 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
+| [`drawing-udt-alias-identity`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/drawing-udt-alias-identity/) | `drawing` | excellent | `strict` | 2617 | 2617 | 2617 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
+| [`drawing-visual-noise-geometry`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/drawing-visual-noise-geometry/) | `drawing` | excellent | `strict` | 2969 | 2969 | 2969 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
 | [`input-source-runtime-override-high-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/input-source-runtime-override-high-01/) | `input` | excellent | `strict` | 1524 | 1524 | 1524 | 0.0000% | 0.0000% | 0.0000% | 0.0783% |
 | [`input-source-subscript-hl2-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/input-source-subscript-hl2-01/) | `input` | excellent | `strict` | 16347 | 16347 | 16347 | 0.0000% | 0.0000% | 0.0000% | 0.0666% |
 | [`ltf-bool-array-bull-majority-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ltf-bool-array-bull-majority-01/) | `ltf` | excellent | `strict` | 3116 | 3116 | 3116 | 0.0000% | 0.0000% | 0.0000% | 0.0739% |
@@ -161,17 +168,17 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`mtf-htf-60-rsi14-inside-security-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-60-rsi14-inside-security-01/) | `mtf` | excellent | `strict` | 496 | 496 | 496 | 0.0000% | 0.0000% | 0.0000% | 0.0779% |
 | [`mtf-htf-60-sma20-inside-security-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-60-sma20-inside-security-01/) | `mtf` | excellent | `strict` | 540 | 540 | 540 | 0.0000% | 0.0000% | 0.0000% | 0.0768% |
 | [`mtf-htf-60-volume-spike-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-60-volume-spike-01/) | `mtf` | excellent | `strict` | 584 | 584 | 584 | 0.0000% | 0.0000% | 0.0000% | 0.0886% |
-| [`mtf-htf-confluence-manual-trail-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-confluence-manual-trail-01/) | `mtf` | excellent | `strict` | 345 | 345 | 345 | 0.0000% | 0.0000% | 0.0004% | 0.0814% |
-| [`mtf-htf-confluence-static-bracket-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-confluence-static-bracket-01/) | `mtf` | excellent | `strict` | 283 | 283 | 283 | 0.0000% | 0.0000% | 0.0004% | 0.0815% |
+| [`mtf-htf-confluence-manual-trail-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-confluence-manual-trail-01/) | `mtf` | excellent | `strict` | 345 | 345 | 345 | 0.0000% | 0.0000% | 0.0000% | 0.0791% |
+| [`mtf-htf-confluence-static-bracket-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-confluence-static-bracket-01/) | `mtf` | excellent | `strict` | 283 | 283 | 283 | 0.0000% | 0.0000% | 0.0000% | 0.0790% |
 | [`mtf-htf-weekly-sma-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-htf-weekly-sma-cross-01/) | `mtf` | excellent | `strict` | 101 | 101 | 101 | 0.0000% | 0.0000% | 0.0000% | 0.1239% |
 | [`mtf-roll-state-60-240-d-minimal-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-roll-state-60-240-d-minimal-01/) | `mtf` | excellent | `strict` | 2938 | 2948 | 2938 | 0.3392% | 0.0000% | 0.0000% | 0.0677% |
 | [`mtf-triple-tf-close-confluence-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-triple-tf-close-confluence-01/) | `mtf` | excellent | `strict` | 48 | 48 | 48 | 0.0000% | 0.0000% | 0.0000% | 0.0911% |
 | [`mtf-triple-tf-macd-hist-confluence-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/mtf-triple-tf-macd-hist-confluence-01/) | `mtf` | excellent | `strict` | 24 | 24 | 23 | 0.0000% | 0.0000% | 0.0000% | 0.1662% |
 | [`na-deep-history-int-na-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/na-deep-history-int-na-01/) | `na` | excellent | `strict` | 106 | 106 | 106 | 0.0000% | 0.0000% | 0.0000% | 0.1001% |
 | [`na-nz-fixnan-history-chain-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/na-nz-fixnan-history-chain-01/) | `na` | excellent | `strict` | 3093 | 3093 | 3093 | 0.0000% | 0.0000% | 0.0000% | 0.0756% |
-| [`oca-exit-bracket-internal-cancel-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-exit-bracket-internal-cancel-01/) | `oca` | excellent | `strict` | 421 | 421 | 421 | 0.0000% | 0.0000% | 0.0005% | 0.1087% |
-| [`oca-multi-bracket-isolation-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-multi-bracket-isolation-01/) | `oca` | excellent | `strict` | 1244 | 1244 | 1244 | 0.0000% | 0.0000% | 0.0005% | 0.1362% |
-| [`oca-raw-strategy-order-reduce-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-raw-strategy-order-reduce-01/) | `oca` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0005% | 0.1273% |
+| [`oca-exit-bracket-internal-cancel-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-exit-bracket-internal-cancel-01/) | `oca` | excellent | `strict` | 421 | 421 | 421 | 0.0000% | 0.0000% | 0.0000% | 0.0890% |
+| [`oca-multi-bracket-isolation-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-multi-bracket-isolation-01/) | `oca` | excellent | `strict` | 1244 | 1244 | 1244 | 0.0000% | 0.0000% | 0.0000% | 0.0858% |
+| [`oca-raw-strategy-order-reduce-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-raw-strategy-order-reduce-01/) | `oca` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0000% | 0.0897% |
 | [`order-close-all-cancel-all-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-close-all-cancel-all-01/) | `order` | excellent | `strict` | 732 | 732 | 732 | 0.0000% | 0.0000% | 0.0005% | 0.4564% |
 | [`order-close-immediate-vs-next-bar-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-close-immediate-vs-next-bar-01/) | `order` | excellent | `strict` | 732 | 732 | 732 | 0.0000% | 0.0000% | 0.0000% | 0.0794% |
 | [`order-cross-entry-cancel-same-pass-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-cross-entry-cancel-same-pass-01/) | `order` | excellent | `strict` | 495 | 495 | 495 | 0.0000% | 0.0000% | 0.0000% | 0.0836% |
@@ -256,7 +263,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`ta-obv-ema-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-obv-ema-cross-01/) | `ta` | excellent | `strict` | 5296 | 5296 | 5296 | 0.0000% | 0.0000% | 0.0000% | 0.0727% |
 | [`ta-percentrank-mean-reversion-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-percentrank-mean-reversion-01/) | `ta` | excellent | `strict` | 363 | 362 | 362 | 0.2755% | 0.0000% | 0.0000% | 0.0716% |
 | [`ta-pivot-array-unshift-pop-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-array-unshift-pop-01/) | `ta` | excellent | `strict` | 829 | 829 | 829 | 0.0000% | 0.0000% | 0.0000% | 0.0893% |
-| [`ta-pivot-atr-stop-target-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-atr-stop-target-01/) | `ta` | excellent | `strict` | 1618 | 1619 | 1618 | 0.0618% | 0.0000% | 0.0005% | 0.1055% |
+| [`ta-pivot-atr-stop-target-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-atr-stop-target-01/) | `ta` | excellent | `strict` | 1618 | 1619 | 1618 | 0.0618% | 0.0000% | 0.0000% | 0.0974% |
 | [`ta-pivot-confirmed-break-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-confirmed-break-01/) | `ta` | excellent | `strict` | 1115 | 1115 | 1115 | 0.0000% | 0.0000% | 0.0000% | 0.0866% |
 | [`ta-pivot-point-levels-break-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-point-levels-break-01/) | `ta` | excellent | `strict` | 7663 | 7663 | 7663 | 0.0000% | 0.0000% | 0.0000% | 0.0783% |
 | [`ta-pvt-ema-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pvt-ema-cross-01/) | `ta` | excellent | `strict` | 2868 | 2868 | 2867 | 0.0000% | 0.0000% | 0.0000% | 0.0796% |
@@ -288,7 +295,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`udt-method-default-param-kwargs-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-default-param-kwargs-01/) | `udt` | excellent | `strict` | 417 | 417 | 417 | 0.0000% | 0.0000% | 0.0000% | 0.0875% |
 | [`udt-method-drives-strategy-entry-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-drives-strategy-entry-01/) | `udt` | excellent | `strict` | 1635 | 1635 | 1635 | 0.0000% | 0.0000% | 0.0000% | 0.0829% |
 | [`udt-method-extra-primitive-args-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-extra-primitive-args-01/) | `udt` | excellent | `strict` | 2504 | 2504 | 2504 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
-| [`udt-method-feeds-strategy-exit-prices-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-feeds-strategy-exit-prices-01/) | `udt` | excellent | `strict` | 704 | 704 | 704 | 0.0000% | 0.0000% | 0.0004% | 0.0876% |
+| [`udt-method-feeds-strategy-exit-prices-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-feeds-strategy-exit-prices-01/) | `udt` | excellent | `strict` | 704 | 704 | 704 | 0.0000% | 0.0000% | 0.0000% | 0.0786% |
 | [`udt-method-in-for-loop-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-in-for-loop-01/) | `udt` | excellent | `strict` | 1660 | 1660 | 1660 | 0.0000% | 0.0000% | 0.0000% | 0.0756% |
 | [`udt-method-in-if-else-branch-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-in-if-else-branch-01/) | `udt` | excellent | `strict` | 402 | 402 | 402 | 0.0000% | 0.0000% | 0.0000% | 0.0813% |
 | [`udt-method-in-switch-arms-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-in-switch-arms-01/) | `udt` | excellent | `strict` | 402 | 402 | 402 | 0.0000% | 0.0000% | 0.0000% | 0.0813% |
@@ -298,7 +305,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`udt-method-reads-strategy-state-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-reads-strategy-state-01/) | `udt` | excellent | `strict` | 705 | 705 | 705 | 0.0000% | 0.0000% | 0.0000% | 0.0848% |
 | [`udt-method-receives-ta-series-param-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-receives-ta-series-param-01/) | `udt` | excellent | `strict` | 2676 | 2676 | 2676 | 0.0000% | 0.0000% | 0.0000% | 0.0754% |
 | [`udt-method-scalar-return-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-scalar-return-01/) | `udt` | excellent | `strict` | 507 | 507 | 507 | 0.0000% | 0.0000% | 0.0000% | 0.0849% |
-| [`udt-method-tuple-return-destructure-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-tuple-return-destructure-01/) | `udt` | excellent | `strict` | 1095 | 1095 | 1095 | 0.0000% | 0.0000% | 0.0004% | 0.0875% |
+| [`udt-method-tuple-return-destructure-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-tuple-return-destructure-01/) | `udt` | excellent | `strict` | 1095 | 1095 | 1095 | 0.0000% | 0.0000% | 0.0000% | 0.0783% |
 | [`udt-method-udt-return-from-func-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-udt-return-from-func-01/) | `udt` | excellent | `strict` | 132 | 132 | 132 | 0.0000% | 0.0000% | 0.0000% | 0.0705% |
 | [`udt-method-uses-history-globals-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-uses-history-globals-01/) | `udt` | excellent | `strict` | 131 | 131 | 131 | 0.0000% | 0.0000% | 0.0000% | 0.1029% |
 | [`udt-method-uses-math-funcs-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/udt-method-uses-math-funcs-01/) | `udt` | excellent | `strict` | 789 | 789 | 789 | 0.0000% | 0.0000% | 0.0000% | 0.0845% |

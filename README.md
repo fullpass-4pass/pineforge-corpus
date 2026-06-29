@@ -8,11 +8,11 @@ behaviour matches TradingView on the same bar feed.
 
 ## Headline parity
 
-- **246** verified strategies, all under `corpus/validation/`.
-- **~375,000 trades** total across the suite — summing the per-row TV /
+- **252** verified strategies, all under `corpus/validation/`.
+- **~389,000 trades** total across the suite — summing the per-row TV /
   engine counts in [`validation_report.md`](validation_report.md):
-  TV 375,453; engine 375,548 (`+95` ≈ 0.03 % over TV).
-- **245** excellent (bit-for-bit or within strict thresholds on every
+  TV 389,590; engine 389,688 (`+98` ≈ 0.03 % over TV).
+- **251** excellent (bit-for-bit or within strict thresholds on every
   parity dimension).
 - **1** documented anomaly — `anomaly-equity-mirror-strategy-equity-01` —
   where TradingView's broker emulator exhibits non-deterministic
@@ -62,7 +62,7 @@ optional 1-minute companion for `bar_magnifier` and lower-timeframe probes:
 
 ```
 corpus/
-├── validation/                246 probes — surface-driven probe family
+├── validation/                252 probes — surface-driven probe family
 │   ├── ta-*                    61 probes — TA built-in math (rsi, macd, sma, ...)
 │   ├── composite-*             52 probes — multi-surface integration (community-style)
 │   ├── order-*                 40 probes — entry/exit/cancel placement
@@ -71,6 +71,7 @@ corpus/
 │   ├── bracket-*               13 probes — TP/SL via strategy.exit / strategy.order
 │   ├── matrix-*                 6 probes — matrix<T> typed/generic
 │   ├── analyzer-*               6 probes — engine analyzer / parity isolation
+│   ├── drawing-*                6 probes — drawing objects as data
 │   ├── pyramid-*                4 probes — pyramiding=N
 │   ├── oca-*                    3 probes — OCA group cancel/reduce/none
 │   ├── magnifier-*              3 probes — bar_magnifier sub-bar walks
@@ -98,7 +99,7 @@ corpus/
 └── validation_report.{html,pdf}   rendered from .md
 ```
 
-Total: **246** probes.
+Total: **252** probes.
 
 ## Naming convention
 
@@ -108,7 +109,7 @@ Every probe directory follows:
 <category>-<descriptive-slug>-NN[a-z]?
 ```
 
-- **`<category>`** — one of the 23 surface categories below. The category
+- **`<category>`** — one of the 24 surface categories below. The category
   is the engine surface or PineScript feature the probe is built to
   exercise.
 - **`<descriptive-slug>`** — kebab-case description of the specific
@@ -121,7 +122,7 @@ Every probe directory follows:
   `barstate-isconfirmed-magnifier-on-01a` vs
   `…-magnifier-off-01b`).
 
-The 23 categories (with probe counts):
+The 24 categories (with probe counts):
 
 | Category    | Count | Surface exercised                                          |
 | ----------- | ----: | ---------------------------------------------------------- |
@@ -133,6 +134,7 @@ The 23 categories (with probe counts):
 | `bracket`   |    13 | TP/SL via `strategy.exit` / `strategy.order`               |
 | `matrix`    |     6 | `matrix<T>` typed and generic                              |
 | `analyzer`  |     6 | Engine analyzer / parity isolation                         |
+| `drawing`   |     6 | Drawing objects as data (`line`, `box`, `chart.point`)      |
 | `pyramid`   |     4 | `pyramiding=N`                                             |
 | `oca`       |     3 | OCA group cancel / reduce / none                           |
 | `magnifier` |     3 | `bar_magnifier` sub-bar walks                              |
@@ -151,7 +153,7 @@ The 23 categories (with probe counts):
 
 (The `symbol-specified/` subtree — 5 stock probes needing per-symbol OHLCV
 and SymInfo overrides — is excluded from the default sweep pending
-pineforge-data integration; it is not counted in the 246.)
+pineforge-data integration; it is not counted in the 252.)
 
 ## Where the numbers come from
 

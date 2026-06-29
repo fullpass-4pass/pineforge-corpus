@@ -1,0 +1,19 @@
+//@version=6
+strategy("drawing-line-level-breakout", overlay=true, pyramiding=0, default_qty_type=strategy.fixed, default_qty_value=1)
+levelSrc = ta.sma(close, 20)
+var line res = na
+float level = na
+if not na(levelSrc)
+    if na(res)
+        res := line.new(bar_index - 1, levelSrc, bar_index, levelSrc, color=color.red, width=2, extend=extend.right)
+    else
+        cur = line.get_y2(res)
+        line.set_xy2(res, bar_index, cur + (levelSrc - cur) * 0.35)
+    level := line.get_y2(res)
+ready = not na(level)
+eUp = ready and ta.crossover(close, level)
+eDn = ready and ta.crossunder(close, level)
+if ready and eUp
+    strategy.entry("L", strategy.long)
+if strategy.position_size > 0 and ready and eDn
+    strategy.close("L")

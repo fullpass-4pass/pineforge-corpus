@@ -1,0 +1,20 @@
+//@version=6
+strategy("drawing-box-zone-reentry", overlay=true, pyramiding=0, default_qty_type=strategy.fixed, default_qty_value=1)
+var box[] zones = array.new<box>()
+gapUp = low > high[2]
+if gapUp
+    array.push(zones, box.new(bar_index - 2, low, bar_index, high[2], bgcolor=color.new(color.green, 80)))
+n = array.size(zones)
+if n > 0
+    z = array.get(zones, n - 1)
+    top = box.get_top(z)
+    bot = box.get_bottom(z)
+    if strategy.position_size == 0 and close <= top and close >= bot
+        strategy.entry("L", strategy.long)
+    if strategy.position_size > 0 and close > top
+        strategy.close("L")
+        array.get(zones, n - 1).delete()
+        array.pop(zones)
+if array.size(zones) > 20
+    array.get(zones, 0).delete()
+    array.shift(zones)

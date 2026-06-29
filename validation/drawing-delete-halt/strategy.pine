@@ -1,0 +1,19 @@
+//@version=6
+strategy("drawing-delete-halt", overlay=true, pyramiding=0, default_qty_type=strategy.fixed, default_qty_value=1)
+sma = ta.sma(close, 20)
+var line lv = na
+var int entries = 0
+if na(lv)
+    lv := line.new(bar_index, sma, bar_index, sma)
+else
+    line.set_y2(lv, sma)
+level = line.get_y2(lv)
+eUp = ta.crossover(close, level)
+eDn = ta.crossunder(close, level)
+if eUp
+    strategy.entry("L", strategy.long)
+    entries += 1
+if strategy.position_size > 0 and eDn
+    strategy.close("L")
+if entries == 5
+    line.delete(lv)

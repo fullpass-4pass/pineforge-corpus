@@ -1,0 +1,22 @@
+//@version=6
+strategy("drawing-chartpoint-trendline", overlay=true, pyramiding=0, default_qty_type=strategy.fixed, default_qty_value=1)
+var line trend = na
+base = ta.sma(close, 20)
+float proj = na
+if not na(base) and not na(base[2])
+    p1 = chart.point.from_index(bar_index - 2, base[2])
+    p2 = chart.point.from_index(bar_index, base)
+    if na(trend)
+        trend := line.new(p1, p2)
+    else
+        line.set_first_point(trend, p1)
+        line.set_second_point(trend, p2)
+    proj := line.get_price(trend, bar_index - 1)
+ref = nz(proj, close)
+ready = not na(proj)
+sDn = ta.crossunder(close, ref)
+sUp = ta.crossover(close, ref)
+if ready and sDn
+    strategy.entry("S", strategy.short)
+if strategy.position_size < 0 and ready and sUp
+    strategy.close("S")
