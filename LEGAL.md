@@ -31,8 +31,7 @@ This corpus is licensed under the Apache License, Version 2.0
   against the same OHLCV in TradingView's row-and-column format for
   direct line-by-line parity comparison.
 
-- **OHLCV market data** (`data/ohlcv_ETH-USDT-USDT_15m.csv` and
-  `data/ohlcv_ETH-USDT-USDT_15m_warmup6m.csv`, plus the 1m variants) —
+- **OHLCV market data** (`data/ohlcv_ETH-USDT-USDT_1m.csv`) —
   Binance USDT-M Perpetual ETH/USDT-USDT. Public market price/volume
   series; redistribution is factual-data territory.
 

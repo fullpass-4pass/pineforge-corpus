@@ -1,3 +1,3 @@
 {
-  "ohlcv_csv": "../../data/ohlcv_ETH-USDT-USDT_15m.csv"
+  "ohlcv_csv": "../../data/derived/ohlcv_ETH-USDT-USDT_15m_window.csv"
 }

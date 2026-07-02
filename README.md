@@ -47,24 +47,29 @@ and remain ignored.
 
 ## Reference OHLCV
 
-The comparison feed is **Binance ETH-USDT-USDT 15-minute bars**, with an
-optional 1-minute companion for `bar_magnifier` and lower-timeframe probes:
+The corpus ships exactly **one** feed (stored via Git LFS):
 
-- `data/ohlcv_ETH-USDT-USDT_15m.csv` — primary 15m bar feed.
-- `data/ohlcv_ETH-USDT-USDT_15m_warmup6m.csv` — same window plus leading
-  warmup bars; used by default when present so TA, MTF, pivot, and
-  equity-feedback state starts closer to TradingView's chart state.
-- `data/ohlcv_ETH-USDT-USDT_1m.csv` and `..._1m_warmup6m.csv` — 1m feed
-  for `magnifier-*` and `ltf-*` probes.
+- `data/ohlcv_ETH-USDT-USDT_1m.csv` — Binance ETH-USDT-USDT perp
+  1-minute bars, full exchange history from the instrument's 2020
+  listing through the end of the comparison window. The deep history
+  matches the depth TradingView's own chart computes warmup over, so
+  TA, MTF, pivot, and equity-feedback state starts where TV's does.
 
-Since 2026-07-02 the `*_warmup6m.csv` files carry the FULL exchange
-history back to the instrument's Binance perp listing (2020) as warmup —
-matching the depth TradingView's own chart computes over — not six
-months. The filenames are kept for compatibility (harnesses and probe
-docs resolve them by name). They are rebuilt reproducibly from the R2
-data lake by `data/build_deep_warmup_feed.py`, which refuses to replace
-the feeds unless every existing bar is reproduced exactly, and they are
-stored via Git LFS.
+Every other feed the harnesses consume is derived deterministically
+from it into `data/derived/` (gitignored) by the engine repo's
+`scripts/derive_corpus_feeds.py` (invoked automatically by
+`scripts/run_corpus.sh` and `scripts/run_strategy.py`):
+
+- `data/derived/ohlcv_ETH-USDT-USDT_15m.csv` — 900s resample
+  (open=first, high=max, low=min, close=last, volume=sum), the default
+  15m chart feed.
+- `data/derived/ohlcv_ETH-USDT-USDT_15m_window.csv` — comparison-window
+  slice of the above, used by cold-start probes and as the harness's
+  window-bounds reference.
+
+`ltf-*` probes consume the committed 1m feed directly (engine-side
+aggregation to the 15m chart); `magnifier-*` probes synthesize intrabar
+ticks from chart bars and need no extra feed.
 
 ## Layout
 
@@ -183,9 +188,9 @@ That script:
 2. Builds `libpineforge.a` plus one `strategy.so` per probe via
    `cmake --build build --target corpus_strategies`.
 3. Loads each `strategy.so` through `scripts/run_strategy.py`, runs it
-   against `corpus/data/ohlcv_ETH-USDT-USDT_15m.csv` (or the warmup
-   variant when present), and writes `engine_trades.csv` next to the
-   probe.
+   against the 15m chart feed derived from
+   `corpus/data/ohlcv_ETH-USDT-USDT_1m.csv`, and writes
+   `engine_trades.csv` next to the probe.
 4. Runs `scripts/verify_corpus.py --all` to produce the report.
 
 ## Reproducing parity locally

@@ -6,8 +6,9 @@
 **/strategy.so
 **/strategy.dll
 
-# Local parquet download cache for data/build_deep_warmup_feed.py
-data/.r2cache/
+# Chart feeds derived locally from the single committed 1m feed by the
+# engine repo's scripts/derive_corpus_feeds.py
+data/derived/
 
 # oh-my-claudecode operational state
 .omc/
