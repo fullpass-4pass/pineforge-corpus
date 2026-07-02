@@ -1,0 +1,1 @@
+data/ohlcv_*.csv filter=lfs diff=lfs merge=lfs -text

@@ -51,12 +51,20 @@ The comparison feed is **Binance ETH-USDT-USDT 15-minute bars**, with an
 optional 1-minute companion for `bar_magnifier` and lower-timeframe probes:
 
 - `data/ohlcv_ETH-USDT-USDT_15m.csv` — primary 15m bar feed.
-- `data/ohlcv_ETH-USDT-USDT_15m_warmup6m.csv` — same window plus six
-  months of leading warmup bars; used by default when present so TA, MTF,
-  pivot, and equity-feedback state starts closer to TradingView's chart
-  state.
+- `data/ohlcv_ETH-USDT-USDT_15m_warmup6m.csv` — same window plus leading
+  warmup bars; used by default when present so TA, MTF, pivot, and
+  equity-feedback state starts closer to TradingView's chart state.
 - `data/ohlcv_ETH-USDT-USDT_1m.csv` and `..._1m_warmup6m.csv` — 1m feed
   for `magnifier-*` and `ltf-*` probes.
+
+Since 2026-07-02 the `*_warmup6m.csv` files carry the FULL exchange
+history back to the instrument's Binance perp listing (2020) as warmup —
+matching the depth TradingView's own chart computes over — not six
+months. The filenames are kept for compatibility (harnesses and probe
+docs resolve them by name). They are rebuilt reproducibly from the R2
+data lake by `data/build_deep_warmup_feed.py`, which refuses to replace
+the feeds unless every existing bar is reproduced exactly, and they are
+stored via Git LFS.
 
 ## Layout
 

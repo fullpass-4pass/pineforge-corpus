@@ -5,3 +5,9 @@
 **/strategy.dylib
 **/strategy.so
 **/strategy.dll
+
+# Local parquet download cache for data/build_deep_warmup_feed.py
+data/.r2cache/
+
+# oh-my-claudecode operational state
+.omc/
