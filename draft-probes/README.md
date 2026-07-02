@@ -5,7 +5,7 @@ Probes staged here are NOT yet in `validation/` because they have no
 `verify_corpus.py --all` (which scans basic/community/validation) so they do
 not affect the headline parity count. Each carries `strategy.pine`,
 `generated.cpp`, and an `engine_trades.csv` (current engine output on
-`data/ohlcv_ETH-USDT-USDT_15m.csv`). Once a TV export is captured into a
+the 15m chart feed derived from `data/ohlcv_ETH-USDT-USDT_1m.csv`). Once a TV export is captured into a
 probe's `tv_trades.csv`, move the dir into `validation/` to activate it.
 
 ## order-poc-exit-while-flat-{true-01,false-02}
