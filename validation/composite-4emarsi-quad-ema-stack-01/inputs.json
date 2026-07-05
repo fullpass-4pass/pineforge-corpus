@@ -1,0 +1,4 @@
+{
+  "_comment": "EMA(200) warmup depth must match the TradingView chart history used for this export. Trim to 2025-04-01 00:00 UTC.",
+  "ohlcv_start_ms": 1743465600000
+}
