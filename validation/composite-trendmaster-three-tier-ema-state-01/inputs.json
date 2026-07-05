@@ -1,3 +1,4 @@
 {
-  "ohlcv_csv": "../../data/derived/ohlcv_ETH-USDT-USDT_15m_window.csv"
+  "_comment": "Use default full-history derived 15m feed so EMA state warms before the TV comparison window.",
+  "notes": "Park at strong: residual is a TradingView deep-backtest window-origin artifact on a var-based EMA stack edge detector. TV appears to initialize near 2025-04-02 under the 15m bar ceiling, while the engine warms from the full 2020-origin feed; the first boundary transitions diverge (TV 4 trades vs engine 2) and then resync cleanly for 220/220 matched trades. Not a broker anomaly and not an engine/codegen defect; do not trim coverage or alter trade_start/trading_is_active semantics to chase excellent."
 }

@@ -1,5 +1,5 @@
 {
-  "ohlcv_csv": "../../data/derived/ohlcv_ETH-USDT-USDT_15m_window.csv",
+  "_comment": "Use default full-history derived 15m feed so early TV trades are within the engine run window.",
   "validation_overrides": {
     "expect_tv_match": true,
     "expect_tv_match_reason": "VWAP bands 3-tuple parity probe"
