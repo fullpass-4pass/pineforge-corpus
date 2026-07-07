@@ -101,13 +101,15 @@ corpus/
 │   ├── timeframe-*              1 probe  — script_tf/input_tf timeframe handling
 │   ├── anomaly-*                1 probe  — documented TV non-determinism
 │   └── symbol-specified/       (excluded from sweep) 5 stock probes pending pineforge-data
-├── data/                       reference OHLCV (Binance ETH-USDT-USDT 15m + 1m)
+├── draft-probes/               staged probes pending TV capture (excluded from sweep; own README)
+├── special-validation/         separate-instrument probes (feeds git-ignored; own README + build_specials.sh)
+├── data/                       reference OHLCV (committed 1m feed; 15m derived locally into data/derived/)
 ├── LICENSE                     Apache-2.0
 ├── NOTICE                      attribution
 ├── LEGAL.md                    provenance / trademarks
 ├── README.md                   this file
 ├── CMakeLists.txt              per-strategy .so build glob
-├── .gitignore                  ignores compiled strategy.dylib/.so/.dll only
+├── .gitignore                  ignores compiled strategy libs, data/derived/, .omc/
 ├── validation_report.md        canonical parity disposition, regenerated each sweep
 └── validation_report.{html,pdf}   rendered from .md
 ```
@@ -259,24 +261,26 @@ profiles per probe and emits a tier label:
 
 | Dimension                  | STRICT  | PRODUCTION |
 | -------------------------- | ------: | ---------: |
-| Trade-count delta          |   1.0%  |       1.0% |
+| Absolute trade-count parity | Δ == 0 |     Δ == 0 |
+| Coverage (matched / all closed TV trades) | ≥99% | ≥99% |
 | Entry-price p90 delta      |   0.01% |      0.01% |
 | Exit-price p90 delta       |   0.01% |      0.05% |
-| Per-trade P&L p90 delta    |   1.0%  |       1.0% |
-| Adverse excursion (MAE) p90 delta | 5.0% | 5.0% |
+| Per-trade P&L p90 delta    |   1.0%  |       100% |
 
-PRODUCTION relaxes only the exit-price tolerance (5×) to absorb sub-bar
-broker-side fill drift on probes that use `strategy.exit`. The verifier
-auto-detects `strategy.exit` in `strategy.pine` and selects PRODUCTION
-for those probes; everything else stays on STRICT.
+PRODUCTION relaxes the exit-price tolerance (5×) and the per-trade P&L
+tolerance (~100× — its 100% gate catches only catastrophic divergence)
+to absorb sub-bar broker-side fill drift on trailing exits. The verifier
+auto-selects PRODUCTION for probes whose `strategy.pine` uses any
+`trail_*` parameter on `strategy.exit` (plain stop/limit exits stay
+STRICT); an `inputs.json` `parity_profile` override wins over
+auto-detection.
 
-The MAE gate exists to pin TV's excursion conventions (sign, total-USD
-scaling, exit-fill inclusion): a sign-convention regression reads ~200%,
-a per-unit-vs-total qty error reads 50%+, both far above 5%. Favorable
-excursion (MFE) stays report-only: same-bar stop/limit round-trips carry
-a TV-side MFE sourced from intrabar (1m) data that chart-TF OHLC cannot
-reproduce (the engine correctly emits 0), which pins MFE p90 at 100% on
-the magnifier tick-dist probes by construction.
+Excursion metrics (MAE/MFE) are **report-only diagnostics**, not gates:
+they pin TV's excursion conventions (sign, total-USD scaling, exit-fill
+inclusion) and flag regressions loudly (a sign error reads ~200%), but
+same-bar stop/limit round-trips carry TV-side excursions sourced from
+intrabar data that chart-TF OHLC cannot reproduce (the engine correctly
+emits 0), so excursions can never be a pass/fail dimension.
 
 A trade is "matched" when engine and TV agree on direction and entry/
 exit times fall within a 1-hour gating window (plus a $3 entry-price
@@ -288,8 +292,8 @@ on TV's magnifier zero-PnL trades.
 
 | Tier          | Meaning |
 | ------------- | ------- |
-| `excellent`   | All gated dimensions (count, entry, exit, P&L, MAE) pass the resolved profile. Bit-for-bit or within strict-profile thresholds. |
-| `strong`      | Dimensions pass a relaxed envelope (5× thresholds) — close but not excellent. Used as a pass-with-caveat tier. |
+| `excellent`   | All gated dimensions (absolute count parity, coverage, entry, exit, P&L) pass the resolved profile. Bit-for-bit or within strict-profile thresholds. |
+| `strong`      | Dimensions pass a relaxed envelope (count <6%, entry 10×, exit 50×, P&L 100%, coverage ≥95%) — close but not excellent. Used as a pass-with-caveat tier. |
 | `moderate`    | Some dimensions exceed the strong envelope but trades still align meaningfully. Investigate. |
 | `weak`        | Significant divergence. Real bug or probe-design issue. |
 | `minimal`     | Probe produces zero engine trades or zero TV trades — nothing to compare. |

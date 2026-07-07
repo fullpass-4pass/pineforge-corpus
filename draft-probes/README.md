@@ -13,8 +13,8 @@ probe's `tv_trades.csv`, move the dir into `validation/` to activate it.
 Designed 2026-06-28 to test the hypothesis that `process_orders_on_close=true`
 drops a `from_entry` `strategy.exit` bracket issued while flat (alongside a
 pending limit entry that fills on a later bar) — the shape of community
-initial-balance / breakout strategies, and the suspected cause of exit
-divergences in the scraped corpus (e.g. bnf6082).
+initial-balance / breakout strategies, and a suspected cause of exit
+divergences observed in engine parity testing.
 
 RESULT: hypothesis REJECTED. On the reference feed the engine output is
 IDENTICAL for `process_orders_on_close` true vs false (179 trades each; 12
