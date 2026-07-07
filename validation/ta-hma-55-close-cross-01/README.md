@@ -9,7 +9,7 @@ Isolate `ta.hma(close, 55)`. HMA = `wma(2*wma(src, n/2) - wma(src, n), sqrt(n))`
 Targets the community-style market-structure-shift HMA logic (this corpus does not redistribute that script) and any other HMA(55)-consuming surface in this tree.
 
 ## Setup + export
-See `../README.md`. Quick reference:
+Standard corpus workflow (score with the engine repo's `scripts/verify_corpus.py`). Quick reference:
 - Symbol/TF: ETH-USDT-USDT 15m, full warmup6m window
 - Apply `strategy.pine` → Strategy Tester → List of Trades → CSV → `tv_trades.csv` next to this README
 
@@ -18,4 +18,4 @@ See `../README.md`. Quick reference:
 |---|---|
 | `excellent` | Engine HMA(55) bit-exact. MarketShift HMA path not at fault — check probe 05 SMA(152) and the strategy's composition logic. |
 | `strong/moderate` 1-3 trades | Threshold-equality at `close == hma` ULP boundaries. Inspect engine `crossover` boundary semantics. |
-| `moderate/weak` significant drift | Engine HMA math drifts. Likely candidates: WMA seed bar index, `sqrt(n)` rounding (must match Pine `math.floor(math.sqrt(n))`), nested-WMA weight chain. **HMA(55) is NOT in tv_ta_basic_helper.pine** — extend that helper with `float t_hma55 = ta.hma(close, 55)` and re-publish, or fork as `tv_ta_isolate_helper.pine`, then per-bar diff. |
+| `moderate/weak` significant drift | Engine HMA math drifts. Likely candidates: WMA seed bar index, `sqrt(n)` rounding (must match Pine `math.floor(math.sqrt(n))`), nested-WMA weight chain. Per-bar diff: publish a helper indicator exposing `float t_hma55 = ta.hma(close, 55)` on the same chart, then diff against engine `// @pf-trace`. |
