@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include <optional>
+#include <type_traits>
 #include <memory>
 #include <mutex>
 #include <unordered_map>
@@ -119,6 +121,88 @@ public:
     bool _ta_initialized_ = false;
     bool _inputs_initialized_ = false;
 
+    struct _PFScriptState {
+        decltype(GeneratedStrategy::_ta_pivothigh_1) _pf_value_0;
+        decltype(GeneratedStrategy::_ta_pivotlow_2) _pf_value_1;
+        decltype(GeneratedStrategy::lastSwingHigh) _pf_value_2;
+        decltype(GeneratedStrategy::lastSwingLow) _pf_value_3;
+        decltype(GeneratedStrategy::prevSwingHigh) _pf_value_4;
+        decltype(GeneratedStrategy::prevSwingLow) _pf_value_5;
+        decltype(GeneratedStrategy::structureDirection) _pf_value_6;
+        decltype(GeneratedStrategy::i_pivot) _pf_value_7;
+        decltype(GeneratedStrategy::pivotHigh) _pf_value_8;
+        decltype(GeneratedStrategy::pivotLow) _pf_value_9;
+        decltype(GeneratedStrategy::bosUp) _pf_value_10;
+        decltype(GeneratedStrategy::bosDown) _pf_value_11;
+        decltype(GeneratedStrategy::chochUp) _pf_value_12;
+        decltype(GeneratedStrategy::chochDown) _pf_value_13;
+        decltype(GeneratedStrategy::any_bull_event) _pf_value_14;
+        decltype(GeneratedStrategy::any_bear_event) _pf_value_15;
+        decltype(GeneratedStrategy::c_bu) _pf_value_16;
+        decltype(GeneratedStrategy::c_bd) _pf_value_17;
+        decltype(GeneratedStrategy::_var_initialized) _pf_value_18;
+        decltype(GeneratedStrategy::_ta_initialized_) _pf_value_19;
+        decltype(GeneratedStrategy::_inputs_initialized_) _pf_value_20;
+    };
+    static_assert(std::is_copy_constructible_v<_PFScriptState>, "generated Pine state must be deep-copy constructible");
+    static_assert(std::is_copy_assignable_v<_PFScriptState>, "generated Pine state must be deep-copy assignable");
+    std::optional<_PFScriptState> _pf_script_state_checkpoint_;
+
+    void snapshot_script_state() override {
+        _pf_script_state_checkpoint_.emplace(_PFScriptState{
+            _ta_pivothigh_1,
+            _ta_pivotlow_2,
+            lastSwingHigh,
+            lastSwingLow,
+            prevSwingHigh,
+            prevSwingLow,
+            structureDirection,
+            i_pivot,
+            pivotHigh,
+            pivotLow,
+            bosUp,
+            bosDown,
+            chochUp,
+            chochDown,
+            any_bull_event,
+            any_bear_event,
+            c_bu,
+            c_bd,
+            _var_initialized,
+            _ta_initialized_,
+            _inputs_initialized_,
+        });
+    }
+
+    void restore_script_state() override {
+        if (!_pf_script_state_checkpoint_) return;
+        this->_ta_pivothigh_1 = _pf_script_state_checkpoint_->_pf_value_0;
+        this->_ta_pivotlow_2 = _pf_script_state_checkpoint_->_pf_value_1;
+        this->lastSwingHigh = _pf_script_state_checkpoint_->_pf_value_2;
+        this->lastSwingLow = _pf_script_state_checkpoint_->_pf_value_3;
+        this->prevSwingHigh = _pf_script_state_checkpoint_->_pf_value_4;
+        this->prevSwingLow = _pf_script_state_checkpoint_->_pf_value_5;
+        this->structureDirection = _pf_script_state_checkpoint_->_pf_value_6;
+        this->i_pivot = _pf_script_state_checkpoint_->_pf_value_7;
+        this->pivotHigh = _pf_script_state_checkpoint_->_pf_value_8;
+        this->pivotLow = _pf_script_state_checkpoint_->_pf_value_9;
+        this->bosUp = _pf_script_state_checkpoint_->_pf_value_10;
+        this->bosDown = _pf_script_state_checkpoint_->_pf_value_11;
+        this->chochUp = _pf_script_state_checkpoint_->_pf_value_12;
+        this->chochDown = _pf_script_state_checkpoint_->_pf_value_13;
+        this->any_bull_event = _pf_script_state_checkpoint_->_pf_value_14;
+        this->any_bear_event = _pf_script_state_checkpoint_->_pf_value_15;
+        this->c_bu = _pf_script_state_checkpoint_->_pf_value_16;
+        this->c_bd = _pf_script_state_checkpoint_->_pf_value_17;
+        this->_var_initialized = _pf_script_state_checkpoint_->_pf_value_18;
+        this->_ta_initialized_ = _pf_script_state_checkpoint_->_pf_value_19;
+        this->_inputs_initialized_ = _pf_script_state_checkpoint_->_pf_value_20;
+    }
+
+    void commit_script_state() override {
+        snapshot_script_state();
+    }
+
     explicit GeneratedStrategy() : _ta_pivothigh_1(5, 5), _ta_pivotlow_2(5, 5), lastSwingHigh(na<double>()), lastSwingLow(na<double>()), prevSwingHigh(na<double>()), prevSwingLow(na<double>()), structureDirection(0) {
         initial_capital_ = 1000000.0;
         default_qty_type_ = QtyType::FIXED;
@@ -137,6 +221,7 @@ public:
         if (key == "pyramiding") { pyramiding_ = std::stoi(value); return; }
         if (key == "slippage") { slippage_ = std::stoi(value); return; }
         if (key == "process_orders_on_close") { process_orders_on_close_ = (value == "true" || value == "1"); return; }
+        if (key == "calc_on_order_fills") { calc_on_order_fills_ = (value == "true" || value == "1"); return; }
         if (key == "close_entries_rule") { close_entries_rule_any_ = (value == "ANY" || value == "any" || value == "1"); return; }
         if (key == "default_qty_type") {
             if (value == "fixed" || value == "strategy.fixed" || value == "0") default_qty_type_ = QtyType::FIXED;
@@ -166,8 +251,8 @@ public:
             _ta_pivotlow_2 = ta::PivotLow(get_input_int("Pivot Strength", 5), get_input_int("Pivot Strength", 5));
             _ta_initialized_ = true;
         }
-        pivotHigh = (is_first_tick_ ? _ta_pivothigh_1.compute(current_bar_.high) : _ta_pivothigh_1.recompute(current_bar_.high));
-        pivotLow = (is_first_tick_ ? _ta_pivotlow_2.compute(current_bar_.low) : _ta_pivotlow_2.recompute(current_bar_.low));
+        pivotHigh = (history_advances_new_bar() ? _ta_pivothigh_1.compute(current_bar_.high) : _ta_pivothigh_1.recompute(current_bar_.high));
+        pivotLow = (history_advances_new_bar() ? _ta_pivotlow_2.compute(current_bar_.low) : _ta_pivotlow_2.recompute(current_bar_.low));
         if (!(is_na(pivotHigh))) {
             prevSwingHigh = lastSwingHigh;
             lastSwingHigh = pivotHigh;
@@ -176,10 +261,10 @@ public:
             prevSwingLow = lastSwingLow;
             lastSwingLow = pivotLow;
         }
-        bosUp = ((!(is_na(lastSwingHigh)) && (current_bar_.close > lastSwingHigh)) && (structureDirection <= 0));
-        bosDown = ((!(is_na(lastSwingLow)) && (current_bar_.close < lastSwingLow)) && (structureDirection >= 0));
-        chochUp = ((!(is_na(prevSwingHigh)) && (current_bar_.close > prevSwingHigh)) && (structureDirection < 0));
-        chochDown = ((!(is_na(prevSwingLow)) && (current_bar_.close < prevSwingLow)) && (structureDirection > 0));
+        bosUp = ((!(is_na(lastSwingHigh)) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (lastSwingHigh); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (structureDirection); auto _pna_r = (0); return !is_na(_pna_l) && !is_na(_pna_r) && (_pna_l <= _pna_r); }()));
+        bosDown = ((!(is_na(lastSwingLow)) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (lastSwingLow); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (structureDirection); auto _pna_r = (0); return !is_na(_pna_l) && !is_na(_pna_r) && (_pna_l >= _pna_r); }()));
+        chochUp = ((!(is_na(prevSwingHigh)) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (prevSwingHigh); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (structureDirection); auto _pna_r = (0); return !is_na(_pna_l) && !is_na(_pna_r) && (_pna_l < _pna_r); }()));
+        chochDown = ((!(is_na(prevSwingLow)) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (prevSwingLow); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (structureDirection); auto _pna_r = (0); return !is_na(_pna_l) && !is_na(_pna_r) && (_pna_l > _pna_r); }()));
         if ((bosUp || chochUp)) {
             structureDirection = 1;
         }
@@ -188,16 +273,16 @@ public:
         }
         any_bull_event = (bosUp || chochUp);
         any_bear_event = (bosDown || chochDown);
-        if ((any_bull_event && (signed_position_size() == 0))) {
+        if ((any_bull_event && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()))) {
             c_bu = ((bosUp) ? (std::string("bosUp")) : (std::string("chochUp")));
             strategy_entry(std::string("BU"), true, na<double>(), na<double>(), na<double>(), c_bu);
         }
-        if ((any_bear_event && (signed_position_size() == 0))) {
+        if ((any_bear_event && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()))) {
             c_bd = ((bosDown) ? (std::string("bosDown")) : (std::string("chochDown")));
             strategy_entry(std::string("BD"), false, na<double>(), na<double>(), na<double>(), c_bd);
         }
-        if (((signed_position_size() != 0) && (bar_index_ > open_trade_entry_bar_index(0)))) {
-            strategy_close_all();
+        if ((([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (!_pfc_eq); }()) && ([&]{ auto _pna_l = (pine_bar_index()); auto _pna_r = (open_trade_entry_bar_index(0)); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()))) {
+            strategy_close("", std::string("event flatten"), na<double>(), na<double>(), false);
         }
     }
 
@@ -213,6 +298,19 @@ public:
 
 
         for (int i = 0; i < n; ++i) {
+            if (_src_series_active_) {
+                const double _pc_o = bars[i].open;
+                const double _pc_h = bars[i].high;
+                const double _pc_l = bars[i].low;
+                const double _pc_c = bars[i].close;
+                const double _pc_v = bars[i].volume;
+                _src_open_.push(_pc_o);   _src_high_.push(_pc_h);   _src_low_.push(_pc_l);
+                _src_close_.push(_pc_c);  _src_volume_.push(_pc_v);
+                _src_hl2_.push((_pc_h + _pc_l) / 2.0);
+                _src_hlc3_.push((_pc_h + _pc_l + _pc_c) / 3.0);
+                _src_ohlc4_.push((_pc_o + _pc_h + _pc_l + _pc_c) / 4.0);
+                _src_hlcc4_.push((_pc_h + _pc_l + _pc_c + _pc_c) / 4.0);
+            }
             _precalc__ta_pivothigh_1[i] = _ta_pivothigh_1.compute(bars[i].high);
             _precalc__ta_pivotlow_2[i] = _ta_pivotlow_2.compute(bars[i].low);
         }

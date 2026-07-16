@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include <optional>
+#include <type_traits>
 #include <memory>
 #include <mutex>
 #include <unordered_map>
@@ -128,6 +130,112 @@ public:
     bool _ta_initialized_ = false;
     bool _inputs_initialized_ = false;
 
+    struct _PFScriptState {
+        decltype(GeneratedStrategy::_ta_sma_1) _pf_value_0;
+        decltype(GeneratedStrategy::_ta_sma_1_cs1) _pf_value_1;
+        decltype(GeneratedStrategy::_ta_sma_1_cs2) _pf_value_2;
+        decltype(GeneratedStrategy::_ta_ema_2) _pf_value_3;
+        decltype(GeneratedStrategy::_ta_ema_3) _pf_value_4;
+        decltype(GeneratedStrategy::_ta_crossover_4) _pf_value_5;
+        decltype(GeneratedStrategy::_ta_crossunder_5) _pf_value_6;
+        decltype(GeneratedStrategy::cov3) _pf_value_7;
+        decltype(GeneratedStrategy::N) _pf_value_8;
+        decltype(GeneratedStrategy::c1) _pf_value_9;
+        decltype(GeneratedStrategy::c2) _pf_value_10;
+        decltype(GeneratedStrategy::c3) _pf_value_11;
+        decltype(GeneratedStrategy::m1) _pf_value_12;
+        decltype(GeneratedStrategy::m2) _pf_value_13;
+        decltype(GeneratedStrategy::m3) _pf_value_14;
+        decltype(GeneratedStrategy::d1) _pf_value_15;
+        decltype(GeneratedStrategy::d2) _pf_value_16;
+        decltype(GeneratedStrategy::d3) _pf_value_17;
+        decltype(GeneratedStrategy::warmedUp) _pf_value_18;
+        decltype(GeneratedStrategy::evals) _pf_value_19;
+        decltype(GeneratedStrategy::emin) _pf_value_20;
+        decltype(GeneratedStrategy::eigenOk) _pf_value_21;
+        decltype(GeneratedStrategy::emaFast) _pf_value_22;
+        decltype(GeneratedStrategy::emaSlow) _pf_value_23;
+        decltype(GeneratedStrategy::baseEntry) _pf_value_24;
+        decltype(GeneratedStrategy::baseExit) _pf_value_25;
+        decltype(GeneratedStrategy::_var_initialized) _pf_value_26;
+        decltype(GeneratedStrategy::_ta_initialized_) _pf_value_27;
+        decltype(GeneratedStrategy::_inputs_initialized_) _pf_value_28;
+    };
+    static_assert(std::is_copy_constructible_v<_PFScriptState>, "generated Pine state must be deep-copy constructible");
+    static_assert(std::is_copy_assignable_v<_PFScriptState>, "generated Pine state must be deep-copy assignable");
+    std::optional<_PFScriptState> _pf_script_state_checkpoint_;
+
+    void snapshot_script_state() override {
+        _pf_script_state_checkpoint_.emplace(_PFScriptState{
+            _ta_sma_1,
+            _ta_sma_1_cs1,
+            _ta_sma_1_cs2,
+            _ta_ema_2,
+            _ta_ema_3,
+            _ta_crossover_4,
+            _ta_crossunder_5,
+            cov3,
+            N,
+            c1,
+            c2,
+            c3,
+            m1,
+            m2,
+            m3,
+            d1,
+            d2,
+            d3,
+            warmedUp,
+            evals,
+            emin,
+            eigenOk,
+            emaFast,
+            emaSlow,
+            baseEntry,
+            baseExit,
+            _var_initialized,
+            _ta_initialized_,
+            _inputs_initialized_,
+        });
+    }
+
+    void restore_script_state() override {
+        if (!_pf_script_state_checkpoint_) return;
+        this->_ta_sma_1 = _pf_script_state_checkpoint_->_pf_value_0;
+        this->_ta_sma_1_cs1 = _pf_script_state_checkpoint_->_pf_value_1;
+        this->_ta_sma_1_cs2 = _pf_script_state_checkpoint_->_pf_value_2;
+        this->_ta_ema_2 = _pf_script_state_checkpoint_->_pf_value_3;
+        this->_ta_ema_3 = _pf_script_state_checkpoint_->_pf_value_4;
+        this->_ta_crossover_4 = _pf_script_state_checkpoint_->_pf_value_5;
+        this->_ta_crossunder_5 = _pf_script_state_checkpoint_->_pf_value_6;
+        this->cov3 = _pf_script_state_checkpoint_->_pf_value_7;
+        this->N = _pf_script_state_checkpoint_->_pf_value_8;
+        this->c1 = _pf_script_state_checkpoint_->_pf_value_9;
+        this->c2 = _pf_script_state_checkpoint_->_pf_value_10;
+        this->c3 = _pf_script_state_checkpoint_->_pf_value_11;
+        this->m1 = _pf_script_state_checkpoint_->_pf_value_12;
+        this->m2 = _pf_script_state_checkpoint_->_pf_value_13;
+        this->m3 = _pf_script_state_checkpoint_->_pf_value_14;
+        this->d1 = _pf_script_state_checkpoint_->_pf_value_15;
+        this->d2 = _pf_script_state_checkpoint_->_pf_value_16;
+        this->d3 = _pf_script_state_checkpoint_->_pf_value_17;
+        this->warmedUp = _pf_script_state_checkpoint_->_pf_value_18;
+        this->evals = _pf_script_state_checkpoint_->_pf_value_19;
+        this->emin = _pf_script_state_checkpoint_->_pf_value_20;
+        this->eigenOk = _pf_script_state_checkpoint_->_pf_value_21;
+        this->emaFast = _pf_script_state_checkpoint_->_pf_value_22;
+        this->emaSlow = _pf_script_state_checkpoint_->_pf_value_23;
+        this->baseEntry = _pf_script_state_checkpoint_->_pf_value_24;
+        this->baseExit = _pf_script_state_checkpoint_->_pf_value_25;
+        this->_var_initialized = _pf_script_state_checkpoint_->_pf_value_26;
+        this->_ta_initialized_ = _pf_script_state_checkpoint_->_pf_value_27;
+        this->_inputs_initialized_ = _pf_script_state_checkpoint_->_pf_value_28;
+    }
+
+    void commit_script_state() override {
+        snapshot_script_state();
+    }
+
     explicit GeneratedStrategy() : _ta_sma_1(32), _ta_sma_1_cs1(32), _ta_sma_1_cs2(32), _ta_ema_2(9), _ta_ema_3(21) {
         initial_capital_ = 1000000.0;
         default_qty_type_ = QtyType::FIXED;
@@ -146,6 +254,7 @@ public:
         if (key == "pyramiding") { pyramiding_ = std::stoi(value); return; }
         if (key == "slippage") { slippage_ = std::stoi(value); return; }
         if (key == "process_orders_on_close") { process_orders_on_close_ = (value == "true" || value == "1"); return; }
+        if (key == "calc_on_order_fills") { calc_on_order_fills_ = (value == "true" || value == "1"); return; }
         if (key == "close_entries_rule") { close_entries_rule_any_ = (value == "ANY" || value == "any" || value == "1"); return; }
         if (key == "default_qty_type") {
             if (value == "fixed" || value == "strategy.fixed" || value == "0") default_qty_type_ = QtyType::FIXED;
@@ -162,15 +271,15 @@ public:
     }
 
     double mean_cs0(double src, int len) {
-        return (is_first_tick_ ? _ta_sma_1.compute(src) : _ta_sma_1.recompute(src));
+        return (history_advances_new_bar() ? _ta_sma_1.compute(src) : _ta_sma_1.recompute(src));
     }
 
     double mean_cs1(double src, int len) {
-        return (is_first_tick_ ? _ta_sma_1_cs1.compute(src) : _ta_sma_1_cs1.recompute(src));
+        return (history_advances_new_bar() ? _ta_sma_1_cs1.compute(src) : _ta_sma_1_cs1.recompute(src));
     }
 
     double mean_cs2(double src, int len) {
-        return (is_first_tick_ ? _ta_sma_1_cs2.compute(src) : _ta_sma_1_cs2.recompute(src));
+        return (history_advances_new_bar() ? _ta_sma_1_cs2.compute(src) : _ta_sma_1_cs2.recompute(src));
     }
 
     void on_bar(const Bar& bar) override {
@@ -186,9 +295,9 @@ public:
         m1 = mean_cs0(c1, 32);
         m2 = mean_cs1(c2, 32);
         m3 = mean_cs2(c3, 32);
-        d1 = (is_na((c1 - m1)) ? 0.0 : (c1 - m1));
-        d2 = (is_na((c2 - m2)) ? 0.0 : (c2 - m2));
-        d3 = (is_na((c3 - m3)) ? 0.0 : (c3 - m3));
+        d1 = ([&]{ auto _nz_v = ((c1 - m1)); return is_na(_nz_v) ? (0.0) : _nz_v; }());
+        d2 = ([&]{ auto _nz_v = ((c2 - m2)); return is_na(_nz_v) ? (0.0) : _nz_v; }());
+        d3 = ([&]{ auto _nz_v = ((c3 - m3)); return is_na(_nz_v) ? (0.0) : _nz_v; }());
         cov3.set((int)(0), (int)(0), (d1 * d1));
         cov3.set((int)(0), (int)(1), (d1 * d2));
         cov3.set((int)(0), (int)(2), (d1 * d3));
@@ -198,23 +307,23 @@ public:
         cov3.set((int)(2), (int)(0), (d3 * d1));
         cov3.set((int)(2), (int)(1), (d3 * d2));
         cov3.set((int)(2), (int)(2), (d3 * d3));
-        warmedUp = (bar_index_ >= 32);
+        warmedUp = ([&]{ auto _pna_l = (pine_bar_index()); auto _pna_r = (32); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) || _pfc_eq); }());
         evals = ((warmedUp) ? (cov3.eigenvalues()) : (std::vector<double>((size_t)(0), 0.0)));
-        emin = ((((double)evals.size() > 0)) ? (*std::min_element(evals.begin(),evals.end())) : (na<double>()));
-        eigenOk = (!(is_na(emin)) && (emin > 1e-09));
-        emaFast = (is_first_tick_ ? _ta_ema_2.compute(current_bar_.close) : _ta_ema_2.recompute(current_bar_.close));
-        emaSlow = (is_first_tick_ ? _ta_ema_3.compute(current_bar_.close) : _ta_ema_3.recompute(current_bar_.close));
-        baseEntry = (is_first_tick_ ? _ta_crossover_4.compute(emaFast, emaSlow) : _ta_crossover_4.recompute(emaFast, emaSlow));
-        baseExit = (is_first_tick_ ? _ta_crossunder_5.compute(emaFast, emaSlow) : _ta_crossunder_5.recompute(emaFast, emaSlow));
-        if ((baseEntry && (signed_position_size() == 0))) {
+        emin = ((([&]{ auto _pna_l = ((double)evals.size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) ? (*std::min_element(evals.begin(),evals.end())) : (na<double>()));
+        eigenOk = (!(is_na(emin)) && ([&]{ auto _pna_l = (emin); auto _pna_r = (1e-09); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        emaFast = (history_advances_new_bar() ? _ta_ema_2.compute(current_bar_.close) : _ta_ema_2.recompute(current_bar_.close));
+        emaSlow = (history_advances_new_bar() ? _ta_ema_3.compute(current_bar_.close) : _ta_ema_3.recompute(current_bar_.close));
+        baseEntry = (history_advances_new_bar() ? _ta_crossover_4.compute(emaFast, emaSlow) : _ta_crossover_4.recompute(emaFast, emaSlow));
+        baseExit = (history_advances_new_bar() ? _ta_crossunder_5.compute(emaFast, emaSlow) : _ta_crossunder_5.recompute(emaFast, emaSlow));
+        if ((baseEntry && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()))) {
             if (eigenOk) {
                 strategy_entry(std::string("L_eig"), true, na<double>(), na<double>(), 1, std::string("entry long eig-ok"), "", 0, -1);
             } else {
                 strategy_entry(std::string("L_fb"), true, na<double>(), na<double>(), 1, std::string("entry long fallback"), "", 0, -1);
             }
         }
-        if ((baseExit && (signed_position_size() > 0))) {
-            strategy_close_all();
+        if ((baseExit && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()))) {
+            strategy_close("", std::string("exit"), na<double>(), na<double>(), false);
         }
     }
 
@@ -230,6 +339,19 @@ public:
 
 
         for (int i = 0; i < n; ++i) {
+            if (_src_series_active_) {
+                const double _pc_o = bars[i].open;
+                const double _pc_h = bars[i].high;
+                const double _pc_l = bars[i].low;
+                const double _pc_c = bars[i].close;
+                const double _pc_v = bars[i].volume;
+                _src_open_.push(_pc_o);   _src_high_.push(_pc_h);   _src_low_.push(_pc_l);
+                _src_close_.push(_pc_c);  _src_volume_.push(_pc_v);
+                _src_hl2_.push((_pc_h + _pc_l) / 2.0);
+                _src_hlc3_.push((_pc_h + _pc_l + _pc_c) / 3.0);
+                _src_ohlc4_.push((_pc_o + _pc_h + _pc_l + _pc_c) / 4.0);
+                _src_hlcc4_.push((_pc_h + _pc_l + _pc_c + _pc_c) / 4.0);
+            }
             _precalc__ta_ema_2[i] = _ta_ema_2.compute(bars[i].close);
             _precalc__ta_ema_3[i] = _ta_ema_3.compute(bars[i].close);
         }

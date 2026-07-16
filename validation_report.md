@@ -1,6 +1,6 @@
 # PineForge Corpus Validation Report
 
-**Generated:** 2026-07-15 (UTC) — engine `ada0ca1`, corpus `481078b`
+**Generated:** 2026-07-16 (UTC) — engine `9c49807`, corpus `d4bcabc`
 
 All probes live under `corpus/validation/`; categories below are derived
 from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
@@ -187,7 +187,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`oca-exit-bracket-internal-cancel-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-exit-bracket-internal-cancel-01/) | `oca` | excellent | `strict` | 421 | 421 | 421 | 0.0000% | 0.0000% | 0.0000% | 0.0890% |
 | [`oca-multi-bracket-isolation-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-multi-bracket-isolation-01/) | `oca` | excellent | `strict` | 622 | 622 | 622 | 0.0000% | 0.0000% | 0.0000% | 0.1016% |
 | [`oca-raw-strategy-order-reduce-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/oca-raw-strategy-order-reduce-01/) | `oca` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0000% | 0.0897% |
-| [`order-close-all-cancel-all-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-close-all-cancel-all-01/) | `order` | excellent | `strict` | 732 | 732 | 732 | 0.0000% | 0.0000% | 0.0005% | 0.0773% |
+| [`order-close-all-cancel-all-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-close-all-cancel-all-01/) | `order` | excellent | `strict` | 732 | 732 | 732 | 0.0000% | 0.0000% | 0.0000% | 0.0732% |
 | [`order-close-immediate-vs-next-bar-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-close-immediate-vs-next-bar-01/) | `order` | excellent | `strict` | 732 | 732 | 732 | 0.0000% | 0.0000% | 0.0000% | 0.0794% |
 | [`order-cross-entry-cancel-same-pass-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-cross-entry-cancel-same-pass-01/) | `order` | excellent | `strict` | 495 | 495 | 495 | 0.0000% | 0.0000% | 0.0000% | 0.0836% |
 | [`order-cross-entry-close-same-pass-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/order-cross-entry-close-same-pass-01/) | `order` | excellent | `strict` | 732 | 732 | 732 | 0.0000% | 0.0000% | 0.0000% | 0.0830% |
