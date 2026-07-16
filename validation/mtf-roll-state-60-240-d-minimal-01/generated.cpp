@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include <optional>
+#include <type_traits>
 #include <memory>
 #include <mutex>
 #include <unordered_map>
@@ -113,6 +115,76 @@ public:
     bool _ta_initialized_ = false;
     bool _inputs_initialized_ = false;
 
+    struct _PFScriptState {
+        decltype(GeneratedStrategy::_req_sec_0) _pf_value_0;
+        decltype(GeneratedStrategy::_req_sec_1) _pf_value_1;
+        decltype(GeneratedStrategy::_req_sec_2) _pf_value_2;
+        decltype(GeneratedStrategy::_sec2_hist_high) _pf_value_3;
+        decltype(GeneratedStrategy::_security_helper_series_) _pf_value_4;
+        decltype(GeneratedStrategy::_ta_change_1) _pf_value_5;
+        decltype(GeneratedStrategy::_ta_change_2) _pf_value_6;
+        decltype(GeneratedStrategy::_s_close) _pf_value_7;
+        decltype(GeneratedStrategy::_s_high) _pf_value_8;
+        decltype(GeneratedStrategy::dHigh1) _pf_value_9;
+        decltype(GeneratedStrategy::h240) _pf_value_10;
+        decltype(GeneratedStrategy::h60) _pf_value_11;
+        decltype(GeneratedStrategy::roll60) _pf_value_12;
+        decltype(GeneratedStrategy::roll240) _pf_value_13;
+        decltype(GeneratedStrategy::dailyBreak) _pf_value_14;
+        decltype(GeneratedStrategy::_ta_initialized_) _pf_value_15;
+        decltype(GeneratedStrategy::_inputs_initialized_) _pf_value_16;
+    };
+    static_assert(std::is_copy_constructible_v<_PFScriptState>, "generated Pine state must be deep-copy constructible");
+    static_assert(std::is_copy_assignable_v<_PFScriptState>, "generated Pine state must be deep-copy assignable");
+    std::optional<_PFScriptState> _pf_script_state_checkpoint_;
+
+    void snapshot_script_state() override {
+        _pf_script_state_checkpoint_.emplace(_PFScriptState{
+            _req_sec_0,
+            _req_sec_1,
+            _req_sec_2,
+            _sec2_hist_high,
+            _security_helper_series_,
+            _ta_change_1,
+            _ta_change_2,
+            _s_close,
+            _s_high,
+            dHigh1,
+            h240,
+            h60,
+            roll60,
+            roll240,
+            dailyBreak,
+            _ta_initialized_,
+            _inputs_initialized_,
+        });
+    }
+
+    void restore_script_state() override {
+        if (!_pf_script_state_checkpoint_) return;
+        this->_req_sec_0 = _pf_script_state_checkpoint_->_pf_value_0;
+        this->_req_sec_1 = _pf_script_state_checkpoint_->_pf_value_1;
+        this->_req_sec_2 = _pf_script_state_checkpoint_->_pf_value_2;
+        this->_sec2_hist_high = _pf_script_state_checkpoint_->_pf_value_3;
+        this->_security_helper_series_ = _pf_script_state_checkpoint_->_pf_value_4;
+        this->_ta_change_1 = _pf_script_state_checkpoint_->_pf_value_5;
+        this->_ta_change_2 = _pf_script_state_checkpoint_->_pf_value_6;
+        this->_s_close = _pf_script_state_checkpoint_->_pf_value_7;
+        this->_s_high = _pf_script_state_checkpoint_->_pf_value_8;
+        this->dHigh1 = _pf_script_state_checkpoint_->_pf_value_9;
+        this->h240 = _pf_script_state_checkpoint_->_pf_value_10;
+        this->h60 = _pf_script_state_checkpoint_->_pf_value_11;
+        this->roll60 = _pf_script_state_checkpoint_->_pf_value_12;
+        this->roll240 = _pf_script_state_checkpoint_->_pf_value_13;
+        this->dailyBreak = _pf_script_state_checkpoint_->_pf_value_14;
+        this->_ta_initialized_ = _pf_script_state_checkpoint_->_pf_value_15;
+        this->_inputs_initialized_ = _pf_script_state_checkpoint_->_pf_value_16;
+    }
+
+    void commit_script_state() override {
+        snapshot_script_state();
+    }
+
     explicit GeneratedStrategy() {
         initial_capital_ = 1000000.0;
         default_qty_type_ = QtyType::FIXED;
@@ -131,6 +203,7 @@ public:
         if (key == "pyramiding") { pyramiding_ = std::stoi(value); return; }
         if (key == "slippage") { slippage_ = std::stoi(value); return; }
         if (key == "process_orders_on_close") { process_orders_on_close_ = (value == "true" || value == "1"); return; }
+        if (key == "calc_on_order_fills") { calc_on_order_fills_ = (value == "true" || value == "1"); return; }
         if (key == "close_entries_rule") { close_entries_rule_any_ = (value == "ANY" || value == "any" || value == "1"); return; }
         if (key == "default_qty_type") {
             if (value == "fixed" || value == "strategy.fixed" || value == "0") default_qty_type_ = QtyType::FIXED;
@@ -154,27 +227,30 @@ public:
     }
 
     void on_bar(const Bar& bar) override {
-        if (is_first_tick_) _s_close.push(current_bar_.close);
+        if (history_advances_new_bar()) _s_close.push(current_bar_.close);
         else _s_close.update(current_bar_.close);
-        if (is_first_tick_) _s_high.push(current_bar_.high);
+        if (history_advances_new_bar()) _s_high.push(current_bar_.high);
         else _s_high.update(current_bar_.high);
-        h60.push(_req_sec_0);
-        h240.push(_req_sec_1);
-        dHigh1.push(_req_sec_2);
-        roll60 = ((is_first_tick_ ? _ta_change_1.compute(h60[0]) : _ta_change_1.recompute(h60[0])) != 0);
-        roll240 = ((is_first_tick_ ? _ta_change_2.compute(h240[0]) : _ta_change_2.recompute(h240[0])) != 0);
-        dailyBreak = ((current_bar_.close > dHigh1[0]) && (_s_close[1] <= dHigh1[1]));
-        if ((((roll60 && (h60[0] > h60[1])) && (h240[0] >= h240[1])) && (signed_position_size() == 0))) {
+        if (history_advances_new_bar()) h60.push(_req_sec_0);
+        else h60.update(_req_sec_0);
+        if (history_advances_new_bar()) h240.push(_req_sec_1);
+        else h240.update(_req_sec_1);
+        if (history_advances_new_bar()) dHigh1.push(_req_sec_2);
+        else dHigh1.update(_req_sec_2);
+        roll60 = ([&]{ auto _pna_l = ((history_advances_new_bar() ? _ta_change_1.compute(h60[0]) : _ta_change_1.recompute(h60[0]))); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (!_pfc_eq); }());
+        roll240 = ([&]{ auto _pna_l = ((history_advances_new_bar() ? _ta_change_2.compute(h240[0]) : _ta_change_2.recompute(h240[0]))); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (!_pfc_eq); }());
+        dailyBreak = (([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (dHigh1[0]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (_s_close[1]); auto _pna_r = (dHigh1[1]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) || _pfc_eq); }()));
+        if ((((roll60 && ([&]{ auto _pna_l = (h60[0]); auto _pna_r = (h60[1]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (h240[0]); auto _pna_r = (h240[1]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) || _pfc_eq); }())) && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()))) {
             strategy_entry(std::string("R60"), true, na<double>(), na<double>(), 1, std::string("60 up with 240 state"), "", 0, -1);
         }
-        if (((roll240 && (h240[0] < h240[1])) && (signed_position_size() > 0))) {
+        if (((roll240 && ([&]{ auto _pna_l = (h240[0]); auto _pna_r = (h240[1]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()))) {
             strategy_close(std::string("R60"), std::string("240 down close"), na<double>(), na<double>(), false);
         }
-        if ((dailyBreak && (signed_position_size() == 0))) {
+        if ((dailyBreak && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()))) {
             strategy_entry(std::string("D"), true, na<double>(), na<double>(), 1, std::string("daily high break"), "", 0, -1);
         }
-        if (((signed_position_size() > 0) && (current_bar_.close < (dHigh1[0] * 0.995)))) {
-            strategy_close_all();
+        if ((([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = ((dHigh1[0] * 0.995)); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()))) {
+            strategy_close("", std::string("daily ref close"), na<double>(), na<double>(), false);
         }
     }
 
@@ -189,7 +265,9 @@ public:
 
     void _eval_security_2(const Bar& bar, bool is_complete) {
         _req_sec_2 = _sec2_hist_high[0];
-        _sec2_hist_high.push(bar.high);
+        if (is_complete) {
+            _sec2_hist_high.push(bar.high);
+        }
     }
 
     void evaluate_security(int sec_id, const Bar& bar, bool is_complete) override {

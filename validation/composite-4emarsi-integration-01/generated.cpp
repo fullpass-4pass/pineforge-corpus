@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include <optional>
+#include <type_traits>
 #include <memory>
 #include <mutex>
 #include <unordered_map>
@@ -136,6 +138,130 @@ public:
     bool _ta_initialized_ = false;
     bool _inputs_initialized_ = false;
 
+    struct _PFScriptState {
+        decltype(GeneratedStrategy::_ta_ema_1) _pf_value_0;
+        decltype(GeneratedStrategy::_ta_ema_2) _pf_value_1;
+        decltype(GeneratedStrategy::_ta_ema_3) _pf_value_2;
+        decltype(GeneratedStrategy::_ta_ema_4) _pf_value_3;
+        decltype(GeneratedStrategy::_ta_rsi_5) _pf_value_4;
+        decltype(GeneratedStrategy::_ta_crossover_6) _pf_value_5;
+        decltype(GeneratedStrategy::_ta_crossunder_7) _pf_value_6;
+        decltype(GeneratedStrategy::long_armed) _pf_value_7;
+        decltype(GeneratedStrategy::short_armed) _pf_value_8;
+        decltype(GeneratedStrategy::bars_in_trade) _pf_value_9;
+        decltype(GeneratedStrategy::i_xs) _pf_value_10;
+        decltype(GeneratedStrategy::i_s) _pf_value_11;
+        decltype(GeneratedStrategy::i_m) _pf_value_12;
+        decltype(GeneratedStrategy::i_l) _pf_value_13;
+        decltype(GeneratedStrategy::i_rsi_len) _pf_value_14;
+        decltype(GeneratedStrategy::i_dip_lo) _pf_value_15;
+        decltype(GeneratedStrategy::i_pop_lo) _pf_value_16;
+        decltype(GeneratedStrategy::i_dip_hi) _pf_value_17;
+        decltype(GeneratedStrategy::i_pop_hi) _pf_value_18;
+        decltype(GeneratedStrategy::i_expiry_bars) _pf_value_19;
+        decltype(GeneratedStrategy::ema_xs) _pf_value_20;
+        decltype(GeneratedStrategy::ema_s) _pf_value_21;
+        decltype(GeneratedStrategy::ema_m) _pf_value_22;
+        decltype(GeneratedStrategy::ema_l) _pf_value_23;
+        decltype(GeneratedStrategy::stack_bull) _pf_value_24;
+        decltype(GeneratedStrategy::stack_bear) _pf_value_25;
+        decltype(GeneratedStrategy::r) _pf_value_26;
+        decltype(GeneratedStrategy::long_fire) _pf_value_27;
+        decltype(GeneratedStrategy::short_fire) _pf_value_28;
+        decltype(GeneratedStrategy::go_long) _pf_value_29;
+        decltype(GeneratedStrategy::go_short) _pf_value_30;
+        decltype(GeneratedStrategy::expiry_due) _pf_value_31;
+        decltype(GeneratedStrategy::_var_initialized) _pf_value_32;
+        decltype(GeneratedStrategy::_ta_initialized_) _pf_value_33;
+        decltype(GeneratedStrategy::_inputs_initialized_) _pf_value_34;
+    };
+    static_assert(std::is_copy_constructible_v<_PFScriptState>, "generated Pine state must be deep-copy constructible");
+    static_assert(std::is_copy_assignable_v<_PFScriptState>, "generated Pine state must be deep-copy assignable");
+    std::optional<_PFScriptState> _pf_script_state_checkpoint_;
+
+    void snapshot_script_state() override {
+        _pf_script_state_checkpoint_.emplace(_PFScriptState{
+            _ta_ema_1,
+            _ta_ema_2,
+            _ta_ema_3,
+            _ta_ema_4,
+            _ta_rsi_5,
+            _ta_crossover_6,
+            _ta_crossunder_7,
+            long_armed,
+            short_armed,
+            bars_in_trade,
+            i_xs,
+            i_s,
+            i_m,
+            i_l,
+            i_rsi_len,
+            i_dip_lo,
+            i_pop_lo,
+            i_dip_hi,
+            i_pop_hi,
+            i_expiry_bars,
+            ema_xs,
+            ema_s,
+            ema_m,
+            ema_l,
+            stack_bull,
+            stack_bear,
+            r,
+            long_fire,
+            short_fire,
+            go_long,
+            go_short,
+            expiry_due,
+            _var_initialized,
+            _ta_initialized_,
+            _inputs_initialized_,
+        });
+    }
+
+    void restore_script_state() override {
+        if (!_pf_script_state_checkpoint_) return;
+        this->_ta_ema_1 = _pf_script_state_checkpoint_->_pf_value_0;
+        this->_ta_ema_2 = _pf_script_state_checkpoint_->_pf_value_1;
+        this->_ta_ema_3 = _pf_script_state_checkpoint_->_pf_value_2;
+        this->_ta_ema_4 = _pf_script_state_checkpoint_->_pf_value_3;
+        this->_ta_rsi_5 = _pf_script_state_checkpoint_->_pf_value_4;
+        this->_ta_crossover_6 = _pf_script_state_checkpoint_->_pf_value_5;
+        this->_ta_crossunder_7 = _pf_script_state_checkpoint_->_pf_value_6;
+        this->long_armed = _pf_script_state_checkpoint_->_pf_value_7;
+        this->short_armed = _pf_script_state_checkpoint_->_pf_value_8;
+        this->bars_in_trade = _pf_script_state_checkpoint_->_pf_value_9;
+        this->i_xs = _pf_script_state_checkpoint_->_pf_value_10;
+        this->i_s = _pf_script_state_checkpoint_->_pf_value_11;
+        this->i_m = _pf_script_state_checkpoint_->_pf_value_12;
+        this->i_l = _pf_script_state_checkpoint_->_pf_value_13;
+        this->i_rsi_len = _pf_script_state_checkpoint_->_pf_value_14;
+        this->i_dip_lo = _pf_script_state_checkpoint_->_pf_value_15;
+        this->i_pop_lo = _pf_script_state_checkpoint_->_pf_value_16;
+        this->i_dip_hi = _pf_script_state_checkpoint_->_pf_value_17;
+        this->i_pop_hi = _pf_script_state_checkpoint_->_pf_value_18;
+        this->i_expiry_bars = _pf_script_state_checkpoint_->_pf_value_19;
+        this->ema_xs = _pf_script_state_checkpoint_->_pf_value_20;
+        this->ema_s = _pf_script_state_checkpoint_->_pf_value_21;
+        this->ema_m = _pf_script_state_checkpoint_->_pf_value_22;
+        this->ema_l = _pf_script_state_checkpoint_->_pf_value_23;
+        this->stack_bull = _pf_script_state_checkpoint_->_pf_value_24;
+        this->stack_bear = _pf_script_state_checkpoint_->_pf_value_25;
+        this->r = _pf_script_state_checkpoint_->_pf_value_26;
+        this->long_fire = _pf_script_state_checkpoint_->_pf_value_27;
+        this->short_fire = _pf_script_state_checkpoint_->_pf_value_28;
+        this->go_long = _pf_script_state_checkpoint_->_pf_value_29;
+        this->go_short = _pf_script_state_checkpoint_->_pf_value_30;
+        this->expiry_due = _pf_script_state_checkpoint_->_pf_value_31;
+        this->_var_initialized = _pf_script_state_checkpoint_->_pf_value_32;
+        this->_ta_initialized_ = _pf_script_state_checkpoint_->_pf_value_33;
+        this->_inputs_initialized_ = _pf_script_state_checkpoint_->_pf_value_34;
+    }
+
+    void commit_script_state() override {
+        snapshot_script_state();
+    }
+
     explicit GeneratedStrategy() : _ta_ema_1(8), _ta_ema_2(21), _ta_ema_3(55), _ta_ema_4(200), _ta_rsi_5(14), long_armed(false), short_armed(false), bars_in_trade(0) {
         initial_capital_ = 1000000.0;
         default_qty_type_ = QtyType::FIXED;
@@ -154,6 +280,7 @@ public:
         if (key == "pyramiding") { pyramiding_ = std::stoi(value); return; }
         if (key == "slippage") { slippage_ = std::stoi(value); return; }
         if (key == "process_orders_on_close") { process_orders_on_close_ = (value == "true" || value == "1"); return; }
+        if (key == "calc_on_order_fills") { calc_on_order_fills_ = (value == "true" || value == "1"); return; }
         if (key == "close_entries_rule") { close_entries_rule_any_ = (value == "ANY" || value == "any" || value == "1"); return; }
         if (key == "default_qty_type") {
             if (value == "fixed" || value == "strategy.fixed" || value == "0") default_qty_type_ = QtyType::FIXED;
@@ -195,21 +322,21 @@ public:
             _ta_rsi_5 = ta::RSI(get_input_int("RSI length", 14));
             _ta_initialized_ = true;
         }
-        ema_xs = (is_first_tick_ ? _ta_ema_1.compute(current_bar_.close) : _ta_ema_1.recompute(current_bar_.close));
-        ema_s = (is_first_tick_ ? _ta_ema_2.compute(current_bar_.close) : _ta_ema_2.recompute(current_bar_.close));
-        ema_m = (is_first_tick_ ? _ta_ema_3.compute(current_bar_.close) : _ta_ema_3.recompute(current_bar_.close));
-        ema_l = (is_first_tick_ ? _ta_ema_4.compute(current_bar_.close) : _ta_ema_4.recompute(current_bar_.close));
-        stack_bull = (((ema_xs > ema_s) && (ema_s > ema_m)) && (ema_m > ema_l));
-        stack_bear = (((ema_xs < ema_s) && (ema_s < ema_m)) && (ema_m < ema_l));
-        r = (is_first_tick_ ? _ta_rsi_5.compute(current_bar_.close) : _ta_rsi_5.recompute(current_bar_.close));
-        if ((r < i_dip_lo)) {
+        ema_xs = (history_advances_new_bar() ? _ta_ema_1.compute(current_bar_.close) : _ta_ema_1.recompute(current_bar_.close));
+        ema_s = (history_advances_new_bar() ? _ta_ema_2.compute(current_bar_.close) : _ta_ema_2.recompute(current_bar_.close));
+        ema_m = (history_advances_new_bar() ? _ta_ema_3.compute(current_bar_.close) : _ta_ema_3.recompute(current_bar_.close));
+        ema_l = (history_advances_new_bar() ? _ta_ema_4.compute(current_bar_.close) : _ta_ema_4.recompute(current_bar_.close));
+        stack_bull = ((([&]{ auto _pna_l = (ema_xs); auto _pna_r = (ema_s); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (ema_s); auto _pna_r = (ema_m); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (ema_m); auto _pna_r = (ema_l); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        stack_bear = ((([&]{ auto _pna_l = (ema_xs); auto _pna_r = (ema_s); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (ema_s); auto _pna_r = (ema_m); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (ema_m); auto _pna_r = (ema_l); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()));
+        r = (history_advances_new_bar() ? _ta_rsi_5.compute(current_bar_.close) : _ta_rsi_5.recompute(current_bar_.close));
+        if (([&]{ auto _pna_l = (r); auto _pna_r = (i_dip_lo); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) {
             long_armed = true;
         }
-        if ((r > i_dip_hi)) {
+        if (([&]{ auto _pna_l = (r); auto _pna_r = (i_dip_hi); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) {
             short_armed = true;
         }
-        long_fire = (long_armed && (is_first_tick_ ? _ta_crossover_6.compute(r, i_pop_lo) : _ta_crossover_6.recompute(r, i_pop_lo)));
-        short_fire = (short_armed && (is_first_tick_ ? _ta_crossunder_7.compute(r, i_pop_hi) : _ta_crossunder_7.recompute(r, i_pop_hi)));
+        long_fire = (long_armed && (history_advances_new_bar() ? _ta_crossover_6.compute(r, i_pop_lo) : _ta_crossover_6.recompute(r, i_pop_lo)));
+        short_fire = (short_armed && (history_advances_new_bar() ? _ta_crossunder_7.compute(r, i_pop_hi) : _ta_crossunder_7.recompute(r, i_pop_hi)));
         if (long_fire) {
             long_armed = false;
         }
@@ -218,20 +345,20 @@ public:
         }
         go_long = (stack_bull && long_fire);
         go_short = (stack_bear && short_fire);
-        if ((signed_position_size() != 0)) {
+        if (([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (!_pfc_eq); }())) {
             bars_in_trade += 1;
         } else {
             bars_in_trade = 0;
         }
-        expiry_due = ((signed_position_size() != 0) && (bars_in_trade >= i_expiry_bars));
-        if ((go_long && (signed_position_size() <= 0))) {
+        expiry_due = (([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (!_pfc_eq); }()) && ([&]{ auto _pna_l = (bars_in_trade); auto _pna_r = (i_expiry_bars); return !is_na(_pna_l) && !is_na(_pna_r) && (_pna_l >= _pna_r); }()));
+        if ((go_long && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) || _pfc_eq); }()))) {
             strategy_entry(std::string("L"), true, na<double>(), na<double>(), 1, std::string("integ long"), "", 0, -1);
         }
-        if ((go_short && (signed_position_size() >= 0))) {
+        if ((go_short && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) || _pfc_eq); }()))) {
             strategy_entry(std::string("S"), false, na<double>(), na<double>(), 1, std::string("integ short"), "", 0, -1);
         }
         if (expiry_due) {
-            strategy_close_all();
+            strategy_close("", std::string("integ bar expiry"), na<double>(), na<double>(), false);
         }
     }
 
@@ -253,6 +380,19 @@ public:
 
 
         for (int i = 0; i < n; ++i) {
+            if (_src_series_active_) {
+                const double _pc_o = bars[i].open;
+                const double _pc_h = bars[i].high;
+                const double _pc_l = bars[i].low;
+                const double _pc_c = bars[i].close;
+                const double _pc_v = bars[i].volume;
+                _src_open_.push(_pc_o);   _src_high_.push(_pc_h);   _src_low_.push(_pc_l);
+                _src_close_.push(_pc_c);  _src_volume_.push(_pc_v);
+                _src_hl2_.push((_pc_h + _pc_l) / 2.0);
+                _src_hlc3_.push((_pc_h + _pc_l + _pc_c) / 3.0);
+                _src_ohlc4_.push((_pc_o + _pc_h + _pc_l + _pc_c) / 4.0);
+                _src_hlcc4_.push((_pc_h + _pc_l + _pc_c + _pc_c) / 4.0);
+            }
             _precalc__ta_ema_1[i] = _ta_ema_1.compute(bars[i].close);
             _precalc__ta_ema_2[i] = _ta_ema_2.compute(bars[i].close);
             _precalc__ta_ema_3[i] = _ta_ema_3.compute(bars[i].close);

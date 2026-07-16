@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include <optional>
+#include <type_traits>
 #include <memory>
 #include <mutex>
 #include <unordered_map>
@@ -108,7 +110,6 @@ public:
     ta::StdDev _ta_stdev_7;
     std::vector<double> _precalc__ta_stdev_7;
     math::Sum _ta_sum_8;
-    std::vector<double> _precalc__ta_sum_8;
     ta::Change _ta_change_9;
     std::vector<double> _precalc__ta_change_9;
     ta::Change _ta_change_10;
@@ -180,6 +181,250 @@ public:
     bool _ta_initialized_ = false;
     bool _inputs_initialized_ = false;
 
+    struct _PFScriptState {
+        decltype(GeneratedStrategy::_ta_atr_1) _pf_value_0;
+        decltype(GeneratedStrategy::_ta_pivothigh_2) _pf_value_1;
+        decltype(GeneratedStrategy::_ta_pivotlow_3) _pf_value_2;
+        decltype(GeneratedStrategy::_ta_rsi_4) _pf_value_3;
+        decltype(GeneratedStrategy::_ta_ema_5) _pf_value_4;
+        decltype(GeneratedStrategy::_ta_sma_6) _pf_value_5;
+        decltype(GeneratedStrategy::_ta_stdev_7) _pf_value_6;
+        decltype(GeneratedStrategy::_ta_sum_8) _pf_value_7;
+        decltype(GeneratedStrategy::_ta_change_9) _pf_value_8;
+        decltype(GeneratedStrategy::_ta_change_10) _pf_value_9;
+        decltype(GeneratedStrategy::_ta_rma_11) _pf_value_10;
+        decltype(GeneratedStrategy::_ta_rma_12) _pf_value_11;
+        decltype(GeneratedStrategy::_ta_rma_13) _pf_value_12;
+        decltype(GeneratedStrategy::_ta_rma_14) _pf_value_13;
+        decltype(GeneratedStrategy::_s_close) _pf_value_14;
+        decltype(GeneratedStrategy::_s_high) _pf_value_15;
+        decltype(GeneratedStrategy::_s_low) _pf_value_16;
+        decltype(GeneratedStrategy::_s_open) _pf_value_17;
+        decltype(GeneratedStrategy::last_ph) _pf_value_18;
+        decltype(GeneratedStrategy::last_pl) _pf_value_19;
+        decltype(GeneratedStrategy::z_top) _pf_value_20;
+        decltype(GeneratedStrategy::z_bot) _pf_value_21;
+        decltype(GeneratedStrategy::z_isb) _pf_value_22;
+        decltype(GeneratedStrategy::in_session) _pf_value_23;
+        decltype(GeneratedStrategy::rsi_smooth) _pf_value_24;
+        decltype(GeneratedStrategy::i_pivot) _pf_value_25;
+        decltype(GeneratedStrategy::i_fvg_atr) _pf_value_26;
+        decltype(GeneratedStrategy::i_rsi_len) _pf_value_27;
+        decltype(GeneratedStrategy::i_vol_ma_len) _pf_value_28;
+        decltype(GeneratedStrategy::i_vol_z) _pf_value_29;
+        decltype(GeneratedStrategy::i_cd_sum) _pf_value_30;
+        decltype(GeneratedStrategy::i_adx_len) _pf_value_31;
+        decltype(GeneratedStrategy::i_adx_thr) _pf_value_32;
+        decltype(GeneratedStrategy::i_session) _pf_value_33;
+        decltype(GeneratedStrategy::i_tz) _pf_value_34;
+        decltype(GeneratedStrategy::atr_v) _pf_value_35;
+        decltype(GeneratedStrategy::ph_v) _pf_value_36;
+        decltype(GeneratedStrategy::pl_v) _pf_value_37;
+        decltype(GeneratedStrategy::pivot_break_up) _pf_value_38;
+        decltype(GeneratedStrategy::pivot_break_dn) _pf_value_39;
+        decltype(GeneratedStrategy::bull_fvg_event) _pf_value_40;
+        decltype(GeneratedStrategy::bear_fvg_event) _pf_value_41;
+        decltype(GeneratedStrategy::fvg_min_w) _pf_value_42;
+        decltype(GeneratedStrategy::in_bull_fvg) _pf_value_43;
+        decltype(GeneratedStrategy::in_bear_fvg) _pf_value_44;
+        decltype(GeneratedStrategy::rsi_v) _pf_value_45;
+        decltype(GeneratedStrategy::rsi_div_bull) _pf_value_46;
+        decltype(GeneratedStrategy::rsi_div_bear) _pf_value_47;
+        decltype(GeneratedStrategy::vol_ma) _pf_value_48;
+        decltype(GeneratedStrategy::vol_std) _pf_value_49;
+        decltype(GeneratedStrategy::vol_z) _pf_value_50;
+        decltype(GeneratedStrategy::vol_anom_bull) _pf_value_51;
+        decltype(GeneratedStrategy::vol_anom_bear) _pf_value_52;
+        decltype(GeneratedStrategy::buy_vol) _pf_value_53;
+        decltype(GeneratedStrategy::sell_vol) _pf_value_54;
+        decltype(GeneratedStrategy::vol_d) _pf_value_55;
+        decltype(GeneratedStrategy::cum_d) _pf_value_56;
+        decltype(GeneratedStrategy::cd_up) _pf_value_57;
+        decltype(GeneratedStrategy::cd_dn) _pf_value_58;
+        decltype(GeneratedStrategy::up_mv) _pf_value_59;
+        decltype(GeneratedStrategy::dn_mv) _pf_value_60;
+        decltype(GeneratedStrategy::p_dm_v) _pf_value_61;
+        decltype(GeneratedStrategy::m_dm_v) _pf_value_62;
+        decltype(GeneratedStrategy::tr_smo) _pf_value_63;
+        decltype(GeneratedStrategy::p_di_v) _pf_value_64;
+        decltype(GeneratedStrategy::m_di_v) _pf_value_65;
+        decltype(GeneratedStrategy::dx_v) _pf_value_66;
+        decltype(GeneratedStrategy::adx_v) _pf_value_67;
+        decltype(GeneratedStrategy::trending_bull) _pf_value_68;
+        decltype(GeneratedStrategy::trending_bear) _pf_value_69;
+        decltype(GeneratedStrategy::long_setup) _pf_value_70;
+        decltype(GeneratedStrategy::short_setup) _pf_value_71;
+        decltype(GeneratedStrategy::_var_initialized) _pf_value_72;
+        decltype(GeneratedStrategy::_ta_initialized_) _pf_value_73;
+        decltype(GeneratedStrategy::_inputs_initialized_) _pf_value_74;
+    };
+    static_assert(std::is_copy_constructible_v<_PFScriptState>, "generated Pine state must be deep-copy constructible");
+    static_assert(std::is_copy_assignable_v<_PFScriptState>, "generated Pine state must be deep-copy assignable");
+    std::optional<_PFScriptState> _pf_script_state_checkpoint_;
+
+    void snapshot_script_state() override {
+        _pf_script_state_checkpoint_.emplace(_PFScriptState{
+            _ta_atr_1,
+            _ta_pivothigh_2,
+            _ta_pivotlow_3,
+            _ta_rsi_4,
+            _ta_ema_5,
+            _ta_sma_6,
+            _ta_stdev_7,
+            _ta_sum_8,
+            _ta_change_9,
+            _ta_change_10,
+            _ta_rma_11,
+            _ta_rma_12,
+            _ta_rma_13,
+            _ta_rma_14,
+            _s_close,
+            _s_high,
+            _s_low,
+            _s_open,
+            last_ph,
+            last_pl,
+            z_top,
+            z_bot,
+            z_isb,
+            in_session,
+            rsi_smooth,
+            i_pivot,
+            i_fvg_atr,
+            i_rsi_len,
+            i_vol_ma_len,
+            i_vol_z,
+            i_cd_sum,
+            i_adx_len,
+            i_adx_thr,
+            i_session,
+            i_tz,
+            atr_v,
+            ph_v,
+            pl_v,
+            pivot_break_up,
+            pivot_break_dn,
+            bull_fvg_event,
+            bear_fvg_event,
+            fvg_min_w,
+            in_bull_fvg,
+            in_bear_fvg,
+            rsi_v,
+            rsi_div_bull,
+            rsi_div_bear,
+            vol_ma,
+            vol_std,
+            vol_z,
+            vol_anom_bull,
+            vol_anom_bear,
+            buy_vol,
+            sell_vol,
+            vol_d,
+            cum_d,
+            cd_up,
+            cd_dn,
+            up_mv,
+            dn_mv,
+            p_dm_v,
+            m_dm_v,
+            tr_smo,
+            p_di_v,
+            m_di_v,
+            dx_v,
+            adx_v,
+            trending_bull,
+            trending_bear,
+            long_setup,
+            short_setup,
+            _var_initialized,
+            _ta_initialized_,
+            _inputs_initialized_,
+        });
+    }
+
+    void restore_script_state() override {
+        if (!_pf_script_state_checkpoint_) return;
+        this->_ta_atr_1 = _pf_script_state_checkpoint_->_pf_value_0;
+        this->_ta_pivothigh_2 = _pf_script_state_checkpoint_->_pf_value_1;
+        this->_ta_pivotlow_3 = _pf_script_state_checkpoint_->_pf_value_2;
+        this->_ta_rsi_4 = _pf_script_state_checkpoint_->_pf_value_3;
+        this->_ta_ema_5 = _pf_script_state_checkpoint_->_pf_value_4;
+        this->_ta_sma_6 = _pf_script_state_checkpoint_->_pf_value_5;
+        this->_ta_stdev_7 = _pf_script_state_checkpoint_->_pf_value_6;
+        this->_ta_sum_8 = _pf_script_state_checkpoint_->_pf_value_7;
+        this->_ta_change_9 = _pf_script_state_checkpoint_->_pf_value_8;
+        this->_ta_change_10 = _pf_script_state_checkpoint_->_pf_value_9;
+        this->_ta_rma_11 = _pf_script_state_checkpoint_->_pf_value_10;
+        this->_ta_rma_12 = _pf_script_state_checkpoint_->_pf_value_11;
+        this->_ta_rma_13 = _pf_script_state_checkpoint_->_pf_value_12;
+        this->_ta_rma_14 = _pf_script_state_checkpoint_->_pf_value_13;
+        this->_s_close = _pf_script_state_checkpoint_->_pf_value_14;
+        this->_s_high = _pf_script_state_checkpoint_->_pf_value_15;
+        this->_s_low = _pf_script_state_checkpoint_->_pf_value_16;
+        this->_s_open = _pf_script_state_checkpoint_->_pf_value_17;
+        this->last_ph = _pf_script_state_checkpoint_->_pf_value_18;
+        this->last_pl = _pf_script_state_checkpoint_->_pf_value_19;
+        this->z_top = _pf_script_state_checkpoint_->_pf_value_20;
+        this->z_bot = _pf_script_state_checkpoint_->_pf_value_21;
+        this->z_isb = _pf_script_state_checkpoint_->_pf_value_22;
+        this->in_session = _pf_script_state_checkpoint_->_pf_value_23;
+        this->rsi_smooth = _pf_script_state_checkpoint_->_pf_value_24;
+        this->i_pivot = _pf_script_state_checkpoint_->_pf_value_25;
+        this->i_fvg_atr = _pf_script_state_checkpoint_->_pf_value_26;
+        this->i_rsi_len = _pf_script_state_checkpoint_->_pf_value_27;
+        this->i_vol_ma_len = _pf_script_state_checkpoint_->_pf_value_28;
+        this->i_vol_z = _pf_script_state_checkpoint_->_pf_value_29;
+        this->i_cd_sum = _pf_script_state_checkpoint_->_pf_value_30;
+        this->i_adx_len = _pf_script_state_checkpoint_->_pf_value_31;
+        this->i_adx_thr = _pf_script_state_checkpoint_->_pf_value_32;
+        this->i_session = _pf_script_state_checkpoint_->_pf_value_33;
+        this->i_tz = _pf_script_state_checkpoint_->_pf_value_34;
+        this->atr_v = _pf_script_state_checkpoint_->_pf_value_35;
+        this->ph_v = _pf_script_state_checkpoint_->_pf_value_36;
+        this->pl_v = _pf_script_state_checkpoint_->_pf_value_37;
+        this->pivot_break_up = _pf_script_state_checkpoint_->_pf_value_38;
+        this->pivot_break_dn = _pf_script_state_checkpoint_->_pf_value_39;
+        this->bull_fvg_event = _pf_script_state_checkpoint_->_pf_value_40;
+        this->bear_fvg_event = _pf_script_state_checkpoint_->_pf_value_41;
+        this->fvg_min_w = _pf_script_state_checkpoint_->_pf_value_42;
+        this->in_bull_fvg = _pf_script_state_checkpoint_->_pf_value_43;
+        this->in_bear_fvg = _pf_script_state_checkpoint_->_pf_value_44;
+        this->rsi_v = _pf_script_state_checkpoint_->_pf_value_45;
+        this->rsi_div_bull = _pf_script_state_checkpoint_->_pf_value_46;
+        this->rsi_div_bear = _pf_script_state_checkpoint_->_pf_value_47;
+        this->vol_ma = _pf_script_state_checkpoint_->_pf_value_48;
+        this->vol_std = _pf_script_state_checkpoint_->_pf_value_49;
+        this->vol_z = _pf_script_state_checkpoint_->_pf_value_50;
+        this->vol_anom_bull = _pf_script_state_checkpoint_->_pf_value_51;
+        this->vol_anom_bear = _pf_script_state_checkpoint_->_pf_value_52;
+        this->buy_vol = _pf_script_state_checkpoint_->_pf_value_53;
+        this->sell_vol = _pf_script_state_checkpoint_->_pf_value_54;
+        this->vol_d = _pf_script_state_checkpoint_->_pf_value_55;
+        this->cum_d = _pf_script_state_checkpoint_->_pf_value_56;
+        this->cd_up = _pf_script_state_checkpoint_->_pf_value_57;
+        this->cd_dn = _pf_script_state_checkpoint_->_pf_value_58;
+        this->up_mv = _pf_script_state_checkpoint_->_pf_value_59;
+        this->dn_mv = _pf_script_state_checkpoint_->_pf_value_60;
+        this->p_dm_v = _pf_script_state_checkpoint_->_pf_value_61;
+        this->m_dm_v = _pf_script_state_checkpoint_->_pf_value_62;
+        this->tr_smo = _pf_script_state_checkpoint_->_pf_value_63;
+        this->p_di_v = _pf_script_state_checkpoint_->_pf_value_64;
+        this->m_di_v = _pf_script_state_checkpoint_->_pf_value_65;
+        this->dx_v = _pf_script_state_checkpoint_->_pf_value_66;
+        this->adx_v = _pf_script_state_checkpoint_->_pf_value_67;
+        this->trending_bull = _pf_script_state_checkpoint_->_pf_value_68;
+        this->trending_bear = _pf_script_state_checkpoint_->_pf_value_69;
+        this->long_setup = _pf_script_state_checkpoint_->_pf_value_70;
+        this->short_setup = _pf_script_state_checkpoint_->_pf_value_71;
+        this->_var_initialized = _pf_script_state_checkpoint_->_pf_value_72;
+        this->_ta_initialized_ = _pf_script_state_checkpoint_->_pf_value_73;
+        this->_inputs_initialized_ = _pf_script_state_checkpoint_->_pf_value_74;
+    }
+
+    void commit_script_state() override {
+        snapshot_script_state();
+    }
+
     explicit GeneratedStrategy() : _ta_atr_1(14), _ta_pivothigh_2(5, 5), _ta_pivotlow_3(5, 5), _ta_rsi_4(14), _ta_ema_5(3), _ta_sma_6(20), _ta_stdev_7(20), _ta_sum_8(10), _ta_rma_11(14), _ta_rma_12(14), _ta_rma_13(14), _ta_rma_14(14), last_ph(na<double>()), last_pl(na<double>()) {
         initial_capital_ = 1000000.0;
         default_qty_type_ = QtyType::FIXED;
@@ -198,6 +443,7 @@ public:
         if (key == "pyramiding") { pyramiding_ = std::stoi(value); return; }
         if (key == "slippage") { slippage_ = std::stoi(value); return; }
         if (key == "process_orders_on_close") { process_orders_on_close_ = (value == "true" || value == "1"); return; }
+        if (key == "calc_on_order_fills") { calc_on_order_fills_ = (value == "true" || value == "1"); return; }
         if (key == "close_entries_rule") { close_entries_rule_any_ = (value == "ANY" || value == "any" || value == "1"); return; }
         if (key == "default_qty_type") {
             if (value == "fixed" || value == "strategy.fixed" || value == "0") default_qty_type_ = QtyType::FIXED;
@@ -214,13 +460,13 @@ public:
     }
 
     void on_bar(const Bar& bar) override {
-        if (is_first_tick_) _s_close.push(current_bar_.close);
+        if (history_advances_new_bar()) _s_close.push(current_bar_.close);
         else _s_close.update(current_bar_.close);
-        if (is_first_tick_) _s_high.push(current_bar_.high);
+        if (history_advances_new_bar()) _s_high.push(current_bar_.high);
         else _s_high.update(current_bar_.high);
-        if (is_first_tick_) _s_low.push(current_bar_.low);
+        if (history_advances_new_bar()) _s_low.push(current_bar_.low);
         else _s_low.update(current_bar_.low);
-        if (is_first_tick_) _s_open.push(current_bar_.open);
+        if (history_advances_new_bar()) _s_open.push(current_bar_.open);
         else _s_open.update(current_bar_.open);
         if (!_var_initialized) {
             z_top = std::vector<double>();
@@ -254,43 +500,49 @@ public:
             _ta_rma_14 = ta::RMA(get_input_int("ADX length", 14));
             _ta_initialized_ = true;
         }
-        atr_v = (is_first_tick_ ? _ta_atr_1.compute(current_bar_.high, current_bar_.low, current_bar_.close) : _ta_atr_1.recompute(current_bar_.high, current_bar_.low, current_bar_.close));
-        ph_v = (is_first_tick_ ? _ta_pivothigh_2.compute(current_bar_.high) : _ta_pivothigh_2.recompute(current_bar_.high));
-        pl_v = (is_first_tick_ ? _ta_pivotlow_3.compute(current_bar_.low) : _ta_pivotlow_3.recompute(current_bar_.low));
+        atr_v = (history_advances_new_bar() ? _ta_atr_1.compute(current_bar_.high, current_bar_.low, current_bar_.close) : _ta_atr_1.recompute(current_bar_.high, current_bar_.low, current_bar_.close));
+        ph_v = (history_advances_new_bar() ? _ta_pivothigh_2.compute(current_bar_.high) : _ta_pivothigh_2.recompute(current_bar_.high));
+        pl_v = (history_advances_new_bar() ? _ta_pivotlow_3.compute(current_bar_.low) : _ta_pivotlow_3.recompute(current_bar_.low));
         if (!(is_na(ph_v))) {
             last_ph = ph_v;
         }
         if (!(is_na(pl_v))) {
             last_pl = pl_v;
         }
-        pivot_break_up = (!(is_na(last_ph)) && (current_bar_.close > last_ph));
-        pivot_break_dn = (!(is_na(last_pl)) && (current_bar_.close < last_pl));
-        bull_fvg_event = ((current_bar_.low > _s_high[2]) && (_s_close[1] > _s_open[1]));
-        bear_fvg_event = ((current_bar_.high < _s_low[2]) && (_s_close[1] < _s_open[1]));
+        pivot_break_up = (!(is_na(last_ph)) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (last_ph); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        pivot_break_dn = (!(is_na(last_pl)) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (last_pl); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()));
+        bull_fvg_event = (([&]{ auto _pna_l = (current_bar_.low); auto _pna_r = (_s_high[2]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (_s_close[1]); auto _pna_r = (_s_open[1]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        bear_fvg_event = (([&]{ auto _pna_l = (current_bar_.high); auto _pna_r = (_s_low[2]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (_s_close[1]); auto _pna_r = (_s_open[1]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()));
         fvg_min_w = (atr_v * i_fvg_atr);
-        if ((bull_fvg_event && ((current_bar_.low - _s_high[2]) >= fvg_min_w))) {
+        if ((bull_fvg_event && ([&]{ auto _pna_l = ((current_bar_.low - _s_high[2])); auto _pna_r = (fvg_min_w); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) || _pfc_eq); }()))) {
             z_top.push_back(current_bar_.low);
             z_bot.push_back(_s_high[2]);
             z_isb.push_back(true);
         }
-        if ((bear_fvg_event && ((_s_low[2] - current_bar_.high) >= fvg_min_w))) {
+        if ((bear_fvg_event && ([&]{ auto _pna_l = ((_s_low[2] - current_bar_.high)); auto _pna_r = (fvg_min_w); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) || _pfc_eq); }()))) {
             z_top.push_back(_s_low[2]);
             z_bot.push_back(current_bar_.high);
             z_isb.push_back(false);
         }
-        while (((double)z_top.size() > 30)) {
+        while (([&]{ auto _pna_l = ((double)z_top.size()); auto _pna_r = (30); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) {
             [&](){ auto v=z_top.front(); z_top.erase(z_top.begin()); return v; }();
             [&](){ auto v=z_bot.front(); z_bot.erase(z_bot.begin()); return v; }();
             [&](){ auto v=z_isb.front(); z_isb.erase(z_isb.begin()); return v; }();
         }
         in_bull_fvg = false;
         in_bear_fvg = false;
-        if (((double)z_top.size() > 0)) {
-            for (int k = 0; k <= ((double)z_top.size() - 1); k += 1) {
-                double t = z_top[k];
-                double b = z_bot[k];
-                bool s = z_isb[k];
-                if (((current_bar_.low <= t) && (current_bar_.high >= b))) {
+        if (([&]{ auto _pna_l = ((double)z_top.size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) {
+            int _for_start_0 = (0);
+            int _for_end_0 = (((double)z_top.size() - 1));
+            int _for_step_0 = (1);
+            if (_for_step_0 < 0) _for_step_0 = -_for_step_0;
+            if (_for_step_0 == 0) _for_step_0 = 1;
+            const bool _for_down_0 = (_for_start_0 > _for_end_0);
+            for (int k = _for_start_0; (_for_down_0 ? (k >= _for_end_0) : (k <= _for_end_0)); k += (_for_down_0 ? -_for_step_0 : _for_step_0), _for_end_0 = (((double)z_top.size() - 1))) {
+                double t = z_top[(k)];
+                double b = z_bot[(k)];
+                bool s = z_isb[(k)];
+                if ((([&]{ auto _pna_l = (current_bar_.low); auto _pna_r = (t); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) || _pfc_eq); }()) && ([&]{ auto _pna_l = (current_bar_.high); auto _pna_r = (b); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) || _pfc_eq); }()))) {
                     if (s) {
                         in_bull_fvg = true;
                     } else {
@@ -299,49 +551,51 @@ public:
                 }
             }
         }
-        rsi_v = (is_first_tick_ ? _ta_rsi_4.compute(current_bar_.close) : _ta_rsi_4.recompute(current_bar_.close));
-        rsi_smooth.push((is_first_tick_ ? _ta_ema_5.compute(rsi_v) : _ta_ema_5.recompute(rsi_v)));
-        rsi_div_bull = (((rsi_smooth[0] < 40) && (current_bar_.close > _s_close[5])) && (rsi_smooth[0] > rsi_smooth[5]));
-        rsi_div_bear = (((rsi_smooth[0] > 60) && (current_bar_.close < _s_close[5])) && (rsi_smooth[0] < rsi_smooth[5]));
-        vol_ma = (is_first_tick_ ? _ta_sma_6.compute(current_bar_.volume) : _ta_sma_6.recompute(current_bar_.volume));
-        vol_std = (is_first_tick_ ? _ta_stdev_7.compute(current_bar_.volume) : _ta_stdev_7.recompute(current_bar_.volume));
-        vol_z = (((vol_std > 0)) ? (((double)((current_bar_.volume - vol_ma)) / (double)(vol_std))) : (0));
-        vol_anom_bull = ((std::abs(vol_z) > i_vol_z) && (current_bar_.close > current_bar_.open));
-        vol_anom_bear = ((std::abs(vol_z) > i_vol_z) && (current_bar_.close < current_bar_.open));
-        buy_vol = (((current_bar_.close > current_bar_.open)) ? (current_bar_.volume) : (((double)((current_bar_.volume * (current_bar_.close - current_bar_.low))) / (double)(((current_bar_.high - current_bar_.low) + 0.0001)))));
-        sell_vol = (((current_bar_.close < current_bar_.open)) ? (current_bar_.volume) : (((double)((current_bar_.volume * (current_bar_.high - current_bar_.close))) / (double)(((current_bar_.high - current_bar_.low) + 0.0001)))));
+        rsi_v = (history_advances_new_bar() ? _ta_rsi_4.compute(current_bar_.close) : _ta_rsi_4.recompute(current_bar_.close));
+        if (history_advances_new_bar()) rsi_smooth.push((history_advances_new_bar() ? _ta_ema_5.compute(rsi_v) : _ta_ema_5.recompute(rsi_v)));
+        else rsi_smooth.update((history_advances_new_bar() ? _ta_ema_5.compute(rsi_v) : _ta_ema_5.recompute(rsi_v)));
+        rsi_div_bull = ((([&]{ auto _pna_l = (rsi_smooth[0]); auto _pna_r = (40); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (_s_close[5]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (rsi_smooth[0]); auto _pna_r = (rsi_smooth[5]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        rsi_div_bear = ((([&]{ auto _pna_l = (rsi_smooth[0]); auto _pna_r = (60); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (_s_close[5]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) && ([&]{ auto _pna_l = (rsi_smooth[0]); auto _pna_r = (rsi_smooth[5]); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()));
+        vol_ma = (history_advances_new_bar() ? _ta_sma_6.compute(current_bar_.volume) : _ta_sma_6.recompute(current_bar_.volume));
+        vol_std = (history_advances_new_bar() ? _ta_stdev_7.compute(current_bar_.volume) : _ta_stdev_7.recompute(current_bar_.volume));
+        vol_z = ((([&]{ auto _pna_l = (vol_std); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) ? (((double)((current_bar_.volume - vol_ma)) / (double)(vol_std))) : (0));
+        vol_anom_bull = (([&]{ auto _pna_l = (std::abs(vol_z)); auto _pna_r = (i_vol_z); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (current_bar_.open); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        vol_anom_bear = (([&]{ auto _pna_l = (std::abs(vol_z)); auto _pna_r = (i_vol_z); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (current_bar_.open); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }()));
+        buy_vol = ((([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (current_bar_.open); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) ? (current_bar_.volume) : (((double)((current_bar_.volume * (current_bar_.close - current_bar_.low))) / (double)(((current_bar_.high - current_bar_.low) + 0.0001)))));
+        sell_vol = ((([&]{ auto _pna_l = (current_bar_.close); auto _pna_r = (current_bar_.open); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) ? (current_bar_.volume) : (((double)((current_bar_.volume * (current_bar_.high - current_bar_.close))) / (double)(((current_bar_.high - current_bar_.low) + 0.0001)))));
         vol_d = (buy_vol - sell_vol);
-        cum_d = (is_first_tick_ ? _ta_sum_8.compute(vol_d) : _ta_sum_8.recompute(vol_d));
-        cd_up = (cum_d > 0);
-        cd_dn = (cum_d < 0);
-        up_mv = (is_first_tick_ ? _ta_change_9.compute(current_bar_.high) : _ta_change_9.recompute(current_bar_.high));
-        dn_mv = (-(_use_precalc ? _precalc__ta_change_10[bar_index_] : (is_first_tick_ ? _ta_change_10.compute(current_bar_.low) : _ta_change_10.recompute(current_bar_.low))));
-        p_dm_v = ((is_na(up_mv)) ? (na<double>()) : (((((up_mv > dn_mv) && (up_mv > 0))) ? (up_mv) : (0))));
-        m_dm_v = ((is_na(dn_mv)) ? (na<double>()) : (((((dn_mv > up_mv) && (dn_mv > 0))) ? (dn_mv) : (0))));
-        tr_smo = (is_first_tick_ ? _ta_rma_11.compute((std::isnan(_s_close[1]) ? (current_bar_.high - current_bar_.low) : std::max(current_bar_.high - current_bar_.low, std::max(std::abs(current_bar_.high - _s_close[1]), std::abs(current_bar_.low - _s_close[1]))))) : _ta_rma_11.recompute((std::isnan(_s_close[1]) ? (current_bar_.high - current_bar_.low) : std::max(current_bar_.high - current_bar_.low, std::max(std::abs(current_bar_.high - _s_close[1]), std::abs(current_bar_.low - _s_close[1]))))));
-        p_di_v = (((tr_smo > 0)) ? (((double)((100 * (is_first_tick_ ? _ta_rma_12.compute(p_dm_v) : _ta_rma_12.recompute(p_dm_v)))) / (double)(tr_smo))) : (0));
-        m_di_v = (((tr_smo > 0)) ? (((double)((100 * (is_first_tick_ ? _ta_rma_13.compute(m_dm_v) : _ta_rma_13.recompute(m_dm_v)))) / (double)(tr_smo))) : (0));
-        dx_v = ((((p_di_v + m_di_v) > 0)) ? (((double)((100 * std::abs((p_di_v - m_di_v)))) / (double)((p_di_v + m_di_v)))) : (0));
-        adx_v = (is_first_tick_ ? _ta_rma_14.compute(dx_v) : _ta_rma_14.recompute(dx_v));
-        trending_bull = ((adx_v > i_adx_thr) && (p_di_v > m_di_v));
-        trending_bear = ((adx_v > i_adx_thr) && (m_di_v > p_di_v));
-        in_session.push(!(is_na(pine_time(current_bar_.timestamp, script_tf_, i_session, i_tz, script_tf_))));
+        cum_d = (history_advances_new_bar() ? _ta_sum_8.compute(vol_d) : _ta_sum_8.recompute(vol_d));
+        cd_up = ([&]{ auto _pna_l = (cum_d); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }());
+        cd_dn = ([&]{ auto _pna_l = (cum_d); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }());
+        up_mv = (history_advances_new_bar() ? _ta_change_9.compute(current_bar_.high) : _ta_change_9.recompute(current_bar_.high));
+        dn_mv = (-(_use_precalc ? _precalc__ta_change_10[bar_index_] : (history_advances_new_bar() ? _ta_change_10.compute(current_bar_.low) : _ta_change_10.recompute(current_bar_.low))));
+        p_dm_v = ((is_na(up_mv)) ? (na<double>()) : ((((([&]{ auto _pna_l = (up_mv); auto _pna_r = (dn_mv); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (up_mv); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()))) ? (up_mv) : (0))));
+        m_dm_v = ((is_na(dn_mv)) ? (na<double>()) : ((((([&]{ auto _pna_l = (dn_mv); auto _pna_r = (up_mv); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (dn_mv); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()))) ? (dn_mv) : (0))));
+        tr_smo = (history_advances_new_bar() ? _ta_rma_11.compute((std::isnan(_s_close[1]) ? (current_bar_.high - current_bar_.low) : std::max(current_bar_.high - current_bar_.low, std::max(std::abs(current_bar_.high - _s_close[1]), std::abs(current_bar_.low - _s_close[1]))))) : _ta_rma_11.recompute((std::isnan(_s_close[1]) ? (current_bar_.high - current_bar_.low) : std::max(current_bar_.high - current_bar_.low, std::max(std::abs(current_bar_.high - _s_close[1]), std::abs(current_bar_.low - _s_close[1]))))));
+        p_di_v = ((([&]{ auto _pna_l = (tr_smo); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) ? (((double)((100 * (history_advances_new_bar() ? _ta_rma_12.compute(p_dm_v) : _ta_rma_12.recompute(p_dm_v)))) / (double)(tr_smo))) : (0));
+        m_di_v = ((([&]{ auto _pna_l = (tr_smo); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) ? (((double)((100 * (history_advances_new_bar() ? _ta_rma_13.compute(m_dm_v) : _ta_rma_13.recompute(m_dm_v)))) / (double)(tr_smo))) : (0));
+        dx_v = ((([&]{ auto _pna_l = ((p_di_v + m_di_v)); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) ? (((double)((100 * std::abs((p_di_v - m_di_v)))) / (double)((p_di_v + m_di_v)))) : (0));
+        adx_v = (history_advances_new_bar() ? _ta_rma_14.compute(dx_v) : _ta_rma_14.recompute(dx_v));
+        trending_bull = (([&]{ auto _pna_l = (adx_v); auto _pna_r = (i_adx_thr); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (p_di_v); auto _pna_r = (m_di_v); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        trending_bear = (([&]{ auto _pna_l = (adx_v); auto _pna_r = (i_adx_thr); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()) && ([&]{ auto _pna_l = (m_di_v); auto _pna_r = (p_di_v); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }()));
+        if (history_advances_new_bar()) in_session.push(!(is_na(pine_time(current_bar_.timestamp, script_tf_, i_session, i_tz, script_tf_))));
+        else in_session.update(!(is_na(pine_time(current_bar_.timestamp, script_tf_, i_session, i_tz, script_tf_))));
         long_setup = ((((pivot_break_up && in_bull_fvg) && (vol_anom_bull || cd_up)) && trending_bull) && in_session[0]);
         short_setup = ((((pivot_break_dn && in_bear_fvg) && (vol_anom_bear || cd_dn)) && trending_bear) && in_session[0]);
-        if ((long_setup && (signed_position_size() <= 0))) {
-            if ((signed_position_size() < 0)) {
+        if ((long_setup && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) || _pfc_eq); }()))) {
+            if (([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) {
                 strategy_close(std::string("S"), std::string("flip flat"), na<double>(), na<double>(), false);
             }
             strategy_entry(std::string("L"), true, na<double>(), na<double>(), na<double>(), std::string("vcp confluence long"));
         }
-        if ((short_setup && (signed_position_size() >= 0))) {
-            if ((signed_position_size() > 0)) {
+        if ((short_setup && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) || _pfc_eq); }()))) {
+            if (([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) {
                 strategy_close(std::string("L"), std::string("flip flat"), na<double>(), na<double>(), false);
             }
             strategy_entry(std::string("S"), false, na<double>(), na<double>(), na<double>(), std::string("vcp confluence short"));
         }
-        if (((!(in_session[0]) && in_session[1]) && (signed_position_size() != 0))) {
-            strategy_close_all();
+        if (((!(in_session[0]) && in_session[1]) && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (!_pfc_eq); }()))) {
+            strategy_close("", std::string("session end"), na<double>(), na<double>(), false);
         }
     }
 
@@ -355,7 +609,6 @@ public:
         _precalc__ta_rsi_4.resize(n);
         _precalc__ta_sma_6.resize(n);
         _precalc__ta_stdev_7.resize(n);
-        _precalc__ta_sum_8.resize(n);
         _precalc__ta_change_9.resize(n);
         _precalc__ta_change_10.resize(n);
 
@@ -365,7 +618,6 @@ public:
         _ta_rsi_4 = ta::RSI(14);
         _ta_sma_6 = ta::SMA(20);
         _ta_stdev_7 = ta::StdDev(20);
-        _ta_sum_8 = math::Sum(10);
         _ta_change_9 = ta::Change();
         _ta_change_10 = ta::Change();
 
@@ -379,13 +631,25 @@ public:
             _s_high.push(bars[i].high);
             _s_low.push(bars[i].low);
             _s_open.push(bars[i].open);
+            if (_src_series_active_) {
+                const double _pc_o = bars[i].open;
+                const double _pc_h = bars[i].high;
+                const double _pc_l = bars[i].low;
+                const double _pc_c = bars[i].close;
+                const double _pc_v = bars[i].volume;
+                _src_open_.push(_pc_o);   _src_high_.push(_pc_h);   _src_low_.push(_pc_l);
+                _src_close_.push(_pc_c);  _src_volume_.push(_pc_v);
+                _src_hl2_.push((_pc_h + _pc_l) / 2.0);
+                _src_hlc3_.push((_pc_h + _pc_l + _pc_c) / 3.0);
+                _src_ohlc4_.push((_pc_o + _pc_h + _pc_l + _pc_c) / 4.0);
+                _src_hlcc4_.push((_pc_h + _pc_l + _pc_c + _pc_c) / 4.0);
+            }
             _precalc__ta_atr_1[i] = _ta_atr_1.compute(bars[i].high, bars[i].low, bars[i].close);
             _precalc__ta_pivothigh_2[i] = _ta_pivothigh_2.compute(bars[i].high);
             _precalc__ta_pivotlow_3[i] = _ta_pivotlow_3.compute(bars[i].low);
             _precalc__ta_rsi_4[i] = _ta_rsi_4.compute(bars[i].close);
             _precalc__ta_sma_6[i] = _ta_sma_6.compute(bars[i].volume);
             _precalc__ta_stdev_7[i] = _ta_stdev_7.compute(bars[i].volume);
-            _precalc__ta_sum_8[i] = _ta_sum_8.compute(vol_d);
             _precalc__ta_change_9[i] = _ta_change_9.compute(bars[i].high);
             _precalc__ta_change_10[i] = _ta_change_10.compute(bars[i].low);
         }
@@ -396,7 +660,6 @@ public:
         _ta_rsi_4 = ta::RSI(14);
         _ta_sma_6 = ta::SMA(20);
         _ta_stdev_7 = ta::StdDev(20);
-        _ta_sum_8 = math::Sum(10);
         _ta_change_9 = ta::Change();
         _ta_change_10 = ta::Change();
         _s_close.clear();

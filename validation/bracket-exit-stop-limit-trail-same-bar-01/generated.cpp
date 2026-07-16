@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include <optional>
+#include <type_traits>
 #include <memory>
 #include <mutex>
 #include <unordered_map>
@@ -107,6 +109,55 @@ public:
     bool _ta_initialized_ = false;
     bool _inputs_initialized_ = false;
 
+    struct _PFScriptState {
+        decltype(GeneratedStrategy::_ta_atr_1) _pf_value_0;
+        decltype(GeneratedStrategy::atr) _pf_value_1;
+        decltype(GeneratedStrategy::enterLong) _pf_value_2;
+        decltype(GeneratedStrategy::enterShort) _pf_value_3;
+        decltype(GeneratedStrategy::longStop) _pf_value_4;
+        decltype(GeneratedStrategy::longLimit) _pf_value_5;
+        decltype(GeneratedStrategy::shortStop) _pf_value_6;
+        decltype(GeneratedStrategy::shortLimit) _pf_value_7;
+        decltype(GeneratedStrategy::_ta_initialized_) _pf_value_8;
+        decltype(GeneratedStrategy::_inputs_initialized_) _pf_value_9;
+    };
+    static_assert(std::is_copy_constructible_v<_PFScriptState>, "generated Pine state must be deep-copy constructible");
+    static_assert(std::is_copy_assignable_v<_PFScriptState>, "generated Pine state must be deep-copy assignable");
+    std::optional<_PFScriptState> _pf_script_state_checkpoint_;
+
+    void snapshot_script_state() override {
+        _pf_script_state_checkpoint_.emplace(_PFScriptState{
+            _ta_atr_1,
+            atr,
+            enterLong,
+            enterShort,
+            longStop,
+            longLimit,
+            shortStop,
+            shortLimit,
+            _ta_initialized_,
+            _inputs_initialized_,
+        });
+    }
+
+    void restore_script_state() override {
+        if (!_pf_script_state_checkpoint_) return;
+        this->_ta_atr_1 = _pf_script_state_checkpoint_->_pf_value_0;
+        this->atr = _pf_script_state_checkpoint_->_pf_value_1;
+        this->enterLong = _pf_script_state_checkpoint_->_pf_value_2;
+        this->enterShort = _pf_script_state_checkpoint_->_pf_value_3;
+        this->longStop = _pf_script_state_checkpoint_->_pf_value_4;
+        this->longLimit = _pf_script_state_checkpoint_->_pf_value_5;
+        this->shortStop = _pf_script_state_checkpoint_->_pf_value_6;
+        this->shortLimit = _pf_script_state_checkpoint_->_pf_value_7;
+        this->_ta_initialized_ = _pf_script_state_checkpoint_->_pf_value_8;
+        this->_inputs_initialized_ = _pf_script_state_checkpoint_->_pf_value_9;
+    }
+
+    void commit_script_state() override {
+        snapshot_script_state();
+    }
+
     explicit GeneratedStrategy() : _ta_atr_1(14) {
         initial_capital_ = 1000000.0;
         default_qty_type_ = QtyType::FIXED;
@@ -125,6 +176,7 @@ public:
         if (key == "pyramiding") { pyramiding_ = std::stoi(value); return; }
         if (key == "slippage") { slippage_ = std::stoi(value); return; }
         if (key == "process_orders_on_close") { process_orders_on_close_ = (value == "true" || value == "1"); return; }
+        if (key == "calc_on_order_fills") { calc_on_order_fills_ = (value == "true" || value == "1"); return; }
         if (key == "close_entries_rule") { close_entries_rule_any_ = (value == "ANY" || value == "any" || value == "1"); return; }
         if (key == "default_qty_type") {
             if (value == "fixed" || value == "strategy.fixed" || value == "0") default_qty_type_ = QtyType::FIXED;
@@ -141,27 +193,27 @@ public:
     }
 
     void on_bar(const Bar& bar) override {
-        atr = (is_first_tick_ ? _ta_atr_1.compute(current_bar_.high, current_bar_.low, current_bar_.close) : _ta_atr_1.recompute(current_bar_.high, current_bar_.low, current_bar_.close));
-        enterLong = ((([&]() -> int { std::string _tz = (syminfo_.timezone); time_t _secs = (time_t)((current_bar_.timestamp) / 1000); struct tm tm_buf; if (_tz.empty() || _tz == "UTC" || _tz == "Etc/UTC") { gmtime_r(&_secs, &tm_buf); } else { static std::mutex _pf_tz_mu; std::lock_guard<std::mutex> _pf_tz_lock(_pf_tz_mu); const char* _old = std::getenv("TZ"); std::string _old_tz = _old ? _old : ""; bool _had_old = (_old != nullptr); ::setenv("TZ", _tz.c_str(), 1); ::tzset(); localtime_r(&_secs, &tm_buf); if (_had_old) { ::setenv("TZ", _old_tz.c_str(), 1); } else { ::unsetenv("TZ"); } ::tzset(); } return tm_buf.tm_hour; }() == 8) && ([&]() -> int { std::string _tz = (syminfo_.timezone); time_t _secs = (time_t)((current_bar_.timestamp) / 1000); struct tm tm_buf; if (_tz.empty() || _tz == "UTC" || _tz == "Etc/UTC") { gmtime_r(&_secs, &tm_buf); } else { static std::mutex _pf_tz_mu; std::lock_guard<std::mutex> _pf_tz_lock(_pf_tz_mu); const char* _old = std::getenv("TZ"); std::string _old_tz = _old ? _old : ""; bool _had_old = (_old != nullptr); ::setenv("TZ", _tz.c_str(), 1); ::tzset(); localtime_r(&_secs, &tm_buf); if (_had_old) { ::setenv("TZ", _old_tz.c_str(), 1); } else { ::unsetenv("TZ"); } ::tzset(); } return tm_buf.tm_min; }() == 15)) && (signed_position_size() == 0));
-        enterShort = ((([&]() -> int { std::string _tz = (syminfo_.timezone); time_t _secs = (time_t)((current_bar_.timestamp) / 1000); struct tm tm_buf; if (_tz.empty() || _tz == "UTC" || _tz == "Etc/UTC") { gmtime_r(&_secs, &tm_buf); } else { static std::mutex _pf_tz_mu; std::lock_guard<std::mutex> _pf_tz_lock(_pf_tz_mu); const char* _old = std::getenv("TZ"); std::string _old_tz = _old ? _old : ""; bool _had_old = (_old != nullptr); ::setenv("TZ", _tz.c_str(), 1); ::tzset(); localtime_r(&_secs, &tm_buf); if (_had_old) { ::setenv("TZ", _old_tz.c_str(), 1); } else { ::unsetenv("TZ"); } ::tzset(); } return tm_buf.tm_hour; }() == 16) && ([&]() -> int { std::string _tz = (syminfo_.timezone); time_t _secs = (time_t)((current_bar_.timestamp) / 1000); struct tm tm_buf; if (_tz.empty() || _tz == "UTC" || _tz == "Etc/UTC") { gmtime_r(&_secs, &tm_buf); } else { static std::mutex _pf_tz_mu; std::lock_guard<std::mutex> _pf_tz_lock(_pf_tz_mu); const char* _old = std::getenv("TZ"); std::string _old_tz = _old ? _old : ""; bool _had_old = (_old != nullptr); ::setenv("TZ", _tz.c_str(), 1); ::tzset(); localtime_r(&_secs, &tm_buf); if (_had_old) { ::setenv("TZ", _old_tz.c_str(), 1); } else { ::unsetenv("TZ"); } ::tzset(); } return tm_buf.tm_min; }() == 15)) && (signed_position_size() == 0));
+        atr = (history_advances_new_bar() ? _ta_atr_1.compute(current_bar_.high, current_bar_.low, current_bar_.close) : _ta_atr_1.recompute(current_bar_.high, current_bar_.low, current_bar_.close));
+        enterLong = ((([&]{ auto _pna_l = (pine_hour(current_bar_.timestamp, syminfo_.timezone)); auto _pna_r = (8); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()) && ([&]{ auto _pna_l = (pine_minute(current_bar_.timestamp, syminfo_.timezone)); auto _pna_r = (15); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }())) && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()));
+        enterShort = ((([&]{ auto _pna_l = (pine_hour(current_bar_.timestamp, syminfo_.timezone)); auto _pna_r = (16); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()) && ([&]{ auto _pna_l = (pine_minute(current_bar_.timestamp, syminfo_.timezone)); auto _pna_r = (15); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }())) && ([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()));
         if (enterLong) {
             strategy_entry(std::string("L"), true, na<double>(), na<double>(), 1, std::string("probe long"), "", 0, -1);
         }
         if (enterShort) {
             strategy_entry(std::string("S"), false, na<double>(), na<double>(), 1, std::string("probe short"), "", 0, -1);
         }
-        if ((signed_position_size() > 0)) {
-            longStop = (position_entry_price_ - (atr * 0.8));
-            longLimit = (position_entry_price_ + (atr * 1.6));
-            strategy_exit(std::string("LX"), std::string("L"), longLimit, longStop, atr, na<double>(), na<double>(), 100.0, std::string("triple exit long"), na<double>(), "");
+        if (([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l > _pfc_r) && !_pfc_eq); }())) {
+            longStop = ((signed_position_size() == 0.0 ? na<double>() : position_entry_price_) - (atr * 0.8));
+            longLimit = ((signed_position_size() == 0.0 ? na<double>() : position_entry_price_) + (atr * 1.6));
+            strategy_exit(std::string("LX"), std::string("L"), longLimit, longStop, atr, na<double>(), na<double>(), 100.0, std::string("triple exit long"), na<double>(), "", na<double>(), na<double>());
         }
-        if ((signed_position_size() < 0)) {
-            shortStop = (position_entry_price_ + (atr * 0.8));
-            shortLimit = (position_entry_price_ - (atr * 1.6));
-            strategy_exit(std::string("SX"), std::string("S"), shortLimit, shortStop, atr, na<double>(), na<double>(), 100.0, std::string("triple exit short"), na<double>(), "");
+        if (([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && ((_pfc_l < _pfc_r) && !_pfc_eq); }())) {
+            shortStop = ((signed_position_size() == 0.0 ? na<double>() : position_entry_price_) + (atr * 0.8));
+            shortLimit = ((signed_position_size() == 0.0 ? na<double>() : position_entry_price_) - (atr * 1.6));
+            strategy_exit(std::string("SX"), std::string("S"), shortLimit, shortStop, atr, na<double>(), na<double>(), 100.0, std::string("triple exit short"), na<double>(), "", na<double>(), na<double>());
         }
-        if ((((signed_position_size() != 0) && ([&]() -> int { std::string _tz = (syminfo_.timezone); time_t _secs = (time_t)((current_bar_.timestamp) / 1000); struct tm tm_buf; if (_tz.empty() || _tz == "UTC" || _tz == "Etc/UTC") { gmtime_r(&_secs, &tm_buf); } else { static std::mutex _pf_tz_mu; std::lock_guard<std::mutex> _pf_tz_lock(_pf_tz_mu); const char* _old = std::getenv("TZ"); std::string _old_tz = _old ? _old : ""; bool _had_old = (_old != nullptr); ::setenv("TZ", _tz.c_str(), 1); ::tzset(); localtime_r(&_secs, &tm_buf); if (_had_old) { ::setenv("TZ", _old_tz.c_str(), 1); } else { ::unsetenv("TZ"); } ::tzset(); } return tm_buf.tm_hour; }() == 23)) && ([&]() -> int { std::string _tz = (syminfo_.timezone); time_t _secs = (time_t)((current_bar_.timestamp) / 1000); struct tm tm_buf; if (_tz.empty() || _tz == "UTC" || _tz == "Etc/UTC") { gmtime_r(&_secs, &tm_buf); } else { static std::mutex _pf_tz_mu; std::lock_guard<std::mutex> _pf_tz_lock(_pf_tz_mu); const char* _old = std::getenv("TZ"); std::string _old_tz = _old ? _old : ""; bool _had_old = (_old != nullptr); ::setenv("TZ", _tz.c_str(), 1); ::tzset(); localtime_r(&_secs, &tm_buf); if (_had_old) { ::setenv("TZ", _old_tz.c_str(), 1); } else { ::unsetenv("TZ"); } ::tzset(); } return tm_buf.tm_min; }() == 45))) {
-            strategy_close_all();
+        if (((([&]{ auto _pna_l = (signed_position_size()); auto _pna_r = (0); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (!_pfc_eq); }()) && ([&]{ auto _pna_l = (pine_hour(current_bar_.timestamp, syminfo_.timezone)); auto _pna_r = (23); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }())) && ([&]{ auto _pna_l = (pine_minute(current_bar_.timestamp, syminfo_.timezone)); auto _pna_r = (45); double _pfc_l = static_cast<double>(_pna_l); double _pfc_r = static_cast<double>(_pna_r); bool _pfc_eq = (_pfc_l == _pfc_r) || (std::isfinite(_pfc_l) && std::isfinite(_pfc_r) && std::fabs(_pfc_l - _pfc_r) <= 1e-10); return !is_na(_pna_l) && !is_na(_pna_r) && (_pfc_eq); }()))) {
+            strategy_close("", std::string("timeout"), na<double>(), na<double>(), false);
         }
     }
 
@@ -175,6 +227,19 @@ public:
 
 
         for (int i = 0; i < n; ++i) {
+            if (_src_series_active_) {
+                const double _pc_o = bars[i].open;
+                const double _pc_h = bars[i].high;
+                const double _pc_l = bars[i].low;
+                const double _pc_c = bars[i].close;
+                const double _pc_v = bars[i].volume;
+                _src_open_.push(_pc_o);   _src_high_.push(_pc_h);   _src_low_.push(_pc_l);
+                _src_close_.push(_pc_c);  _src_volume_.push(_pc_v);
+                _src_hl2_.push((_pc_h + _pc_l) / 2.0);
+                _src_hlc3_.push((_pc_h + _pc_l + _pc_c) / 3.0);
+                _src_ohlc4_.push((_pc_o + _pc_h + _pc_l + _pc_c) / 4.0);
+                _src_hlcc4_.push((_pc_h + _pc_l + _pc_c + _pc_c) / 4.0);
+            }
             _precalc__ta_atr_1[i] = _ta_atr_1.compute(bars[i].high, bars[i].low, bars[i].close);
         }
 
