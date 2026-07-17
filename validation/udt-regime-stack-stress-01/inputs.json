@@ -1,0 +1,8 @@
+{
+  "ohlcv_start_ms": 1743811200000,
+  "runtime_overrides": {
+    "syminfo_metadata": {
+      "chart_ema_na_warmup": 1
+    }
+  }
+}
