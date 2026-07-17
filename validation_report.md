@@ -1,6 +1,6 @@
 # PineForge Corpus Validation Report
 
-**Generated:** 2026-07-17 (UTC) — engine `ac33eae`, corpus `3f685f3`
+**Generated:** 2026-07-17 (UTC) — engine `c21685d`, corpus `b0d6d96`
 
 All probes live under `corpus/validation/`; categories below are derived
 from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
@@ -8,8 +8,8 @@ from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
 ## Headline
 
 - **Total probes verified:** 252
-- **Excellent:** 246 (97.6%)
-- **Strong:** 5
+- **Excellent:** 247 (98.0%)
+- **Strong:** 4
 - **Moderate:** 0
 - **Weak:** 0
 - **Minimal:** 0
@@ -27,7 +27,6 @@ captured in the probe's `inputs.json` notes field where present.
 | **anomaly** | [`anomaly-equity-mirror-strategy-equity-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/anomaly-equity-mirror-strategy-equity-01/) | 22 | 25 | 12.0000% | 0.0949% | TV broker margin-boundary non-determinism at the exact 1x equity boundary (>=95% confidence, deep-analyzed). Engine is deterministic and CORRECT per Pine semantics; TV admits some over-equity entries and rejects some under-equity ones non-monotonically. Cannot be made to match TV without replicating TV's broker bug. See pineforge-utils/parity-anomalies/tv-margin-boundary.md and corpus/validation_report.md headline. Sibling probes (parity-probe-04/05/06) that leave any meaningful headroom below 100% equity match perfectly; only this 1.0x-pinned probe surfaces the boundary divergence. |
 | **strong** | [`composite-trendmaster-three-tier-ema-state-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-three-tier-ema-state-01/) | 220 | 220 | 0.0000% | 0.0631% | Park at strong: residual is a TradingView deep-backtest window-origin artifact on a var-based EMA stack edge detector. TV appears to initialize near 2025-04-02 under the 15m bar ceiling, while the engine warms from the full 2020-origin feed; the first boundary transitions diverge (TV 4 trades vs engine 2) and then resync cleanly for 220/220 matched trades. Not a broker anomaly and not an engine/codegen defect; do not trim coverage or alter trade_start/trading_is_active semantics to chase excellent. |
 | **strong** | [`ta-momentum-roc-zero-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-momentum-roc-zero-cross-01/) | 5690 | 5691 | 0.0176% | 0.0782% | count Δ 0.02% |
-| **strong** | [`ta-percentrank-mean-reversion-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-percentrank-mean-reversion-01/) | 363 | 362 | 0.2755% | 0.0716% | count Δ 0.28% |
 | **strong** | [`ta-pivot-atr-stop-target-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-atr-stop-target-01/) | 1618 | 1619 | 0.0618% | 0.0968% | count Δ 0.06% |
 | **strong** | [`ta-stochastic-rsi-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-stochastic-rsi-cross-01/) | 1336 | 1336 | 0.0000% | 0.1233% | coverage 96.9% |
 
@@ -55,7 +54,7 @@ captured in the probe's `inputs.json` notes field where present.
 | `risk` | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `session` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `stats` | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `ta` | 61 | 57 | 4 | 0 | 0 | 0 | 0 | 0 |
+| `ta` | 61 | 58 | 3 | 0 | 0 | 0 | 0 | 0 |
 | `timeframe` | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `udt` | 22 | 22 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `vwap` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -86,7 +85,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`bracket-narrow-stop-limit-with-trail8-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-narrow-stop-limit-with-trail8-01/) | `bracket` | excellent | `production` | 792 | 792 | 792 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
 | [`bracket-partial-exit-qty-percent-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-partial-exit-qty-percent-01/) | `bracket` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0000% | 0.1252% |
 | [`bracket-same-id-exit-replace-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-same-id-exit-replace-01/) | `bracket` | excellent | `strict` | 366 | 366 | 366 | 0.0000% | 0.0000% | 0.0000% | 0.1066% |
-| [`bracket-tp-sl-oca-reduce-isolate-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-tp-sl-oca-reduce-isolate-01/) | `bracket` | excellent | `strict` | 2150 | 2150 | 2150 | 0.0000% | 0.0000% | 0.0000% | 0.0415% |
+| [`bracket-tp-sl-oca-reduce-isolate-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-tp-sl-oca-reduce-isolate-01/) | `bracket` | excellent | `strict` | 2150 | 2150 | 2150 | 0.0000% | 0.0000% | 0.0000% | 0.0558% |
 | [`bracket-trail-points-no-offset-explicit-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-trail-points-no-offset-explicit-01/) | `bracket` | excellent | `production` | 782 | 782 | 782 | 0.0000% | 0.0000% | 0.0000% | 0.0000% |
 | [`bracket-trail-points-with-offset-only-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-trail-points-with-offset-only-01/) | `bracket` | excellent | `production` | 710 | 710 | 710 | 0.0000% | 0.0000% | 0.0000% | 0.0657% |
 | [`bracket-trailing-activation-offset-path-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/bracket-trailing-activation-offset-path-01/) | `bracket` | excellent | `production` | 671 | 671 | 671 | 0.0000% | 0.0000% | 0.0000% | 0.0889% |
@@ -266,7 +265,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`ta-multi-indicator-score-composite-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-multi-indicator-score-composite-01/) | `ta` | excellent | `strict` | 3910 | 3910 | 3910 | 0.0000% | 0.0000% | 0.0000% | 0.0829% |
 | [`ta-nvi-pvi-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-nvi-pvi-cross-01/) | `ta` | excellent | `strict` | 278 | 278 | 278 | 0.0000% | 0.0000% | 0.0000% | 0.0709% |
 | [`ta-obv-ema-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-obv-ema-cross-01/) | `ta` | excellent | `strict` | 5296 | 5296 | 5296 | 0.0000% | 0.0000% | 0.0000% | 0.0726% |
-| [`ta-percentrank-mean-reversion-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-percentrank-mean-reversion-01/) | `ta` | strong | `strict` | 363 | 362 | 362 | 0.2755% | 0.0000% | 0.0000% | 0.0716% |
+| [`ta-percentrank-mean-reversion-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-percentrank-mean-reversion-01/) | `ta` | excellent | `strict` | 363 | 363 | 363 | 0.0000% | 0.0000% | 0.0000% | 0.0714% |
 | [`ta-pivot-array-unshift-pop-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-array-unshift-pop-01/) | `ta` | excellent | `strict` | 829 | 829 | 829 | 0.0000% | 0.0000% | 0.0000% | 0.0893% |
 | [`ta-pivot-atr-stop-target-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-atr-stop-target-01/) | `ta` | strong | `strict` | 1618 | 1619 | 1618 | 0.0618% | 0.0000% | 0.0000% | 0.0968% |
 | [`ta-pivot-confirmed-break-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-confirmed-break-01/) | `ta` | excellent | `strict` | 1115 | 1115 | 1115 | 0.0000% | 0.0000% | 0.0000% | 0.0866% |
