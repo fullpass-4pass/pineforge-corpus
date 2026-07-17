@@ -1,6 +1,6 @@
 # PineForge Corpus Validation Report
 
-**Generated:** 2026-07-17 (UTC) — engine `a433ff3`, corpus `aeff79e`
+**Generated:** 2026-07-17 (UTC) — engine `ac33eae`, corpus `3f685f3`
 
 All probes live under `corpus/validation/`; categories below are derived
 from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
@@ -8,8 +8,8 @@ from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
 ## Headline
 
 - **Total probes verified:** 252
-- **Excellent:** 245 (97.2%)
-- **Strong:** 6
+- **Excellent:** 246 (97.6%)
+- **Strong:** 5
 - **Moderate:** 0
 - **Weak:** 0
 - **Minimal:** 0
@@ -25,7 +25,6 @@ captured in the probe's `inputs.json` notes field where present.
 | Tier | Probe | TV | Eng | Count Δ | PnL p90 | Reason |
 |---|---|---:|---:|---:|---:|---|
 | **anomaly** | [`anomaly-equity-mirror-strategy-equity-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/anomaly-equity-mirror-strategy-equity-01/) | 22 | 25 | 12.0000% | 0.0949% | TV broker margin-boundary non-determinism at the exact 1x equity boundary (>=95% confidence, deep-analyzed). Engine is deterministic and CORRECT per Pine semantics; TV admits some over-equity entries and rejects some under-equity ones non-monotonically. Cannot be made to match TV without replicating TV's broker bug. See pineforge-utils/parity-anomalies/tv-margin-boundary.md and corpus/validation_report.md headline. Sibling probes (parity-probe-04/05/06) that leave any meaningful headroom below 100% equity match perfectly; only this 1.0x-pinned probe surfaces the boundary divergence. |
-| **strong** | [`composite-trendmaster-integration-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-integration-01/) | 629 | 628 | 0.1590% | 0.0800% | count Δ 0.16% |
 | **strong** | [`composite-trendmaster-three-tier-ema-state-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-three-tier-ema-state-01/) | 220 | 220 | 0.0000% | 0.0631% | Park at strong: residual is a TradingView deep-backtest window-origin artifact on a var-based EMA stack edge detector. TV appears to initialize near 2025-04-02 under the 15m bar ceiling, while the engine warms from the full 2020-origin feed; the first boundary transitions diverge (TV 4 trades vs engine 2) and then resync cleanly for 220/220 matched trades. Not a broker anomaly and not an engine/codegen defect; do not trim coverage or alter trade_start/trading_is_active semantics to chase excellent. |
 | **strong** | [`ta-momentum-roc-zero-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-momentum-roc-zero-cross-01/) | 5690 | 5691 | 0.0176% | 0.0782% | count Δ 0.02% |
 | **strong** | [`ta-percentrank-mean-reversion-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-percentrank-mean-reversion-01/) | 363 | 362 | 0.2755% | 0.0716% | count Δ 0.28% |
@@ -41,7 +40,7 @@ captured in the probe's `inputs.json` notes field where present.
 | `barstate` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `bracket` | 13 | 13 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `cap` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
-| `composite` | 52 | 50 | 2 | 0 | 0 | 0 | 0 | 0 |
+| `composite` | 52 | 51 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `drawing` | 6 | 6 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `input` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `ltf` | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -129,7 +128,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`composite-scalping-fast-ma-cross-trigger-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-scalping-fast-ma-cross-trigger-01/) | `composite` | excellent | `strict` | 3097 | 3097 | 3097 | 0.0000% | 0.0000% | 0.0000% | 0.0832% |
 | [`composite-scalping-integration-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-scalping-integration-01/) | `composite` | excellent | `strict` | 3097 | 3097 | 3097 | 0.0000% | 0.0000% | 0.0000% | 0.0579% |
 | [`composite-scalping-tight-tp-sl-points-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-scalping-tight-tp-sl-points-01/) | `composite` | excellent | `strict` | 3097 | 3097 | 3097 | 0.0000% | 0.0000% | 0.0000% | 0.0579% |
-| [`composite-trendmaster-integration-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-integration-01/) | `composite` | strong | `strict` | 629 | 628 | 628 | 0.1590% | 0.0000% | 0.0000% | 0.0800% |
+| [`composite-trendmaster-integration-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-integration-01/) | `composite` | excellent | `strict` | 629 | 629 | 629 | 0.0000% | 0.0000% | 0.0000% | 0.0799% |
 | [`composite-trendmaster-line-new-projection-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-line-new-projection-01/) | `composite` | excellent | `strict` | 1592 | 1592 | 1592 | 0.0000% | 0.0000% | 0.0000% | 0.0778% |
 | [`composite-trendmaster-pivot-anchored-bracket-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-pivot-anchored-bracket-01/) | `composite` | excellent | `strict` | 3094 | 3094 | 3094 | 0.0000% | 0.0000% | 0.0000% | 0.0846% |
 | [`composite-trendmaster-three-tier-ema-state-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-three-tier-ema-state-01/) | `composite` | strong | `strict` | 220 | 220 | 220 | 0.0000% | 0.0000% | 0.0000% | 0.0631% |
