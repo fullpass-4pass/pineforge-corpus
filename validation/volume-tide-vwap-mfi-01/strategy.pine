@@ -1,0 +1,34 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Tide VWAP Volume
+// Volume-weighted direction is confirmed by bounded money-flow momentum.
+strategy("PineForge — Tide VWAP Volume", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=6,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+priceSource = input.source(hlc3, "VWAP Source", group="Signal")
+mfiLength = input.int(17, "MFI Length", minval=2, group="Signal")
+entryFlow = input.float(56.0, "Entry Money Flow", minval=50, maxval=90, group="Signal")
+exitFlow = input.float(43.0, "Exit Money Flow", minval=10, maxval=50, group="Signal")
+atrLength = input.int(18, "ATR Length", minval=2, group="Risk")
+stopAtr = input.float(2.1, "Stop ATR", minval=0.5, step=0.1, group="Risk")
+
+sessionVwap = ta.vwap(priceSource)
+moneyFlow = ta.mfi(hlc3, mfiLength)
+atrValue = ta.atr(atrLength)
+
+if ta.crossover(priceSource, sessionVwap) and moneyFlow > entryFlow
+    strategy.entry("Tide Long", strategy.long)
+if strategy.position_size > 0 and (ta.crossunder(priceSource, sessionVwap) or moneyFlow < exitFlow)
+    strategy.close("Tide Long", comment="Volume flow receded")
+if strategy.position_size > 0
+    strategy.exit("Tide Guard", from_entry="Tide Long",
+         stop=strategy.position_avg_price - atrValue * stopAtr)
+
+plot(sessionVwap, "Session VWAP", color=color.blue)
+

@@ -1,0 +1,41 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Horizon Next-Bar Close
+strategy("PineForge — Horizon Next-Bar Close", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=6,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+signalLength = input.int(34, "Signal SMA", minval=3, group="Signal")
+holdBars = input.int(11, "Hold Bars", minval=1, maxval=200, group="Risk")
+atrLength = input.int(14, "ATR Length", minval=2, group="Risk")
+stopAtr = input.float(2.2, "Stop ATR", minval=0.5, step=0.1, group="Risk")
+
+signalAverage = ta.sma(close, signalLength)
+atrValue = ta.atr(atrLength)
+enterLong = ta.crossover(close, signalAverage)
+var int openedBar = na
+
+if enterLong and strategy.position_size == 0
+    strategy.entry("Horizon Long", strategy.long)
+
+if strategy.position_size > 0 and strategy.position_size[1] <= 0
+    openedBar := bar_index
+
+timeExpired = strategy.position_size > 0 and not na(openedBar) and bar_index - openedBar >= holdBars
+if timeExpired
+    strategy.close("Horizon Long", comment="Deterministic time exit")
+
+if strategy.position_size > 0
+    strategy.exit("Horizon Stop", from_entry="Horizon Long",
+         stop=strategy.position_avg_price - atrValue * stopAtr)
+
+if strategy.position_size == 0
+    openedBar := na
+
+plot(signalAverage, "Signal SMA", color=color.blue)
+

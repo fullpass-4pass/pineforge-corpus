@@ -1,0 +1,5 @@
+{
+  "_comment": "TradingView private-editor capture on BINANCE:ETHUSDT.P, 15-minute chart, Asia/Taipei chart timezone, Deep Backtesting custom range 2025-04-01 through 2026-05-04. The trading session is explicitly evaluated in Etc/UTC; other inputs and properties use source defaults.",
+  "tv_trades_csv_tz": "asia_taipei",
+  "chart_timezone": "Asia/Taipei"
+}

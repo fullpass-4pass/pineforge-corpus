@@ -1,0 +1,9 @@
+{
+  "_comment": "Captured on BINANCE:ETHUSDT.P, 15-minute chart, Asia/Taipei chart timezone, Deep Backtesting custom range 2025-04-01 through 2026-05-04. The validation-only overrides isolate all-in reversal admission from transaction-cost feedback; the source declaration pins 50-percent long and short margin.",
+  "tv_trades_csv_tz": "asia_taipei",
+  "strategy_overrides": {
+    "default_qty_value": 100,
+    "commission_value": 0,
+    "slippage": 0
+  }
+}

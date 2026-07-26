@@ -1,0 +1,40 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Keystone UDF Tuple
+strategy("PineForge — Keystone UDF Tuple", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=7,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+channel(float source, int length, float widthMultiplier) =>
+    float basis = ta.ema(source, length)
+    float width = ta.atr(length) * widthMultiplier
+    float upper = basis + width
+    float lower = basis - width
+    [basis, upper, lower, width]
+
+channelLength = input.int(27, "Channel Length", minval=3, group="Signal")
+widthMultiplier = input.float(1.6, "Channel Width ATR", minval=0.25, step=0.05, group="Signal")
+targetMultiplier = input.float(2.1, "Target Widths", minval=0.5, step=0.1, group="Risk")
+
+[basis, upperBand, lowerBand, channelWidth] = channel(close, channelLength, widthMultiplier)
+
+if ta.crossover(close, upperBand)
+    strategy.entry("Keystone Long", strategy.long)
+
+if ta.crossunder(close, basis)
+    strategy.close("Keystone Long", comment="Return through basis")
+
+if strategy.position_size > 0
+    strategy.exit("Keystone Risk", from_entry="Keystone Long",
+         stop=strategy.position_avg_price - channelWidth,
+         limit=strategy.position_avg_price + channelWidth * targetMultiplier)
+
+plot(basis, "Basis", color=color.gray)
+plot(upperBand, "Upper", color=color.green)
+plot(lowerBand, "Lower", color=color.red)
+

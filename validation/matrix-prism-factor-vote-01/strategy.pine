@@ -1,0 +1,47 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Prism Matrix Vote
+// A small factor grid keeps each vote visible and economically interpretable.
+strategy("PineForge — Prism Matrix Vote", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=6,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+fastLength = input.int(16, "Fast EMA", minval=2, group="Signal")
+slowLength = input.int(44, "Slow EMA", minval=3, group="Signal")
+rsiLength = input.int(13, "RSI Length", minval=2, group="Signal")
+minimumScore = input.float(2.0, "Minimum Vote Score", minval=1, maxval=4, group="Signal")
+atrLength = input.int(19, "ATR Length", minval=2, group="Risk")
+stopAtr = input.float(2.2, "Stop ATR", minval=0.5, step=0.1, group="Risk")
+
+fastEma = ta.ema(close, fastLength)
+slowEma = ta.ema(close, slowLength)
+rsiValue = ta.rsi(close, rsiLength)
+atrValue = ta.atr(atrLength)
+
+var matrix<float> factorGrid = matrix.new<float>(2, 2, 0.0)
+matrix.set(factorGrid, 0, 0, fastEma > slowEma ? 1.0 : -1.0)
+matrix.set(factorGrid, 0, 1, close > fastEma ? 1.0 : -1.0)
+matrix.set(factorGrid, 1, 0, rsiValue > 52.0 ? 1.0 : -1.0)
+matrix.set(factorGrid, 1, 1, atrValue / close < 0.04 ? 1.0 : -1.0)
+
+float voteScore = 0.0
+for row = 0 to 1
+    for column = 0 to 1
+        voteScore += matrix.get(factorGrid, row, column)
+
+if ta.crossover(voteScore, minimumScore)
+    strategy.entry("Prism Long", strategy.long)
+if strategy.position_size > 0 and voteScore <= 0
+    strategy.close("Prism Long", comment="Factor vote reversed")
+if strategy.position_size > 0
+    strategy.exit("Prism Guard", from_entry="Prism Long",
+         stop=strategy.position_avg_price - atrValue * stopAtr)
+
+plot(fastEma, "Fast EMA", color=color.aqua)
+plot(slowEma, "Slow EMA", color=color.purple)
+

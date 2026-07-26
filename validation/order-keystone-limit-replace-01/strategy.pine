@@ -1,0 +1,37 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Keystone Limit Pullback
+// A live pullback limit follows a rising trend and is cancelled when the trend fails.
+strategy("PineForge — Keystone Limit Pullback", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=5,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+trendLength = input.int(48, "Trend EMA", minval=5, group="Signal")
+atrLength = input.int(18, "ATR Length", minval=2, group="Signal")
+pullbackAtr = input.float(0.55, "Pullback ATR", minval=0.1, step=0.05, group="Execution")
+stopAtr = input.float(2.3, "Stop ATR", minval=0.5, step=0.1, group="Risk")
+targetAtr = input.float(2.0, "Target ATR", minval=0.5, step=0.1, group="Risk")
+
+trend = ta.ema(close, trendLength)
+atrValue = ta.atr(atrLength)
+risingTrend = trend > trend[1] and close > trend
+workingLimit = trend - atrValue * pullbackAtr
+
+if strategy.position_size == 0 and risingTrend
+    strategy.entry("Keystone Pullback", strategy.long, limit=workingLimit)
+else if strategy.position_size == 0
+    strategy.cancel("Keystone Pullback")
+
+if strategy.position_size > 0
+    strategy.exit("Keystone Risk", from_entry="Keystone Pullback",
+         stop=strategy.position_avg_price - atrValue * stopAtr,
+         limit=strategy.position_avg_price + atrValue * targetAtr)
+
+plot(trend, "Trend EMA", color=color.teal)
+plot(workingLimit, "Working Limit", color=color.yellow)
+

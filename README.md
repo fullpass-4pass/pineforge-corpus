@@ -8,18 +8,25 @@ behaviour matches TradingView on the same bar feed.
 
 ## Headline parity
 
-- **252** verified strategies, all under `corpus/validation/`.
-- **~389,000 trades** total across the suite — summing the per-row TV /
+- **282** verified strategies, all under `corpus/validation/`.
+- **~409,000 trades** total across the suite — summing the per-row TV /
   engine counts in [`validation_report.md`](validation_report.md):
-  TV 389,590; engine 389,688 (`+98` ≈ 0.03 % over TV).
-- **251** excellent (bit-for-bit or within strict thresholds on every
+  TV 409,019; engine 409,024 (`+5` ≈ 0.001 % over TV).
+- **275** excellent (bit-for-bit or within the resolved thresholds on every
   parity dimension).
+- **6** strong, retained as visible pre-existing research cases rather than
+  being hidden or admitted as excellent.
 - **1** documented anomaly — `anomaly-equity-mirror-strategy-equity-01` —
   where TradingView's broker emulator exhibits non-deterministic
   accept/reject behaviour at the exact 1× equity margin boundary. Engine
   is deterministic and correct; full write-up lives in
   `pineforge-utils/parity-anomalies/tv-margin-boundary.md`.
-- **0** strong / moderate / weak.
+- **0** moderate / weak / minimal / missing.
+
+The 30 PineForge-owned additions introduced in the 282-probe expansion are
+all independently authored, source-bound to actual private-editor TradingView
+exports, and graded excellent by the native Corpus verifier. No non-excellent
+candidate from that expansion is present in this public tree.
 
 The canonical, regenerated-each-sweep disposition table is
 [`validation_report.md`](validation_report.md) (rendered as
@@ -50,8 +57,12 @@ and remain ignored.
 The corpus ships exactly **one** feed (stored via Git LFS):
 
 - `data/ohlcv_ETH-USDT-USDT_1m.csv` — Binance ETH-USDT-USDT perp
-  1-minute bars, full exchange history from the instrument's 2020
-  listing through the end of the comparison window. The deep history
+  1-minute bars spanning more than six years from 2020-01-01 00:00 UTC
+  through 2026-05-04 15:14 UTC. Its SHA-256 is
+  `db8c1332da093008cfbd063e05db0b33fe8f7fd35d78cf058a366519eb9f6cc5`.
+  The pinned file contains 32 forward gaps totalling 175 missing minutes;
+  it has no duplicate or non-monotonic timestamps and is not described as
+  complete or gap-free. The deep history
   matches the depth TradingView's own chart computes warmup over, so
   TA, MTF, pivot, and equity-feedback state starts where TV's does.
 
@@ -75,30 +86,39 @@ ticks from chart bars and need no extra feed.
 
 ```
 corpus/
-├── validation/                252 probes — surface-driven probe family
-│   ├── ta-*                    61 probes — TA built-in math (rsi, macd, sma, ...)
-│   ├── composite-*             52 probes — multi-surface integration (community-style)
-│   ├── order-*                 40 probes — entry/exit/cancel placement
-│   ├── udt-*                   22 probes — user-defined types + methods
-│   ├── mtf-*                   16 probes — request.security regular HTF
-│   ├── bracket-*               13 probes — TP/SL via strategy.exit / strategy.order
-│   ├── matrix-*                 6 probes — matrix<T> typed/generic
-│   ├── analyzer-*               6 probes — engine analyzer / parity isolation
+├── validation/                282 probes — surface-driven probe family
+│   ├── ta-*                    62 probes — TA built-in math (rsi, macd, sma, ...)
+│   ├── composite-*             53 probes — multi-surface integration (community-style)
+│   ├── order-*                 46 probes — entry/exit/cancel placement
+│   ├── udt-*                   23 probes — user-defined types + methods
+│   ├── mtf-*                   18 probes — request.security regular HTF
+│   ├── bracket-*               16 probes — TP/SL via strategy.exit / strategy.order
+│   ├── analyzer-*               7 probes — engine analyzer / parity isolation
+│   ├── matrix-*                 7 probes — matrix<T> typed/generic
 │   ├── drawing-*                6 probes — drawing objects as data
-│   ├── pyramid-*                4 probes — pyramiding=N
-│   ├── oca-*                    3 probes — OCA group cancel/reduce/none
+│   ├── pyramid-*                5 probes — pyramiding=N
+│   ├── barstate-*               3 probes — barstate.* checks
+│   ├── cap-*                    3 probes — intraday risk caps
 │   ├── magnifier-*              3 probes — bar_magnifier sub-bar walks
-│   ├── ltf-*                    2 probes — request.security_lower_tf arrays
-│   ├── session-*                2 probes — session() / TZ / DST
-│   ├── recompute-*              2 probes — calc_on_every_tick / TA recompute
-│   ├── na-*                     2 probes — na propagation
+│   ├── na-*                     3 probes — na propagation
+│   ├── oca-*                    3 probes — OCA group cancel/reduce/none
+│   ├── session-*                3 probes — session() / TZ / DST
 │   ├── input-*                  2 probes — input.source runtime override / subscript
-│   ├── cap-*                    2 probes — intraday cap (max_intraday_filled_orders)
-│   ├── barstate-*               2 probes — barstate.* checks
+│   ├── ltf-*                    2 probes — request.security_lower_tf arrays
+│   ├── recompute-*              2 probes — calc_on_every_tick / TA recompute
 │   ├── vwap-*                   2 probes — VWAP band pricing / fills
+│   ├── array-*                  1 probe  — array lifecycle and iteration
+│   ├── bands-*                  1 probe  — statistical-band behavior
+│   ├── calendar-*               1 probe  — calendar filters
+│   ├── control-*                1 probe  — explicit control-flow behavior
+│   ├── enum-*                   1 probe  — enum type and input selection
+│   ├── map-*                    1 probe  — map collection behavior
+│   ├── math-*                   1 probe  — explicit math and loop behavior
 │   ├── risk-*                   1 probe  — risk gates / limits
 │   ├── stats-*                  1 probe  — performance stats / reporting
+│   ├── syntax-*                 1 probe  — scalar and switch semantics
 │   ├── timeframe-*              1 probe  — script_tf/input_tf timeframe handling
+│   ├── volume-*                 1 probe  — volume-flow behavior
 │   ├── anomaly-*                1 probe  — documented TV non-determinism
 │   └── symbol-specified/       (excluded from sweep) 5 stock probes pending pineforge-data
 ├── draft-probes/               staged probes pending TV capture (excluded from sweep; own README)
@@ -114,7 +134,7 @@ corpus/
 └── validation_report.{html,pdf}   rendered from .md
 ```
 
-Total: **252** probes.
+Total: **282** probes.
 
 ## Naming convention
 
@@ -124,7 +144,7 @@ Every probe directory follows:
 <category>-<descriptive-slug>-NN[a-z]?
 ```
 
-- **`<category>`** — one of the 24 surface categories below. The category
+- **`<category>`** — one of the 33 surface categories below. The category
   is the engine surface or PineScript feature the probe is built to
   exercise.
 - **`<descriptive-slug>`** — kebab-case description of the specific
@@ -137,38 +157,47 @@ Every probe directory follows:
   `barstate-isconfirmed-magnifier-on-01a` vs
   `…-magnifier-off-01b`).
 
-The 24 categories (with probe counts):
+The 33 categories (with probe counts):
 
 | Category    | Count | Surface exercised                                          |
 | ----------- | ----: | ---------------------------------------------------------- |
-| `ta`        |    61 | TA built-in math (rsi, macd, sma, hma, …)                  |
-| `composite` |    52 | Multi-surface integration probes (community-style scripts) |
-| `order`     |    40 | Entry/exit/cancel order placement                          |
-| `udt`       |    22 | User-defined types + methods                               |
-| `mtf`       |    16 | `request.security` regular HTF                             |
-| `bracket`   |    13 | TP/SL via `strategy.exit` / `strategy.order`               |
-| `matrix`    |     6 | `matrix<T>` typed and generic                              |
-| `analyzer`  |     6 | Engine analyzer / parity isolation                         |
+| `ta`        |    62 | TA built-in math (rsi, macd, sma, hma, …)                  |
+| `composite` |    53 | Multi-surface integration probes (community-style scripts) |
+| `order`     |    46 | Entry/exit/cancel order placement                          |
+| `udt`       |    23 | User-defined types + methods                               |
+| `mtf`       |    18 | `request.security` regular HTF                             |
+| `bracket`   |    16 | TP/SL via `strategy.exit` / `strategy.order`               |
+| `analyzer`  |     7 | Engine analyzer / parity isolation                         |
+| `matrix`    |     7 | `matrix<T>` typed and generic                              |
 | `drawing`   |     6 | Drawing objects as data (`line`, `box`, `chart.point`)      |
-| `pyramid`   |     4 | `pyramiding=N`                                             |
+| `pyramid`   |     5 | `pyramiding=N`                                             |
+| `barstate`  |     3 | `barstate.*` checks                                        |
+| `cap`       |     3 | Intraday risk caps                                         |
 | `oca`       |     3 | OCA group cancel / reduce / none                           |
 | `magnifier` |     3 | `bar_magnifier` sub-bar walks                              |
-| `session`   |     2 | `session()` / TZ / DST                                     |
-| `recompute` |     2 | `calc_on_every_tick` / TA recompute                        |
-| `na`        |     2 | `na` propagation                                           |
+| `na`        |     3 | `na` propagation                                           |
+| `session`   |     3 | `session()` / TZ / DST                                     |
 | `ltf`       |     2 | `request.security_lower_tf` arrays                         |
 | `input`     |     2 | `input.source` runtime override / subscript                |
-| `cap`       |     2 | Intraday cap (`max_intraday_filled_orders`)                |
-| `barstate`  |     2 | `barstate.*` checks                                        |
+| `recompute` |     2 | `calc_on_every_tick` / TA recompute                        |
 | `vwap`      |     2 | VWAP band pricing / fills                                  |
+| `array`     |     1 | Array lifecycle and iteration                              |
+| `bands`     |     1 | Statistical-band behavior                                  |
+| `calendar`  |     1 | Calendar filters                                           |
+| `control`   |     1 | Explicit control-flow behavior                             |
+| `enum`      |     1 | Enum type and input selection                              |
+| `map`       |     1 | Map collection behavior                                    |
+| `math`      |     1 | Explicit math and loop behavior                            |
 | `risk`      |     1 | risk gates / limits                                        |
 | `stats`     |     1 | performance stats / reporting                              |
+| `syntax`    |     1 | Scalar and switch semantics                                |
 | `timeframe` |     1 | script_tf/input_tf timeframe handling                      |
+| `volume`    |     1 | Volume-flow behavior                                       |
 | `anomaly`   |     1 | Documented TV non-determinism                              |
 
 (The `symbol-specified/` subtree — 5 stock probes needing per-symbol OHLCV
 and SymInfo overrides — is excluded from the default sweep pending
-pineforge-data integration; it is not counted in the 252.)
+pineforge-data integration; it is not counted in the 282.)
 
 ## Where the numbers come from
 
