@@ -1,0 +1,48 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Owned Strategy: Eigen Matrix Covariance
+// Principal variance concentration classifies a two-factor market regime.
+strategy("PineForge — Eigen Matrix Covariance", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.fixed, default_qty_value=2,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+covarianceLength = input.int(26, "Covariance Length", minval=5, group="Factors")
+trendLength = input.int(58, "Trend EMA Length", minval=5, group="Trend")
+minimumConcentration = input.float(1.28, "Minimum Principal Eigenvalue", minval=1.0, maxval=2.0, step=0.01, group="Factors")
+atrLength = input.int(19, "ATR Length", minval=2, group="Risk")
+maximumAtrLoss = input.float(2.6, "Maximum ATR Loss", minval=0.5, step=0.1, group="Risk")
+
+priceReturn = ta.roc(close, 1)
+volumeReturn = ta.roc(volume, 1)
+factorCorrelation = ta.correlation(priceReturn, volumeReturn, covarianceLength)
+safeCorrelation = nz(factorCorrelation, 0.0)
+
+var matrix<float> correlationMatrix = matrix.new<float>(2, 2, 0.0)
+correlationMatrix.set(0, 0, 1.0)
+correlationMatrix.set(0, 1, safeCorrelation)
+correlationMatrix.set(1, 0, safeCorrelation)
+correlationMatrix.set(1, 1, 1.0)
+
+eigenValues = correlationMatrix.eigenvalues()
+firstEigenvalue = array.size(eigenValues) > 0 ? array.get(eigenValues, 0) : na
+secondEigenvalue = array.size(eigenValues) > 1 ? array.get(eigenValues, 1) : na
+principalEigenvalue = math.max(firstEigenvalue, secondEigenvalue)
+trendLine = ta.ema(close, trendLength)
+atrValue = ta.atr(atrLength)
+
+enterLong = not na(principalEigenvalue) and ta.crossover(principalEigenvalue, minimumConcentration) and close > trendLine
+regimeEnded = principalEigenvalue < 1.08 or close < trendLine
+riskExceeded = strategy.position_size > 0 and close < strategy.position_avg_price - atrValue * maximumAtrLoss
+
+if strategy.position_size == 0 and enterLong
+    strategy.entry("Eigen Long", strategy.long)
+else if strategy.position_size > 0 and (regimeEnded or riskExceeded)
+    strategy.close("Eigen Long", comment=riskExceeded ? "ATR risk" : "Eigen regime")
+
+plot(trendLine, "Trend EMA", color=color.orange)
+plot(principalEigenvalue, "Principal Eigenvalue", color=color.purple, display=display.data_window)

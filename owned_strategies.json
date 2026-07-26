@@ -1,0 +1,2503 @@
+{
+  "corpus": {
+    "owned_addition_count": 60,
+    "pre_expansion_baseline_count": 252,
+    "tier_distribution": {
+      "anomaly": 1,
+      "excellent": 307,
+      "strong": 4
+    },
+    "total_strategy_count": 312
+  },
+  "coverage": {
+    "owned_category_counts": {
+      "adaptive_trend": 1,
+      "bracket_revision": 1,
+      "breakout": 2,
+      "breakout_retest": 1,
+      "calendar_momentum": 1,
+      "cash_sizing": 1,
+      "configurable_filter": 1,
+      "confirmed_trend": 1,
+      "covariance_regime": 1,
+      "cycle_trend": 1,
+      "daily_reference": 1,
+      "directional_regime": 1,
+      "dst_session": 1,
+      "fill_recalculation": 1,
+      "mean_reversion": 2,
+      "momentum": 1,
+      "momentum_rank": 1,
+      "multi_factor": 1,
+      "multi_horizon_confirmation": 1,
+      "multi_timeframe_trend": 1,
+      "multi_timeframe_volatility": 1,
+      "nonlinear_trend": 1,
+      "parabolic_rotation": 1,
+      "partial_market_exit": 1,
+      "pullback": 1,
+      "rank_oscillator": 1,
+      "regime_switch": 1,
+      "regime_weighting": 1,
+      "robust_momentum": 1,
+      "rolling_state": 1,
+      "same_bar_market_exit": 1,
+      "selectable_regime": 1,
+      "session_momentum": 1,
+      "session_risk": 1,
+      "smoothed_impulse": 1,
+      "state_lookup": 1,
+      "text_configuration": 1,
+      "time_exit": 1,
+      "timeframe_adaptation": 1,
+      "trade_feedback": 1,
+      "trend": 1,
+      "trend_exit_management": 1,
+      "trend_filter": 1,
+      "trend_impulse": 1,
+      "trend_pullback": 1,
+      "trend_state": 1,
+      "typed_control_flow": 1,
+      "typed_dispatch": 1,
+      "typed_factory": 1,
+      "typed_iteration": 1,
+      "typed_multi_return": 1,
+      "volatility_breakout": 1,
+      "volatility_regime": 1,
+      "volume_confirmation": 1,
+      "volume_flow": 1,
+      "volume_regime": 1,
+      "volume_weighted_trend": 1,
+      "weighted_breakout": 1
+    },
+    "owned_unique_marginal_feature_count": 112,
+    "qualification": "Measured only for the declared feature tags in these 60 owned strategies; this is not a claim of complete PineScript coverage."
+  },
+  "entries": [
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "cec146855c4541feffea88ec99915b339b14f9e79648075aa92eaad23c96c165",
+        "generated_cpp_sha256": "377603c3d18214dc844df34af2d80787619e27d055bf93728304cab14d40b6b1",
+        "inputs_sha256": "629692bc2f5161b978b89fc1d45ce970939ffbd879c940b8229d8bb642ff106d",
+        "readme_sha256": "2f0ad660f3c10b04b6277d6b2e45e6ea1f9ee54ed6990f6205e00b426ee7cbeb",
+        "source_sha256": "db1089ef5b11ec2470cf84d8e3232c3927f0ddb2b8238b87d4946637ae45e4f8",
+        "tradingview_trade_export_sha256": "0ba015ccb9e98cc24d1eff1a5c6ac87965e09751f6c96cd03cf6e1b23b7e7653"
+      },
+      "batch": 1,
+      "category": "trend_filter",
+      "corpus_id": "analyzer-anvil-percent-costs-01",
+      "features": [
+        "cost.commission_percent",
+        "cost.slippage_ticks",
+        "cost.initial_capital_override",
+        "cost.currency_override",
+        "sizing.percent_of_equity",
+        "order.market_entry",
+        "ta.sma"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 325,
+        "gated_engine_count": 325,
+        "gated_tv_count": 325,
+        "matched_count": 325,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 325
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "cost.commission_percent",
+        "cost.slippage_ticks",
+        "cost.initial_capital_override",
+        "cost.currency_override"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "5a7c3889dc631ee9a348bdcfc2d7a4b94ab0c2ba76d9d99e361a36c564d067ef",
+        "generated_cpp_sha256": "57ebc705d85a95df27a0a561170d15d2b81e9350f165dedf594e7a6d71be695b",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "24f3f28ab2612a2d3d9ba2e2f0690f94ba91ab0e211d7d9a4bd9f8c9253aa2ae",
+        "source_sha256": "49bad327f6cd68257804d0a791489eff23c71500bed382426e1ed4a4aa219812",
+        "tradingview_trade_export_sha256": "43d064e6332b69e6b305c9a1dcdb71b45a3a885b98a278f25b91791b494ab8e1"
+      },
+      "batch": 3,
+      "category": "cash_sizing",
+      "corpus_id": "analyzer-cashflow-cash-costs-01",
+      "features": [
+        "sizing.cash",
+        "cost.cash_per_contract",
+        "order.market_entry",
+        "order.market_close",
+        "cost.initial_capital_override"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 316,
+        "gated_engine_count": 316,
+        "gated_tv_count": 316,
+        "matched_count": 316,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 316
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "sizing.cash",
+        "cost.cash_per_contract"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "0c8fdf9910c389eed06908c16c46487caf4a7cf27cf0bdfc944c4eedecd0ce5a",
+        "generated_cpp_sha256": "27b033f25eb156719200c82afdac4e4cef30433b9a8af47f1c41ef131319829f",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "975501184d45d683ad36a1691a595aa0ebcc3ac3fbe6cf00453e354c13c7331c",
+        "source_sha256": "82649895e42511fe14a526dfdb84386e492bcd1540e3d69ff60758baebc66946",
+        "tradingview_trade_export_sha256": "1e2f430972e10cc49e31981c0aeb40d8403ea692a2ba18753370839f8a895f07"
+      },
+      "batch": 2,
+      "category": "momentum_rank",
+      "corpus_id": "array-atlas-momentum-rotation-01",
+      "features": [
+        "syntax.array",
+        "syntax.for_loop",
+        "ta.percentrank",
+        "order.market_entry",
+        "ta.rsi"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 930,
+        "gated_engine_count": 930,
+        "gated_tv_count": 930,
+        "matched_count": 930,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 930
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.array",
+        "syntax.for_loop",
+        "ta.percentrank"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "aad6d9e0934d55847034607bb68ca4e8ac117f4bb50ba98bdfe79027dde121a8",
+        "generated_cpp_sha256": "a90e8bd3c4ce342b2d771bf8ea59b79b29a04fd560a445d6bd16ba130786fd64",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "c6127b8ece574fb5ceecf37aa563a4370f062ae2e84c2f442a073a6caf7d9a0a",
+        "source_sha256": "ae487a1d574f83c64708a67f97f11b58cf238de27b2b81701fb2ac3345946579",
+        "tradingview_trade_export_sha256": "7e2e1201f4623dd03bf9020dc7ae4a56384d435ea1b2fd7b87580994d611477c"
+      },
+      "batch": 2,
+      "category": "rolling_state",
+      "corpus_id": "array-spectrum-deque-01",
+      "features": [
+        "syntax.for_in_loop",
+        "syntax.array",
+        "syntax.array_push",
+        "syntax.array_shift",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 581,
+        "gated_engine_count": 581,
+        "gated_tv_count": 581,
+        "matched_count": 581,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 581
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.for_in_loop"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "4085befc121df4c6d2d1fc46fca9c804e24ee437136d23303386fa952f42cf4d",
+        "generated_cpp_sha256": "615128efc046fa375b795ac6c4a1f592b1fc98f81b19f305d3657dfc22850921",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "cfb6e12ee73b4c29e79799078b7aa9ad5ec6b48904e9a9b768b20728cbc0afe8",
+        "source_sha256": "72e9cab52e1e112f9d16b277a51fff36e6f091a14edbe0fa064c26aca7b89f6f",
+        "tradingview_trade_export_sha256": "906f789562156055cd727ee04815daf7f5831cb08d999c138afd8574a7a607da"
+      },
+      "batch": 2,
+      "category": "mean_reversion",
+      "corpus_id": "bands-constellation-mean-reversion-01",
+      "features": [
+        "ta.bb",
+        "ta.stdev",
+        "syntax.tuple_destructure",
+        "order.market_entry",
+        "risk.profit_target"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 779,
+        "gated_engine_count": 779,
+        "gated_tv_count": 779,
+        "matched_count": 779,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 779
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.bb",
+        "ta.stdev"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "cfa6b27c1e6504311a2ed6db433cabc3731e883a3c4762fa77acea10b4f664a6",
+        "generated_cpp_sha256": "7a2bd08fc4c50c45fe2ec6bd38564705166d8b6535547aae8a97a3c2e9a60ab6",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "69e0ac9109457b88ed66bfee3a95958dc7d1287c2d452ac656d265eda70c14bd",
+        "source_sha256": "c0679fd7d0fdc823255d93a8ac099c263cfc7ffc871c248b32b9797b9a4f5925",
+        "tradingview_trade_export_sha256": "9b35cfab36118bdc36b43357b9cd8938529b5d4721f5ae200fd80eea84d6b180"
+      },
+      "batch": 3,
+      "category": "confirmed_trend",
+      "corpus_id": "barstate-lattice-confirmed-pivot-01",
+      "features": [
+        "barstate.isconfirmed",
+        "syntax.input_bool",
+        "order.market_entry",
+        "order.market_close",
+        "ta.ema",
+        "ta.rsi",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 368,
+        "gated_engine_count": 368,
+        "gated_tv_count": 368,
+        "matched_count": 368,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 368
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "barstate.isconfirmed",
+        "syntax.input_bool"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "c32bc63994e3be920a0f7367224972946f536257fdbf91e66e09e53aa52a8687",
+        "generated_cpp_sha256": "bd9a5bc22247389094b3ebc7e899ca57da5b4e790c2aab4f4b769103eaec8a42",
+        "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
+        "readme_sha256": "f2aff6453d22e120d3e0e1d31e5d560bea0d4a352d81e77afa660b62525f25c3",
+        "source_sha256": "516965fc2dfd71cdac485321adc793c2e2b8f44f32c51b327523be2029ff3d16",
+        "tradingview_trade_export_sha256": "1befa049ddc7b258cd4d40749864ee9478d0ddfc0ab94d97587883a30e03934f"
+      },
+      "batch": 1,
+      "category": "trend",
+      "corpus_id": "bracket-aurora-market-atr-01",
+      "features": [
+        "order.bracket_exit",
+        "ta.ema",
+        "ta.atr",
+        "risk.atr_stop",
+        "order.market_entry",
+        "sizing.percent_of_equity",
+        "risk.profit_target"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 843,
+        "gated_engine_count": 843,
+        "gated_tv_count": 843,
+        "matched_count": 843,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 843
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.bracket_exit",
+        "ta.ema",
+        "ta.atr",
+        "risk.atr_stop"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "08c6e02c6d9ef684f086ec01e3e77255a4eef27d64adce20b07ed20151b266c7",
+        "generated_cpp_sha256": "9451096d2808462fdda7e246e50f49fc80f79d9c8fcc2441f75dcba1177815ec",
+        "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
+        "readme_sha256": "c60823975178cd7266e5363784822834ba0d3119e5db96e0a1607a1cd966c697",
+        "source_sha256": "4f36dd0c9737d461370cb619ad82be0251b1a31ce840dcc26c10a998be189bb3",
+        "tradingview_trade_export_sha256": "ae89807e40960b20d02423e6489b951a198fb01f8a278692a426db283e2bb53a"
+      },
+      "batch": 3,
+      "category": "trend_exit_management",
+      "corpus_id": "bracket-compass-partial-ladder-01",
+      "features": [
+        "order.partial_exit",
+        "order.bracket_exit",
+        "risk.profit_target",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 0.9976076555023924,
+        "engine_raw_count": 418,
+        "gated_engine_count": 417,
+        "gated_tv_count": 417,
+        "matched_count": 417,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 418
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.partial_exit"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "4cc203726d2c8af8567efba00cad9742d22be5ead6404cf8570b4fdea92731d3",
+        "generated_cpp_sha256": "e2da4d9468765e8c68bc7f2d4aa5014f7855bb87a20288cb4e39e33936fe55bd",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "eee1c5c883a05d6ac07f49b2642517391d6bf4ce701e5021a057ce2c9f17e5e2",
+        "source_sha256": "5008c3e960e8213edeb5b1f0e6228b84b68ee63352ad24763242c16b0860f91c",
+        "tradingview_trade_export_sha256": "df551212b59232f4ffd522e38d10319d47c99a385c93d70f87696e8662b14e7f"
+      },
+      "batch": 3,
+      "category": "bracket_revision",
+      "corpus_id": "bracket-revision-exit-replace-01",
+      "features": [
+        "order.same_id_exit_replacement",
+        "order.market_entry",
+        "order.bracket_exit",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 335,
+        "gated_engine_count": 335,
+        "gated_tv_count": 335,
+        "matched_count": 335,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 335
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.same_id_exit_replacement"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "043a7ef7ada0cbf42b1d3496ab2b6f2e542cd9f45e769298133295a1a6d74fe1",
+        "generated_cpp_sha256": "fdacd9b15b90a0929bbfecbc98c3873b7e376bf60664979961784310dc75b268",
+        "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
+        "readme_sha256": "df32d9e8e976ee9440627352643e722addf8f9976b0d794ac7119e2c987dc9dc",
+        "source_sha256": "5d66eedfd5bff3166526dfb3375a78eec54b9e3e9071791850a41a76ce5d69e2",
+        "tradingview_trade_export_sha256": "dd681d3722e835e1739429eaebd98250beb77e65cfd6a55fdd9a3f51a417e6f8"
+      },
+      "batch": 3,
+      "category": "fill_recalculation",
+      "corpus_id": "bracket-rivet-calc-on-fill-01",
+      "features": [
+        "order.calc_on_order_fills",
+        "order.same_bar_exit_attachment",
+        "order.process_orders_on_close_true",
+        "order.bracket_exit"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 541,
+        "gated_engine_count": 541,
+        "gated_tv_count": 541,
+        "matched_count": 541,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 541
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.calc_on_order_fills",
+        "order.same_bar_exit_attachment"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "fb6c40defc10bb3eded92ab2088f608d25595cdde3c39986fde64e49f9fb9478",
+        "generated_cpp_sha256": "85cd534687894d60cfeb5e76d70fb2094aea30ac31a0183ffe7ea2eb59c4698d",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "437d9af4b0e06508102059ccf313135d1f833d59afd080b94ec89a85e3c1c2b7",
+        "source_sha256": "97011c15a4679fbe88834030c6609c21aae7d6404521200028e422d51458702d",
+        "tradingview_trade_export_sha256": "2c987dfea5dc5a6dba0ccd29fea88f1136f9e034ee4c2d6b6a006aea8afada55"
+      },
+      "batch": 2,
+      "category": "calendar_momentum",
+      "corpus_id": "calendar-waypoint-weekday-macd-01",
+      "features": [
+        "ta.macd",
+        "time.calendar",
+        "syntax.tuple_destructure",
+        "order.market_entry",
+        "order.market_close",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 2165,
+        "gated_engine_count": 2165,
+        "gated_tv_count": 2165,
+        "matched_count": 2165,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 2165
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.macd",
+        "time.calendar"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "1b623a1b9cd9860a97a251209355109be60031c4864e5a820aa4fa32ceb76e82",
+        "generated_cpp_sha256": "7734b254a786c84508faf4f94033aa500f189ee644c0eedcebe745971e0d662e",
+        "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
+        "readme_sha256": "fa373c42ecb69c5583e0164a9149a82bbf226f060d361fe58bc2aecab2326376",
+        "source_sha256": "bdbabb1d79b6a761b83e348e6671ae8851c8d8d77171d66561caa4d58b3636d6",
+        "tradingview_trade_export_sha256": "ca9639dd572ea00c747763b9ac2d790e5d71abd9a3987aeddde0f3db62af44a3"
+      },
+      "batch": 3,
+      "category": "session_risk",
+      "corpus_id": "cap-gatekeeper-intraday-risk-01",
+      "features": [
+        "order.risk_intraday_cap",
+        "time.timeframe_change",
+        "time.session",
+        "order.process_orders_on_close_true",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 302,
+        "gated_engine_count": 302,
+        "gated_tv_count": 302,
+        "matched_count": 302,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 302
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.risk_intraday_cap",
+        "time.timeframe_change"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "c8251dffeb7ff61c947e5419d33f8b841bf1d9368c2c4b38f43d5b2453c823bc",
+        "generated_cpp_sha256": "89d3eaecf7a61a4378570fc9dd1124f4b8081d77b9f688cff42fe0cffda2b9d9",
+        "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
+        "readme_sha256": "0d4dafeacb873999e573348f67cbf071b07af47d80192a250391a2d01ecb7636",
+        "source_sha256": "a90d6029884b028c4cf6acc2b3d08efd1d9dff7ef80c3a796a3dc14f3f6c3b88",
+        "tradingview_trade_export_sha256": "099fa32782538ff268f2d31b3735a640648f471cf79a0424997bd78d221d7aeb"
+      },
+      "batch": 1,
+      "category": "volatility_regime",
+      "corpus_id": "composite-keystone-udf-tuple-01",
+      "features": [
+        "syntax.typed_udf",
+        "syntax.tuple_return",
+        "syntax.tuple_destructure",
+        "order.market_entry",
+        "ta.atr",
+        "ta.ema"
+      ],
+      "native_validation": {
+        "coverage": 0.999,
+        "engine_raw_count": 670,
+        "gated_engine_count": 670,
+        "gated_tv_count": 670,
+        "matched_count": 669,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 670
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.typed_udf",
+        "syntax.tuple_return",
+        "syntax.tuple_destructure"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "45403ad14cc5126f0bd53c7854f099884fccf7dc9278c18904a7c2789258cd18",
+        "generated_cpp_sha256": "b47d96190321cc450124fe58a5657eb4b3e33943049be6993368054e1223ebfe",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "f68269e8625a6d5f4c3cb8efc5aec9d2922e23306ce16081670607e0a2eaa951",
+        "source_sha256": "858fdd8d3e1858596626955f87713ed69a5c9b5b885e680acfa86429aaa0004f",
+        "tradingview_trade_export_sha256": "44117bd63be4fece99616da11b4f429e89642ecb79a5d939c9962d9e93617fe3"
+      },
+      "batch": 3,
+      "category": "weighted_breakout",
+      "corpus_id": "control-heliograph-while-channel-01",
+      "features": [
+        "syntax.while_loop",
+        "syntax.history_reference",
+        "order.market_entry",
+        "order.market_close",
+        "ta.stdev",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 905,
+        "gated_engine_count": 905,
+        "gated_tv_count": 905,
+        "matched_count": 905,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 905
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.while_loop"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "ee79480387afc3d5a9cf4d75eb517b7fbbf8ce189dbefa2864f08f42d8bfa04a",
+        "generated_cpp_sha256": "33c24915333d3f2d7bece7879cc019c6fff4aaac5f2be63454c921534316e674",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "3945663009c093a8615986de922033f083bdd7ed562ccfffa9d35db5355edbc3",
+        "source_sha256": "f9bc1ae08ecc9528dbbebac31e7adb7301795afd67dc648b7f69ba6d29a067d1",
+        "tradingview_trade_export_sha256": "7eb80e0a7e966c688e9246441acc0c34ae899802252100df8c2af8789f38dc49"
+      },
+      "batch": 3,
+      "category": "selectable_regime",
+      "corpus_id": "enum-relay-regime-01",
+      "features": [
+        "syntax.enum",
+        "syntax.input_enum",
+        "order.market_entry",
+        "order.market_close",
+        "ta.ema",
+        "ta.rsi",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 447,
+        "gated_engine_count": 447,
+        "gated_tv_count": 447,
+        "matched_count": 447,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 447
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.enum",
+        "syntax.input_enum"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "36cd2afe5013b14bb0d30a66d0dcdf56600eb4972a343f02a0cb25b3971242fe",
+        "generated_cpp_sha256": "31005cc6211d27da33ae213095bde7f5f501f4047e9124855fe9b2282b2a11f5",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "13e96de98a80c1da4f797197074dfd5fc059d08f314a43110a30a83601eb16d3",
+        "source_sha256": "136b92aa58c32cce1e4b3c807f4cd7a001cf4d10992e2cb9d74faceb38d1a4ee",
+        "tradingview_trade_export_sha256": "93691208cf648fb1728a141b38c7d1092ffd3210ffe838846f1139c2cf7eb44f"
+      },
+      "batch": 2,
+      "category": "state_lookup",
+      "corpus_id": "map-archive-presence-01",
+      "features": [
+        "syntax.map_contains",
+        "syntax.map",
+        "syntax.scalar_string",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 0.9988317757009346,
+        "engine_raw_count": 856,
+        "gated_engine_count": 855,
+        "gated_tv_count": 855,
+        "matched_count": 855,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 856
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.map_contains"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "aa3289ab4085aefb25e6221c7f5688b2b1bfa598921204348e927bd41a2b60d4",
+        "generated_cpp_sha256": "8699c5a8e4e52cf41e3db82b65540caa0891cad6b8b52264709acb834c221d60",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "c61472c88f2fa43d00f46cc0e266b6c50542bb1c522cf45f5c9ac37484728e41",
+        "source_sha256": "6f3756079fb7cac811a30bb8aa70ef7659de270f3cb7d21d078b50adf56a62f7",
+        "tradingview_trade_export_sha256": "08991b9c1dffea5202431869e99e446d7cc2b66582abb3df3dac899b97f870da"
+      },
+      "batch": 2,
+      "category": "regime_weighting",
+      "corpus_id": "map-mosaic-regime-weight-01",
+      "features": [
+        "syntax.map",
+        "syntax.scalar_string",
+        "order.market_entry",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 836,
+        "gated_engine_count": 836,
+        "gated_tv_count": 836,
+        "matched_count": 836,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 836
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.map"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "f9171721f5fcdd5409ccfc28a2dbc7d124e7a6ee9d07406f121359fdb78af929",
+        "generated_cpp_sha256": "188af762876edbe6cc48de6f5169f0e0ffa14b0303da2d684a2bacd02f36e70f",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "34a095adb6e1396093aa18ca807f721f5ee8b08c503893c7796b87f89795f2b8",
+        "source_sha256": "51f418f77cf3394fc87348be2560777977a499d9211b2f75b0d0c6801b99d42d",
+        "tradingview_trade_export_sha256": "cb09b4ab68d4fc309aa7284d84c64a43675deff6359ddff993e473d62048c450"
+      },
+      "batch": 2,
+      "category": "breakout",
+      "corpus_id": "math-forge-log-channel-01",
+      "features": [
+        "math.log",
+        "math.min_max",
+        "syntax.for_loop",
+        "order.market_entry",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 813,
+        "gated_engine_count": 813,
+        "gated_tv_count": 813,
+        "matched_count": 813,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 813
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "math.log",
+        "math.min_max"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "574f1d41840584af2bc26489dc49df4e420a933d4c205ceffaa80deb3a3e3d2d",
+        "generated_cpp_sha256": "a026218473004af2a1034ef055e0d334e3ec4b89aaaf33db4244ab79024d00ea",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "a0d1043429dcc01a61f37ed6cf98d5240ef08dfe9f2ccf3879b6dd3643bc3167",
+        "source_sha256": "5d247c848b05577221dc7d5758b9d96966afed19b58a052f0c7ae7dc92192e46",
+        "tradingview_trade_export_sha256": "65f9d43bdeea839346e7a5dc84cd82a2d2500c5c17bdb3db56164f1a09f0e1ed"
+      },
+      "batch": 1,
+      "category": "nonlinear_trend",
+      "corpus_id": "math-kiln-power-efficiency-01",
+      "features": [
+        "math.pow",
+        "order.market_entry",
+        "order.market_close",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 28,
+        "gated_engine_count": 28,
+        "gated_tv_count": 28,
+        "matched_count": 28,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 28
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "math.pow"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "fc5f6039caeb14912e967468e8a08dc7db9b61bad18f5c5a1b87588c65f1585c",
+        "generated_cpp_sha256": "2a2271cee4962f29d46e8c4f7a56c390149b376d795109a82c68f42ac23a2931",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "e828c5b86dfdd0eabdf0d1568b0827cb7cdf2338aeededbcedd44140d72ecdc3",
+        "source_sha256": "cdd7ff640d2ae3afc1597587e9e592e0f55a7bfe3b6fb87b2dcaea9a42f79d52",
+        "tradingview_trade_export_sha256": "696ffb4e10f4b8aa1e39922b926632a1622176713971488473d8039606a234cb"
+      },
+      "batch": 2,
+      "category": "multi_horizon_confirmation",
+      "corpus_id": "matrix-cadence-transpose-pairs-01",
+      "features": [
+        "syntax.matrix_transpose",
+        "syntax.matrix",
+        "syntax.for_loop",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 2358,
+        "gated_engine_count": 2358,
+        "gated_tv_count": 2358,
+        "matched_count": 2358,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 2358
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.matrix_transpose"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "b007629008f878a39f08ca33456dcd793e4adef24dd9d69368437d1e7049c13b",
+        "generated_cpp_sha256": "57e71270f00c3b373e18f08a4869c1e6ac8b1f2ef1397d7207cf39d892fa9264",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "4404f08456f89fc24262bc3a3804dedde6608d759c512458f5a45b10c96a4690",
+        "source_sha256": "cb84504d7a7dde802f8400dd9a8d31dfebb99571533bc0ab7dc75c936f4cac40",
+        "tradingview_trade_export_sha256": "d7aec563d5ab567010bf0220ff8cf637d99a99344b47aae79aeb4408ddd0778a"
+      },
+      "batch": 2,
+      "category": "covariance_regime",
+      "corpus_id": "matrix-eigen-covariance-01",
+      "features": [
+        "syntax.matrix_eigenvalues",
+        "syntax.matrix",
+        "math.sqrt",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 542,
+        "gated_engine_count": 542,
+        "gated_tv_count": 542,
+        "matched_count": 542,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 542
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.matrix_eigenvalues"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "2ea6a9b215e7cf208db9f5f020783d64912b807ab5455a37b0ff661aff6250e1",
+        "generated_cpp_sha256": "d8440a5b2f20e4a1aa9bbabb8a7e64ae8ba6a29c9543f3d63313d0468c94f01a",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "42d2a7aad33a6f093075817e08f4c9bc344e8abc55097e7be7601cf0a8ce79d6",
+        "source_sha256": "4053d7b336677f8cec18f7836453cd16d059b2cb45ea0c6e8cc75561e008a0e2",
+        "tradingview_trade_export_sha256": "e5d9d7fa9f388963002cd3db00c812ef667c75bbf8f8ef5888ed5a97e4160624"
+      },
+      "batch": 2,
+      "category": "multi_factor",
+      "corpus_id": "matrix-prism-factor-vote-01",
+      "features": [
+        "syntax.matrix",
+        "syntax.for_loop",
+        "order.market_entry",
+        "ta.ema",
+        "ta.rsi"
+      ],
+      "native_validation": {
+        "coverage": 0.9993122420907841,
+        "engine_raw_count": 1454,
+        "gated_engine_count": 1453,
+        "gated_tv_count": 1453,
+        "matched_count": 1453,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1454
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.matrix"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "606e8e1dbd4d89768fc37f4f2c41e0cd7a62228b413bbdffcae22ab44b0193cd",
+        "generated_cpp_sha256": "bd6a720fb8e3267981c5733a30651a4418f45b231d1dd6d93810f04d7e2627c2",
+        "inputs_sha256": "21e2a1ca27953fd247cb6c75b5eaba08025a3158280aabbc01078359e78d284a",
+        "readme_sha256": "c94314b52c1de311e32e83a5da23ac194f6aba9eaa4a6a081937ba1d4022419d",
+        "source_sha256": "e314f3bd5d8a354f42fecb05928c7180204e1262d3d31199d4651aaeb903eb49",
+        "tradingview_trade_export_sha256": "19e37726ca66d0e8cfc92ac5cf35ea06b68bc1e356b21ca2e983ec8e8ac08a1c"
+      },
+      "batch": 3,
+      "category": "multi_timeframe_volatility",
+      "corpus_id": "mtf-cascade-tuple-01",
+      "features": [
+        "mtf.security_tuple",
+        "mtf.request_security",
+        "syntax.tuple_destructure",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 158,
+        "gated_engine_count": 158,
+        "gated_tv_count": 158,
+        "matched_count": 158,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 159
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "mtf.security_tuple"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "cce717989802ac3c8417b538bd92b0bf88a955a3926b3cfdee630f38ca74409c",
+        "generated_cpp_sha256": "3216549bebf34a094ce984b3717f67126c0e3c3a86912011f6fc17cfdd80aa29",
+        "inputs_sha256": "65b5f8c7f9e0810bd706d6736a64d8075933b79c966d1a2000da95446b6904d9",
+        "readme_sha256": "19fa2337b4c4bc8cbf5374bbbaf748a0a38bd4fd8e377c95b8a355d7748fc017",
+        "source_sha256": "858e2d627e7f8931aee99fdb5218b60fd57b7740fe5115c66ba2834ffc916bef",
+        "tradingview_trade_export_sha256": "aa5d96f38cda5fcdcdf741c28b59b4b431e18475fc96ca4ab0f1901ffaf4d177"
+      },
+      "batch": 3,
+      "category": "multi_timeframe_trend",
+      "corpus_id": "mtf-orbit-trend-01",
+      "features": [
+        "mtf.request_security",
+        "mtf.barmerge_gaps",
+        "mtf.lookahead_off",
+        "syntax.input_timeframe",
+        "order.market_entry",
+        "ta.ema"
+      ],
+      "native_validation": {
+        "coverage": 0.9965277777777778,
+        "engine_raw_count": 288,
+        "gated_engine_count": 288,
+        "gated_tv_count": 288,
+        "matched_count": 287,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 289
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "mtf.request_security",
+        "mtf.barmerge_gaps",
+        "mtf.lookahead_off",
+        "syntax.input_timeframe"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "59cd5fe241c4528f6ffafdad969905425cadcc90f0696a8de251756558661181",
+        "generated_cpp_sha256": "ad277c64851e561f0b3e880dbd0c08071d70195c2c874a143c99679491be4189",
+        "inputs_sha256": "e2a2388f86650f143fb5e26f6e62a2d44e958fb513f2682d4709024c4384f429",
+        "readme_sha256": "788731ca985a3db481aa900c15c0500622ee6bbaff1ed579cc08e20cdb905bbf",
+        "source_sha256": "1f10a0d09133a41293d7275440ece79bf155f26bc5154fd65eb05e55b6d0fdde",
+        "tradingview_trade_export_sha256": "9f71a3fc2ca14455ad320a15e4fe27b413709480d616cbd5445994fdd8ff698a"
+      },
+      "batch": 3,
+      "category": "daily_reference",
+      "corpus_id": "mtf-rangefinder-daily-reference-01",
+      "features": [
+        "mtf.history_inside_security",
+        "mtf.daily_timeframe",
+        "mtf.request_security",
+        "mtf.security_tuple",
+        "mtf.lookahead_off",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 109,
+        "gated_engine_count": 109,
+        "gated_tv_count": 109,
+        "matched_count": 109,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 109
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "mtf.history_inside_security",
+        "mtf.daily_timeframe"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "200a4f0c13b4033cb020e0c314d099483687ec693d4905e58a541e97befee103",
+        "generated_cpp_sha256": "afd1495c4cbf97888aa45678287cb3c7feb9f369a8bbd8ed073dd7cdd584cd07",
+        "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
+        "readme_sha256": "81d24517f78d2ffadbe9e054214202adb9444e2326c07117f8534282c39c2a74",
+        "source_sha256": "c915938ae8d7307faf5960962acdc529dfc4dafa0639c569845b1461e6f1765d",
+        "tradingview_trade_export_sha256": "31abc8c8702463e159b6b52926cebc2a088fb40c9989c5010a808bdfaf923500"
+      },
+      "batch": 1,
+      "category": "mean_reversion",
+      "corpus_id": "na-ledger-history-anchor-01",
+      "features": [
+        "syntax.history_reference",
+        "syntax.na",
+        "syntax.nz",
+        "syntax.fixnan",
+        "syntax.var_state",
+        "order.market_entry",
+        "ta.sma"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 228,
+        "gated_engine_count": 228,
+        "gated_tv_count": 228,
+        "matched_count": 228,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 228
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.history_reference",
+        "syntax.na",
+        "syntax.nz",
+        "syntax.fixnan",
+        "syntax.var_state"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "52d900030f17d953630b0ee326ef7553412635dcf1d46cef151dff313df75392",
+        "generated_cpp_sha256": "cfa1b761829b7546613aeae213da5c4201aa65e6f5885dcbbf90d742794b9a83",
+        "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
+        "readme_sha256": "4f2b6d74f58c3bba55b2bf72da5dad02efe6345fe9b4e5b2d277a2aa648063df",
+        "source_sha256": "c95f99b4d2fff57b5d87537825aa07eae96a7972a9301b5f3bc194d834a9856c",
+        "tradingview_trade_export_sha256": "b01a58765e10b0b8007debaa9628b42061cc6ca7439c7b7052d6b59fe4f6d7e7"
+      },
+      "batch": 1,
+      "category": "regime_switch",
+      "corpus_id": "order-crosscurrent-opposite-market-pair-01",
+      "features": [
+        "order.pending_opposite_market_pair_live_position",
+        "order.market_entry",
+        "order.market_close",
+        "ta.rsi"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 885,
+        "gated_engine_count": 885,
+        "gated_tv_count": 885,
+        "matched_count": 885,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 885
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.pending_opposite_market_pair_live_position"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "16fea1e333422b0bbad9f4b50ffe6cf0f8d1f6ce263a80ec166de208a951892c",
+        "generated_cpp_sha256": "50b1d228aff1a5ac4abe47b1eadff7af2427c2d9303c7e2d70e05a59409fd770",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "6bf1b7f52f78030e5cc6cb167af5bae164c2004ca841a0aa26c5bdd39d192772",
+        "source_sha256": "9d992ba34a6ae949483fe9998f02aeac657dd4ef789c676f987f3c31a6fbd2b9",
+        "tradingview_trade_export_sha256": "afc2cd33871e64ad8256c1eb124edacc1522e9cf612d74cb1877ffa75528f615"
+      },
+      "batch": 3,
+      "category": "same_bar_market_exit",
+      "corpus_id": "order-flashpoint-immediate-close-01",
+      "features": [
+        "order.strategy_close_immediately",
+        "order.market_entry",
+        "order.market_close",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 705,
+        "gated_engine_count": 705,
+        "gated_tv_count": 705,
+        "matched_count": 705,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 705
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.strategy_close_immediately"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "b68628056c3b6915d4f80ac2c9e34b84a1da1c7aecc0d9cdc8350d99ef508f00",
+        "generated_cpp_sha256": "103e076c5de46245fb8e126d936afc3627ad2dc9d87f1032a85c03b8afb30afe",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "887b83e87e87fb76fe792cd6b4eeb0f12699ac91a30949cafac8dbaabee4fb91",
+        "source_sha256": "fefe0b23991a7208188dd16ce916b91f995eba91259b09a93959f043eec8626e",
+        "tradingview_trade_export_sha256": "4fef771bbb87df11b84eb153c848e193266a733c6ffb4a6c37e029bf31aecc8c"
+      },
+      "batch": 2,
+      "category": "breakout_retest",
+      "corpus_id": "order-harbor-stop-limit-01",
+      "features": [
+        "order.stop_limit_entry",
+        "order.cancel",
+        "ta.highest_lowest",
+        "risk.time_exit"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 471,
+        "gated_engine_count": 471,
+        "gated_tv_count": 471,
+        "matched_count": 471,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 471
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.stop_limit_entry"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "7fb7e5d5879ff6bdbe607f281fce1883d46098778a5cb04803eff1bea9b04ec8",
+        "generated_cpp_sha256": "1cfb3b61faacfc114def8fc7daaf52c4eb9fae76d899c93d3f2309f07ba19565",
+        "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
+        "readme_sha256": "32dd690f4b006ba65cbaa390d3f1b4a742a564e11d206776855fa012ce68e352",
+        "source_sha256": "f5c864d778fb8519513677c319f6c2bf9aeb14dd71c699cc173d55e8cafe555a",
+        "tradingview_trade_export_sha256": "ba31ca983359e2968d8da9cef8b331b6a3f0dddbb7104c49e8f7a170064491e4"
+      },
+      "batch": 1,
+      "category": "time_exit",
+      "corpus_id": "order-horizon-next-bar-close-01",
+      "features": [
+        "order.process_orders_on_close_false",
+        "risk.time_exit",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 1144,
+        "gated_engine_count": 1144,
+        "gated_tv_count": 1144,
+        "matched_count": 1144,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1144
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.process_orders_on_close_false",
+        "risk.time_exit"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "2c3fad8b135af0cc47de8b07e8aa33a98d2dcda8ceeb552f381cc73571c45928",
+        "generated_cpp_sha256": "6bfd5eb273a950a647a073d30d3a322e257f44569e3ee4ade188fabb9c574312",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "e1bd0469894769048e5fc26f1761678b4644744e377ea9fd006537f3ce82cc95",
+        "source_sha256": "cafc2b52eefb207bcca91231f074d47ebf1decbd4b448a718ae0c65818f3d87c",
+        "tradingview_trade_export_sha256": "4f82bd271c71d302cb49a44bd52bcd1745ccde8aa9c3ef1052d88c716a05f33e"
+      },
+      "batch": 2,
+      "category": "pullback",
+      "corpus_id": "order-keystone-limit-replace-01",
+      "features": [
+        "order.limit_entry",
+        "order.same_id_replacement",
+        "order.cancel",
+        "ta.ema",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 686,
+        "gated_engine_count": 686,
+        "gated_tv_count": 686,
+        "matched_count": 686,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 686
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.limit_entry",
+        "order.same_id_replacement"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "272ee9f8b1acf3b836176aaa3ac6a1fc0d9d93cd977d2677c08a2f4484f330fb",
+        "generated_cpp_sha256": "4fa57c99896b40d4b5a8082e82c2bae7a8553f0d2ea23f12e1f83c0c2f025621",
+        "inputs_sha256": "43c6676d177fd268e772c0155292b0b044c762323a1aa1cc0f3d0008adbc6fb2",
+        "readme_sha256": "fbb28fe16125813ba1c34fbca232dc7ea34c73489d17fd9d160b012c88f8c4ca",
+        "source_sha256": "77027fec26840a4403914402ee01308f1b6b7d9471fdf65fe5be3d1fa9b24303",
+        "tradingview_trade_export_sha256": "29e9785d1eeb3548b5b51dfa133650b5db314f2064060ac427f2855748559c74"
+      },
+      "batch": 1,
+      "category": "momentum",
+      "corpus_id": "order-switchback-all-in-reversal-01",
+      "features": [
+        "order.reversal_omitted_qty_fill_time_guard",
+        "order.atomic_decline_close_leg",
+        "order.market_entry",
+        "ta.ema"
+      ],
+      "native_validation": {
+        "coverage": 0.9976689976689976,
+        "engine_raw_count": 429,
+        "gated_engine_count": 428,
+        "gated_tv_count": 428,
+        "matched_count": 428,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 430
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.reversal_omitted_qty_fill_time_guard",
+        "order.atomic_decline_close_leg"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "a991eeb48825f3215389d2885b3f118c2426711fa56089d22fcceb7ae08d8012",
+        "generated_cpp_sha256": "5b06b9078c3e2cda74f34971156a946ee2f83f39658843cc6aa001164b442a14",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "2d006d2d37c4a2b089df2608bacd23bce14fe3edfe56c0be3c9e959ad2200d00",
+        "source_sha256": "2b37a743e8d02872d267e96e1a701a6ff8c1e979d02a792dbbcab20605f1b0d2",
+        "tradingview_trade_export_sha256": "03d59e5cd2139b52c1bc2bab56dad7d1563156cb8661a8403059ac85fa6f0ccf"
+      },
+      "batch": 3,
+      "category": "partial_market_exit",
+      "corpus_id": "order-tranche-partial-market-close-01",
+      "features": [
+        "order.strategy_close_qty_percent",
+        "order.market_entry",
+        "order.market_close",
+        "sizing.explicit_qty"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 352,
+        "gated_engine_count": 352,
+        "gated_tv_count": 352,
+        "matched_count": 352,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 352
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.strategy_close_qty_percent"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "56024f8ec91b7cd17545e62958a24c4d2e45e6fdfd640b85344ba7152a06d2c0",
+        "generated_cpp_sha256": "1c8b4afa7fc275cd22a8df8ee4bcc6dce3f4a67dbb90ddb632b472d220795191",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "25b4693f8b8150c24a52af54cbd6256bf1c66157f0d68acaa6d66548b74279c1",
+        "source_sha256": "bf49b39130b02f7d54f8d2a32607847e6639422aad9d0bf0ffdffb31d668671f",
+        "tradingview_trade_export_sha256": "b34c5e03f865717bd8b09880c3e1636d05018a41c6ea94b59e90a495c196001b"
+      },
+      "batch": 2,
+      "category": "breakout",
+      "corpus_id": "order-vector-stop-breakout-01",
+      "features": [
+        "order.stop_entry",
+        "order.cancel",
+        "ta.highest_lowest",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 146,
+        "gated_engine_count": 146,
+        "gated_tv_count": 146,
+        "matched_count": 146,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 146
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.stop_entry",
+        "order.cancel"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "5c71a263fbf8b8e1e16744126e27bd43df13e73ef3ce67e74df94df1928a2620",
+        "generated_cpp_sha256": "9c1dcd75651b62ef3b3f006e53de1c97122b87ac8dde61b1c69aae744bb2543a",
+        "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
+        "readme_sha256": "6a88193980e902ce98cc0018be38d81a5017f80aa4d1005d8160fe05fb5f0d99",
+        "source_sha256": "f268caed4649de9c73d1c64d521519f632a12ba3ec75280fb2884e6bc76eaf4e",
+        "tradingview_trade_export_sha256": "54e5bb5ab28fcd52f9216e1ba45c981afeef4d241f52ec9affc3d5eecd31026d"
+      },
+      "batch": 3,
+      "category": "trend_pullback",
+      "corpus_id": "pyramid-terrace-staged-entry-01",
+      "features": [
+        "order.pyramiding",
+        "sizing.explicit_qty",
+        "order.market_entry",
+        "ta.ema",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 1251,
+        "gated_engine_count": 1251,
+        "gated_tv_count": 1251,
+        "matched_count": 1251,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1251
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "order.pyramiding",
+        "sizing.explicit_qty"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "165ad1fcfcabbbee7ee43d376ca7fa470539f63e1bcb22e8535182d7d481c1ac",
+        "generated_cpp_sha256": "b8a03bbd4b8630d9c7f81b437264d365b768959c604fed71dc2cad5808352148",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "7a8577101656b924198f089746fe52fb03ca7d73cf0564ab46a36ba99d547b14",
+        "source_sha256": "31fcb22ab37efa20a3be5152f12452a6d183d7552d35d1eb9b9d93baa7f517c6",
+        "tradingview_trade_export_sha256": "f314d66fb0ca9430e8b327f1f35bcfb4b4952a0ad927c52a53ade9b6f001f49b"
+      },
+      "batch": 3,
+      "category": "dst_session",
+      "corpus_id": "session-borough-new-york-01",
+      "features": [
+        "time.iana_timezone_dst",
+        "syntax.input_session",
+        "time.session",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 159,
+        "gated_engine_count": 159,
+        "gated_tv_count": 159,
+        "matched_count": 159,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 159
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "time.iana_timezone_dst"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "b578c1661b161a77e7972fa54c30ef0cc3add3a8989bae0184e829bd11425a68",
+        "generated_cpp_sha256": "7098736e8add0e5ffdb51b24db20022b1aa710f7eec406d7dee6eaf207a3e5a5",
+        "inputs_sha256": "b6644d96a7f958a85451f6af5dda7ac7811c8abfc7795171f12d10d56439e017",
+        "readme_sha256": "859154f765ab5656e63373e8705bf0a558500e975c5554ece24fc1689c2ac106",
+        "source_sha256": "8c9e46e6cefa0da3590d5a64e6c2ddd28ee9f325aa14271321f8ac89c175983e",
+        "tradingview_trade_export_sha256": "1ce1e20e8914c58489b673f383ff34ca6b6653b729714e127830e82e6ca8f6f1"
+      },
+      "batch": 1,
+      "category": "session_momentum",
+      "corpus_id": "session-compass-utc-market-window-01",
+      "features": [
+        "syntax.input_session",
+        "time.session",
+        "time.timezone",
+        "risk.session_flatten",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 0.9978,
+        "engine_raw_count": 448,
+        "gated_engine_count": 448,
+        "gated_tv_count": 448,
+        "matched_count": 447,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 448
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.input_session",
+        "time.session",
+        "time.timezone",
+        "risk.session_flatten"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "6725be5a4ba517058baaa2f1090cb934f1da5b7e14b0b63b5936272c3921cfd0",
+        "generated_cpp_sha256": "775bed8663d9df243697617b2a2ba8340ee717325ac8e1f57a00ebb93b10fd69",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "3aa75df2a5957fc8e42d758b0a9cdf9bf0a4796105dd95f9d89ca3f3d0191029",
+        "source_sha256": "56b5e22c55c0f939599522f097a64f33346879f1482f138bef8b4828026614ce",
+        "tradingview_trade_export_sha256": "19f05e2d3bafae10350814b79864e47fec15db7f2540650f63490ea07b028e35"
+      },
+      "batch": 3,
+      "category": "trade_feedback",
+      "corpus_id": "stats-ledger-outcome-throttle-01",
+      "features": [
+        "strategy.closedtrades_profit",
+        "order.market_entry",
+        "order.market_close",
+        "sizing.explicit_qty"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 425,
+        "gated_engine_count": 425,
+        "gated_tv_count": 425,
+        "matched_count": 425,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 425
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "strategy.closedtrades_profit"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "ab0b0e940d8a2327f5b7eb3e68e8e7d4769ddb8cd9b698c7c79028c5d9c5a00a",
+        "generated_cpp_sha256": "0c3914bd62bad8c513f0f37b0370aae79b286746339176ae95cf715a8073b657",
+        "inputs_sha256": "b06c4c6cee12c1dc855e7da92dc46d71734ff056d8bb3b4b28b3fe5d9bb91a01",
+        "readme_sha256": "4ae9f43e533ee0e03d8ef21834495eaf912e1ab5d96c0291f720adab7b276df9",
+        "source_sha256": "0a2d09ea74e981e3e8b6d2696fef03ae39753b3624f1bc0d104fea87e28c2b92",
+        "tradingview_trade_export_sha256": "abebc9b9652f6c5919d3dfbb23a26606c94cbd8c0668c889e00f13b39d440f66"
+      },
+      "batch": 1,
+      "category": "configurable_filter",
+      "corpus_id": "syntax-caliper-scalar-switch-01",
+      "features": [
+        "syntax.scalar_string",
+        "syntax.input_string",
+        "syntax.switch",
+        "math.round",
+        "syntax.scalar_int",
+        "syntax.scalar_float",
+        "syntax.scalar_bool",
+        "order.market_entry"
+      ],
+      "native_validation": {
+        "coverage": 0.9970760233918129,
+        "engine_raw_count": 342,
+        "gated_engine_count": 341,
+        "gated_tv_count": 341,
+        "matched_count": 341,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 342
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.scalar_string",
+        "syntax.input_string",
+        "syntax.switch",
+        "math.round"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "bcd6caaaf83122b578576cb9ea069f59eacd90d3bb4b3e5f856932195d91c640",
+        "generated_cpp_sha256": "34c34d3ca5d876406793660ca797f04684a7490941b68642b2172a8ca6339188",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "2f61b8e292c61fd574574783ee4e43ba329514cb0df37b6648021e2a8e8bed8b",
+        "source_sha256": "94c7a0f733da94f92be3bef78d2e4d2e1643817313faddb32b0cc3e821776a1b",
+        "tradingview_trade_export_sha256": "32590a4010aa4a1777a1ea1518198267d00ce3530d4e07c2a2c5055faeb49dfd"
+      },
+      "batch": 2,
+      "category": "text_configuration",
+      "corpus_id": "syntax-glyph-string-regex-01",
+      "features": [
+        "syntax.str_lower",
+        "syntax.str_match",
+        "syntax.input_string",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 271,
+        "gated_engine_count": 271,
+        "gated_tv_count": 271,
+        "matched_count": 271,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 271
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.str_lower",
+        "syntax.str_match"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "b54a60cfafbbd41b63610203b2a982a2f71c4166f6979a012ad1e845454cb4e9",
+        "generated_cpp_sha256": "2b4e6381fb7ea0c5f0e4f9d97adabd5488af6741075a930adf36967315f96b53",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "029bcd9ebd2f2e105ae9c7c72d037884be3f57b84ed06b0e8ad1b0eefb44fa62",
+        "source_sha256": "35e53d7ce50f206ea6831f0e8f475d4d03e3ccb34282a1452ac3c62c2d2b0bf2",
+        "tradingview_trade_export_sha256": "ecddd778d780071707ef2224f496e4daa2a3ff3215e2a8ccb23791d8cd80f65e"
+      },
+      "batch": 1,
+      "category": "cycle_trend",
+      "corpus_id": "ta-aperture-cog-linreg-01",
+      "features": [
+        "ta.cog",
+        "ta.linreg",
+        "order.market_entry",
+        "order.market_close",
+        "risk.time_exit"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 530,
+        "gated_engine_count": 530,
+        "gated_tv_count": 530,
+        "matched_count": 530,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 530
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.cog",
+        "ta.linreg"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "fe01cb214703c67e7542e1ce7a3699c615ef947481e98bf8507c6d89682178d3",
+        "generated_cpp_sha256": "c612214dab0bb00dff8244d5b413f539a61288826904881f18fa3c45a4533127",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "0217e30a9da6cae98998e17d1924d5e192f72070e7ba738ea5c17db40630c3e9",
+        "source_sha256": "9c7d4bb541eea8398e820a35d4de212ec366aa2c02a05b28e5b9a330652dcb4d",
+        "tradingview_trade_export_sha256": "03548a69ed304560975718190f9f291bd24400326b00737ea2f5edab27385c9a"
+      },
+      "batch": 1,
+      "category": "volume_confirmation",
+      "corpus_id": "ta-conduit-obv-accdist-01",
+      "features": [
+        "ta.obv",
+        "ta.accdist",
+        "order.market_entry",
+        "order.market_close",
+        "ta.ema"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 1576,
+        "gated_engine_count": 1576,
+        "gated_tv_count": 1576,
+        "matched_count": 1576,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1576
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.obv",
+        "ta.accdist"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "b8dd64402a6dd2c68ba559cb6aaba8d4ebe2bb189db4bc9596e1c9dfd44909c9",
+        "generated_cpp_sha256": "e1f45623d57a3dce6479880709e9bbcb769144130cba4f31a397d037603ebbf8",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "62e76a2688d429ba2a77171df48aab76459880e48781818a6ecfb3a582356ff5",
+        "source_sha256": "9f926330bac7f8c91cb20f47510d6cb44d98ef7ea8cc09fcfd52b582bc78e42f",
+        "tradingview_trade_export_sha256": "8486e30c0a77e4f7ee4d9e55c5abbc1708fce6080a062b5237c4d1d1b0937269"
+      },
+      "batch": 1,
+      "category": "robust_momentum",
+      "corpus_id": "ta-gyroscope-cmo-median-01",
+      "features": [
+        "ta.cmo",
+        "ta.median",
+        "order.market_entry",
+        "order.market_close",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 547,
+        "gated_engine_count": 547,
+        "gated_tv_count": 547,
+        "matched_count": 547,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 547
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.cmo",
+        "ta.median"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "0994237f721bc52f6a3cd2fb2ef7f68f4e14cd5b8eff92874993d71a610347dc",
+        "generated_cpp_sha256": "9415eab4f637ac34512e8e01eadab6f9de41e778b8d63b80fd6ebdc6cdd82d77",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "2c2560376ce5ca6e9a0a3ee2cd112cb1c1d9a866a03ff6a36e67ecdabbc10960",
+        "source_sha256": "06d17c41b43ffdc0658091285fd040d7cd276baebb31adf96c3b7d0f30b651a5",
+        "tradingview_trade_export_sha256": "81bc7b12dc44c83b4a1949a1050d727a5b966ef4380361a59615a12b7fb0925e"
+      },
+      "batch": 1,
+      "category": "volatility_breakout",
+      "corpus_id": "ta-mantle-keltner-regime-01",
+      "features": [
+        "ta.kc",
+        "syntax.tuple_destructure",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 379,
+        "gated_engine_count": 379,
+        "gated_tv_count": 379,
+        "matched_count": 379,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 379
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.kc"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "11bd64e69947b1b6c709dbc68e86c78acda2cd2c0714508b3d89d9b93d5a56fe",
+        "generated_cpp_sha256": "70a7c80a9df5110ceb0effc0e707c7bf5b05d3061e391eb82a249258e014d8cf",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "396cfa2e9e218f1cdee2a7a0e3e5b513537d29c2d32f8fd6bb70e01f842f9728",
+        "source_sha256": "a398f8a6cfaaee086ece76392d64f28836b0e0da6540728ead6a1f116d640027",
+        "tradingview_trade_export_sha256": "ad121b4aa595cfddfffe316fdb1557a9197f1cc0cf7dd760861cc1e883a55279"
+      },
+      "batch": 3,
+      "category": "directional_regime",
+      "corpus_id": "ta-meridian-dmi-regime-01",
+      "features": [
+        "ta.dmi",
+        "syntax.tuple_destructure",
+        "order.market_entry",
+        "order.market_close",
+        "ta.ema",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 439,
+        "gated_engine_count": 439,
+        "gated_tv_count": 439,
+        "matched_count": 439,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 439
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.dmi"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "19507c9fa76fa5a79a5552acfbbc9a884ccdfb36e70c2afb938339b6e257c1f5",
+        "generated_cpp_sha256": "bf2c32e4c4696d84917645f9eb41f1cc5b7f64289ffb829df9f3b0a234d6cb88",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "9923b659208b37abd07dc7682f9395054d3c1cb7f208969bad02d8fb0d5f6ffb",
+        "source_sha256": "b18c25a934c59029f87feef3993bfff3430f256635492aa61df63d47a01919be",
+        "tradingview_trade_export_sha256": "5d454eec435f5b9c07d35cace78e0e70bf0507762d67c8301e60f462906c1a74"
+      },
+      "batch": 3,
+      "category": "parabolic_rotation",
+      "corpus_id": "ta-pendulum-sar-rotation-01",
+      "features": [
+        "ta.sar",
+        "order.market_entry",
+        "order.market_close",
+        "risk.time_exit"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 830,
+        "gated_engine_count": 830,
+        "gated_tv_count": 830,
+        "matched_count": 830,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 830
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.sar"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "a225fa06f0a89c9479792e1dc1647e58a0993c7d214ddaedfd6eead8c075b35b",
+        "generated_cpp_sha256": "f8114323d5a4378478bdad1730c1dcf604841615f8cd3ff1fac092f0d32b2269",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "71174926c9c6384aab2cc314e2bc26a68bf5b941a57b5be42c80333960cacc3c",
+        "source_sha256": "4b925c6676c0af7036abbd16d2d49d5b2beae5025ceaba7d96e70861c8087315",
+        "tradingview_trade_export_sha256": "01d53ed2e3ae8477c37398e063cc59d3808209f31c989e84954453e68b8fb4c9"
+      },
+      "batch": 1,
+      "category": "volume_weighted_trend",
+      "corpus_id": "ta-plumbline-pvt-vwma-01",
+      "features": [
+        "ta.pvt",
+        "ta.vwma",
+        "order.market_entry",
+        "order.market_close",
+        "ta.sma"
+      ],
+      "native_validation": {
+        "coverage": 0.9992706053975201,
+        "engine_raw_count": 1371,
+        "gated_engine_count": 1371,
+        "gated_tv_count": 1371,
+        "matched_count": 1370,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1371
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.pvt",
+        "ta.vwma"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "3c1e3b5deef74daf308bb68551c5e8cbf862260047872cb2ab07c02c7227be79",
+        "generated_cpp_sha256": "6f43dd2f304fd466452f5a6a16c1522dddf6b64188e52bb454057c2954fed796",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "558a534228e5dc48b4389f8bdc4f40d80cb5b3afab5d867f52a1aca01516bfe9",
+        "source_sha256": "2cab6e61c76d261c64b1df4c0a7eae0ab8ba89d69a1cdd98208461d832d1ab2e",
+        "tradingview_trade_export_sha256": "69b67b938d79852bc6a71d592c32ba3422c48f1e0cae78a0fd2665a24ded420d"
+      },
+      "batch": 1,
+      "category": "adaptive_trend",
+      "corpus_id": "ta-quarry-alma-correlation-01",
+      "features": [
+        "ta.alma",
+        "ta.correlation",
+        "order.market_entry",
+        "order.market_close",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 956,
+        "gated_engine_count": 956,
+        "gated_tv_count": 956,
+        "matched_count": 956,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 956
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.alma",
+        "ta.correlation"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "5c628e83b3b26ae5487362b0f34ac36f9f04043306f983209e830a17d8b4233b",
+        "generated_cpp_sha256": "baec36b9032e62300f2ad3d78bc4c1357b960df7922d5616c9bcebed3fee6b76",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "e5a7c97d78a8c98e9288356b02e2a390ff03981c95a56fca7af423f1bd1d458f",
+        "source_sha256": "97df12180944f25f6c36f5ae93e62fd3c69c9410544692f66f5ed0870c659243",
+        "tradingview_trade_export_sha256": "3c207fbb9e42198e4c2e99b58ab3ba6c2be32b7a78a82b6154ec4bcaa2773fc5"
+      },
+      "batch": 1,
+      "category": "trend_impulse",
+      "corpus_id": "ta-sextant-cci-hma-01",
+      "features": [
+        "ta.cci",
+        "ta.hma",
+        "order.market_entry",
+        "order.market_close",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 1421,
+        "gated_engine_count": 1421,
+        "gated_tv_count": 1421,
+        "matched_count": 1421,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1421
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.cci",
+        "ta.hma"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "d2afa893aa7c610eee7142e693ea3982f377f3672ff6a5b106fa9798bfcbef70",
+        "generated_cpp_sha256": "3b68cc9a50112df08b2d718f7f61fa0c27a710cac0c713734df68ab1bc7a3a3d",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "aee7d58841605c6b8c5df8223af4e89a3076d4b84c8eea6dd26cc7bd64f86f15",
+        "source_sha256": "e8ab0bce5ae664c124d307019c92ab45916b375e6716699fb2fc526449c861a5",
+        "tradingview_trade_export_sha256": "e53b9fe91583e2eb3bc14f25203972e1b1242b9b8f877684d0ed61e6c5997c8a"
+      },
+      "batch": 1,
+      "category": "volume_regime",
+      "corpus_id": "ta-tally-volume-index-roc-01",
+      "features": [
+        "ta.nvi",
+        "ta.pvi",
+        "order.market_entry",
+        "order.market_close",
+        "ta.ema"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 283,
+        "gated_engine_count": 283,
+        "gated_tv_count": 283,
+        "matched_count": 283,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 283
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.nvi",
+        "ta.pvi"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "9a1f3bc4d6cba4ddeae4e650ed6e72c47b3e5bd56f46338af54b33efa19209f6",
+        "generated_cpp_sha256": "b8b630af9e13d6016dd9b0ee9299f36a5dca088fa3a6805f44cbf9924b53f078",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "899ebb4a77ee7295eeee48fb19f773f16d3a896db13ac35d2cac3b4c1be8139a",
+        "source_sha256": "98ffc741adb3997a95820841d034a49038fe88e949f3e80e8273c23d519f225d",
+        "tradingview_trade_export_sha256": "0bcdd6553113d0f7f56b7f7ea3855ebe9932e94221ce77cfe2cca45015aa7f31"
+      },
+      "batch": 3,
+      "category": "smoothed_impulse",
+      "corpus_id": "ta-torque-tsi-signal-01",
+      "features": [
+        "ta.tsi",
+        "ta.rma",
+        "order.market_entry",
+        "order.market_close",
+        "ta.ema"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 402,
+        "gated_engine_count": 402,
+        "gated_tv_count": 402,
+        "matched_count": 402,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 402
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.tsi",
+        "ta.rma"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "75debd412c1ac43450182f3a16b67ed3cfaa6d863f2612118fd476959f662c5b",
+        "generated_cpp_sha256": "7047c07423a6bfba408d9a2b0c5100144e7a7aa07d032979d3dca21cffa5f8bb",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "9efcf843eef54e4f629782d2a15fd641ce1e15e4ebede289d28186599af9855c",
+        "source_sha256": "b4a90ce8435b7b7627651f94b87e043cbcbba836bdec710e288b3922c27a3c35",
+        "tradingview_trade_export_sha256": "664446f6dcab88d003ef57ef46563eea747ccdae25a34ab35cdae775f37136ed"
+      },
+      "batch": 1,
+      "category": "rank_oscillator",
+      "corpus_id": "ta-zenith-rci-wpr-01",
+      "features": [
+        "ta.rci",
+        "ta.wpr",
+        "order.market_entry",
+        "order.market_close",
+        "risk.atr_stop"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 949,
+        "gated_engine_count": 949,
+        "gated_tv_count": 949,
+        "matched_count": 949,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 949
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.rci",
+        "ta.wpr"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "675ff8a889826be884c5cd983a7b3efed258ce911716a8268decd4d01396a133",
+        "generated_cpp_sha256": "51670bb7d44e1757cc9a208f713bfca6c56b021dee0d9d082917dd3497f83604",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "4a5b78e929ff002f86dbfddbee0f595f04e213939561616ded9a04859984ed28",
+        "source_sha256": "0fec245041f2155661d81c2db02017e829ade3270914982e0208e7dd1650f057",
+        "tradingview_trade_export_sha256": "0d90fdaaa084c1a27ed46e263b71ea34af5aa49f248fcaa6ac47e72dd104a7de"
+      },
+      "batch": 3,
+      "category": "timeframe_adaptation",
+      "corpus_id": "timeframe-dial-main-period-01",
+      "features": [
+        "time.timeframe_main_period",
+        "syntax.switch",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 0.9975786924939467,
+        "engine_raw_count": 413,
+        "gated_engine_count": 412,
+        "gated_tv_count": 412,
+        "matched_count": 412,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 413
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "time.timeframe_main_period"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "5f002b63975efe1bc40adb8dc7e980e186b176d69e70f2df937c0d5fcb9035d2",
+        "generated_cpp_sha256": "5c11b9bb2eea85747376ded8265d8a7bfa6ec08834e59f61a1987be947333f27",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "245161e09534243074f252c0dc025af364fcbc29650dc2914d54117dc6f5dd28",
+        "source_sha256": "1b4b767690554064677bc3846d676c65f8cad775e6188fc2e518d1ab447c48af",
+        "tradingview_trade_export_sha256": "e1f1bd16d148eabc6e0a5fdfdc3c9b2d1f21565fb8eaec084fdf14665f9738d8"
+      },
+      "batch": 2,
+      "category": "typed_control_flow",
+      "corpus_id": "udt-breaker-method-while-01",
+      "features": [
+        "syntax.method_in_while",
+        "syntax.break",
+        "syntax.udt",
+        "syntax.method_local",
+        "syntax.while_loop",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 1131,
+        "gated_engine_count": 1131,
+        "gated_tv_count": 1131,
+        "matched_count": 1131,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1131
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.method_in_while",
+        "syntax.break"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "94a41c4e4108d1d2233011da5b1fbd20f16ad201259e612fcc3b6e9c3622347f",
+        "generated_cpp_sha256": "6bf062709fb08d71eeeba37854e6a0cc50d3704033ab5d50a90ff4bd0cbc4894",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "41c5fcf845e1735366d78bcd4c1b38b695fa6252c2657872cd6ebcd1b5f652c6",
+        "source_sha256": "d936c9e7df2c360a9c10ee83a2ae5fd98822f5824bc7c60d668b0f0c6a61c283",
+        "tradingview_trade_export_sha256": "96c6f657feb3f97d4aea3b5fc5765580409730625a3a441fffa91ff74eda02b1"
+      },
+      "batch": 2,
+      "category": "typed_factory",
+      "corpus_id": "udt-courier-return-method-01",
+      "features": [
+        "syntax.udf_returns_udt",
+        "syntax.method_on_returned_udt",
+        "syntax.udt",
+        "syntax.method_local",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 674,
+        "gated_engine_count": 674,
+        "gated_tv_count": 674,
+        "matched_count": 674,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 674
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.udf_returns_udt",
+        "syntax.method_on_returned_udt"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "1410b8f58c1c18491a6e760091834dbe91e04b267020489b1eaceb8fcac7e683",
+        "generated_cpp_sha256": "9b7c2365d623758484a73db07d84af4e9166e7213d27d62855ecf3217b193204",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "a68dbe54f4f6a40f7cea493ab97ccab5516bc4d842962e5801519afcf381a7b4",
+        "source_sha256": "693d944d6c7d875971343095d5055799c78064f231cb59bf5c3153b4c52a27ec",
+        "tradingview_trade_export_sha256": "62127db9019cba414613979b9941f8170e0d3b5380cebfb1adf742e574c55e37"
+      },
+      "batch": 2,
+      "category": "typed_iteration",
+      "corpus_id": "udt-loopback-method-for-01",
+      "features": [
+        "syntax.method_in_for",
+        "syntax.udt",
+        "syntax.method_local",
+        "syntax.for_loop",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 1418,
+        "gated_engine_count": 1418,
+        "gated_tv_count": 1418,
+        "matched_count": 1418,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1418
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.method_in_for"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "c873b7b8cc560f1519c19aacd493d1fc297dd3d8ee63a2ec1e7fd7396a269051",
+        "generated_cpp_sha256": "70e324727ff5a51e72f46e1d09ea8c938999750c3e79d5346e5e8cb2621c1d7d",
+        "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
+        "readme_sha256": "b2fd850e3486cb453f565f2f5eed9ad2fec94a2d6e720e3501d90a7266648f8c",
+        "source_sha256": "047389c0f0bf913c813a90618779e514ee3de5e74360a616a1ec3fbc3c0d5765",
+        "tradingview_trade_export_sha256": "76421b98c9f80efdf411eeceed14305c925f696b94ea49a4fee20380bfa8ccfe"
+      },
+      "batch": 1,
+      "category": "trend_state",
+      "corpus_id": "udt-sentinel-method-regime-01",
+      "features": [
+        "syntax.udt",
+        "syntax.method_local",
+        "order.market_entry",
+        "ta.ema",
+        "ta.rsi"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 1158,
+        "gated_engine_count": 1158,
+        "gated_tv_count": 1158,
+        "matched_count": 1158,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 1158
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.udt",
+        "syntax.method_local"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "894204b549c6463faac8d95c60bf78c9d14872932c6e695be7a8e7ea865b657e",
+        "generated_cpp_sha256": "baf510c6296b328730cda2eb85c142c25b07385c09d6656fa594c93f8681c9f0",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "a0f01323b85ee425ee16257efcb7bbd26a8a759f0354dacdeb762b9ca06a7b8b",
+        "source_sha256": "b34bf9035906a880902c02121e3b6ae5470d9c02b03365063e6a6509cd1eba8c",
+        "tradingview_trade_export_sha256": "28b1d025161e565d632f6b08c3ea809c5213ac0fccae9c09ed61f3dbf4fa37aa"
+      },
+      "batch": 2,
+      "category": "typed_dispatch",
+      "corpus_id": "udt-switchboard-method-arms-01",
+      "features": [
+        "syntax.method_in_switch",
+        "syntax.udt",
+        "syntax.method_local",
+        "syntax.switch",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 344,
+        "gated_engine_count": 344,
+        "gated_tv_count": 344,
+        "matched_count": 344,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 344
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.method_in_switch"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "ac31b5a1fd4023300e10a6c19b71842b87f9ee9659ca9e9ea5e47c3530b7e47a",
+        "generated_cpp_sha256": "67f16e1163197d9750e779e145bbd4b1274775f7b37c07dda67edb1b3195610a",
+        "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
+        "readme_sha256": "c3ff90a1643ad5cc4f45c2928c4c8bd954fc53b852932ad48b52a142fd9a4efc",
+        "source_sha256": "bf5f336d179b42f4652fc7a695ed6949584a87ab42f661727bdbcab6db39db24",
+        "tradingview_trade_export_sha256": "b9400c32132e3ac2fc40e9d6cc6f93ce6f13a77d08fd2f6740dd478c2f1c6bf3"
+      },
+      "batch": 2,
+      "category": "typed_multi_return",
+      "corpus_id": "udt-tessellate-tuple-method-01",
+      "features": [
+        "syntax.method_tuple_return",
+        "syntax.udt",
+        "syntax.method_local",
+        "syntax.tuple_destructure",
+        "order.market_entry",
+        "order.market_close"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 426,
+        "gated_engine_count": 426,
+        "gated_tv_count": 426,
+        "matched_count": 426,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 426
+      },
+      "owned_expansion": 2,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "syntax.method_tuple_return"
+      ]
+    },
+    {
+      "artifacts": {
+        "engine_trade_tape_sha256": "8697b5057fabc6e3dad5b6add7435f2d2ca1df54c098c696675a2a22b0d4caa5",
+        "generated_cpp_sha256": "7fc6f0a6fe831758cbd60d75d1df616a327889d049d712eed939759ed72a32ef",
+        "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
+        "readme_sha256": "2fa60a9608a50a21a6b2dcbd4d4505ae695120b263e058b9b4242ce386015dde",
+        "source_sha256": "2498926117723eb8c933c19224335736e81bda08075a3f204cde3cfdeb998530",
+        "tradingview_trade_export_sha256": "d03743c0263848d820ba3bccf47dce57df272de5baa992019c36671a0495b765"
+      },
+      "batch": 2,
+      "category": "volume_flow",
+      "corpus_id": "volume-tide-vwap-mfi-01",
+      "features": [
+        "ta.vwap",
+        "ta.mfi",
+        "syntax.input_source",
+        "order.market_entry",
+        "ta.atr"
+      ],
+      "native_validation": {
+        "coverage": 1.0,
+        "engine_raw_count": 524,
+        "gated_engine_count": 524,
+        "gated_tv_count": 524,
+        "matched_count": 524,
+        "profile": "strict",
+        "tier": "excellent",
+        "tv_raw_count": 524
+      },
+      "owned_expansion": 1,
+      "ownership": {
+        "holder": "PineForge",
+        "license": "Apache-2.0",
+        "origin": "clean-room-original"
+      },
+      "unique_marginal_features": [
+        "ta.vwap",
+        "ta.mfi",
+        "syntax.input_source"
+      ]
+    }
+  ],
+  "public_admission_policy": "PineForge-owned clean-room source with non-empty bound TradingView and Engine tapes and an Excellent result from the native PineForge Corpus verifier",
+  "public_boundary": {
+    "baseline_artifacts_preserved": true,
+    "private_research_dossiers_included": 0,
+    "rejected_owned_candidates_included": 0,
+    "third_party_strategy_sources_included": 0
+  },
+  "schema_version": "pineforge-owned-corpus-manifest-v1",
+  "validation_authority": "native PineForge Corpus verifier",
+  "validation_run": {
+    "canonical_1m_sha256": "db8c1332da093008cfbd063e05db0b33fe8f7fd35d78cf058a366519eb9f6cc5",
+    "codegen_commit": "4b1af93e5594191c2f13e32bba40fbe907505c75",
+    "command": "JOBS=8 bash scripts/run_corpus.sh",
+    "completed_utc_date": "2026-07-26",
+    "corpus_base_commit": "11f2166509e869a7718df5778c7197b0d367daff",
+    "engine_commit": "14e286a17fc7874dc4bf1a986d80c623f3e06226",
+    "execution_result": {
+      "failed": 0,
+      "ok": 312,
+      "report_self_tests_passed": 3
+    }
+  }
+}

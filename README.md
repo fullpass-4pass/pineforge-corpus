@@ -8,13 +8,13 @@ behaviour matches TradingView on the same bar feed.
 
 ## Headline parity
 
-- **282** verified strategies, all under `corpus/validation/`.
-- **~409,000 trades** total across the suite — summing the per-row TV /
+- **312** verified strategies, all under `corpus/validation/`.
+- **~430,000 trades** total across the suite — summing the per-row TV /
   engine counts in [`validation_report.md`](validation_report.md):
-  TV 409,019; engine 409,024 (`+5` ≈ 0.001 % over TV).
-- **275** excellent (bit-for-bit or within the resolved thresholds on every
+  TV 429,704; engine 429,709 (`+5` ≈ 0.001 % over TV).
+- **307** excellent (bit-for-bit or within the resolved thresholds on every
   parity dimension).
-- **6** strong, retained as visible pre-existing research cases rather than
+- **4** strong, retained as visible pre-existing research cases rather than
   being hidden or admitted as excellent.
 - **1** documented anomaly — `anomaly-equity-mirror-strategy-equity-01` —
   where TradingView's broker emulator exhibits non-deterministic
@@ -23,10 +23,12 @@ behaviour matches TradingView on the same bar feed.
   `pineforge-utils/parity-anomalies/tv-margin-boundary.md`.
 - **0** moderate / weak / minimal / missing.
 
-The 30 PineForge-owned additions introduced in the 282-probe expansion are
-all independently authored, source-bound to actual private-editor TradingView
-exports, and graded excellent by the native Corpus verifier. No non-excellent
-candidate from that expansion is present in this public tree.
+The 60 PineForge-owned additions introduced across the 282- and 312-probe
+expansions are all independently authored, source-bound to actual
+private-editor TradingView exports, and graded excellent by the native Corpus
+verifier. No non-excellent candidate from either expansion is present in this
+public tree. Their ownership, coverage tags, artifact hashes, and native
+results are bound in [`owned_strategies.json`](owned_strategies.json).
 
 The canonical, regenerated-each-sweep disposition table is
 [`validation_report.md`](validation_report.md) (rendered as
@@ -34,7 +36,7 @@ The canonical, regenerated-each-sweep disposition table is
 
 ## Artifact tuple
 
-Each probe directory ships four files in git:
+Each probe directory ships this core artifact tuple in git:
 
 | File                | Source                       | Role                                                       |
 | ------------------- | ---------------------------- | ---------------------------------------------------------- |
@@ -86,38 +88,38 @@ ticks from chart bars and need no extra feed.
 
 ```
 corpus/
-├── validation/                282 probes — surface-driven probe family
-│   ├── ta-*                    62 probes — TA built-in math (rsi, macd, sma, ...)
+├── validation/                312 probes — surface-driven probe family
+│   ├── ta-*                    73 probes — TA built-in math (rsi, macd, sma, ...)
 │   ├── composite-*             53 probes — multi-surface integration (community-style)
-│   ├── order-*                 46 probes — entry/exit/cancel placement
-│   ├── udt-*                   23 probes — user-defined types + methods
-│   ├── mtf-*                   18 probes — request.security regular HTF
-│   ├── bracket-*               16 probes — TP/SL via strategy.exit / strategy.order
-│   ├── analyzer-*               7 probes — engine analyzer / parity isolation
-│   ├── matrix-*                 7 probes — matrix<T> typed/generic
+│   ├── order-*                 48 probes — entry/exit/cancel placement
+│   ├── udt-*                   28 probes — user-defined types + methods
+│   ├── mtf-*                   19 probes — request.security regular HTF
+│   ├── bracket-*               17 probes — TP/SL via strategy.exit / strategy.order
+│   ├── matrix-*                 9 probes — matrix<T> typed/generic
+│   ├── analyzer-*               8 probes — engine analyzer / parity isolation
 │   ├── drawing-*                6 probes — drawing objects as data
 │   ├── pyramid-*                5 probes — pyramiding=N
+│   ├── session-*                4 probes — session() / TZ / DST
 │   ├── barstate-*               3 probes — barstate.* checks
 │   ├── cap-*                    3 probes — intraday risk caps
 │   ├── magnifier-*              3 probes — bar_magnifier sub-bar walks
 │   ├── na-*                     3 probes — na propagation
 │   ├── oca-*                    3 probes — OCA group cancel/reduce/none
-│   ├── session-*                3 probes — session() / TZ / DST
+│   ├── array-*                  2 probes — array lifecycle and iteration
 │   ├── input-*                  2 probes — input.source runtime override / subscript
 │   ├── ltf-*                    2 probes — request.security_lower_tf arrays
+│   ├── map-*                    2 probes — map collection behavior
+│   ├── math-*                   2 probes — explicit math and loop behavior
 │   ├── recompute-*              2 probes — calc_on_every_tick / TA recompute
+│   ├── stats-*                  2 probes — performance stats / reporting
+│   ├── syntax-*                 2 probes — scalar and switch semantics
+│   ├── timeframe-*              2 probes — chart/input timeframe handling
 │   ├── vwap-*                   2 probes — VWAP band pricing / fills
-│   ├── array-*                  1 probe  — array lifecycle and iteration
 │   ├── bands-*                  1 probe  — statistical-band behavior
 │   ├── calendar-*               1 probe  — calendar filters
 │   ├── control-*                1 probe  — explicit control-flow behavior
 │   ├── enum-*                   1 probe  — enum type and input selection
-│   ├── map-*                    1 probe  — map collection behavior
-│   ├── math-*                   1 probe  — explicit math and loop behavior
 │   ├── risk-*                   1 probe  — risk gates / limits
-│   ├── stats-*                  1 probe  — performance stats / reporting
-│   ├── syntax-*                 1 probe  — scalar and switch semantics
-│   ├── timeframe-*              1 probe  — script_tf/input_tf timeframe handling
 │   ├── volume-*                 1 probe  — volume-flow behavior
 │   ├── anomaly-*                1 probe  — documented TV non-determinism
 │   └── symbol-specified/       (excluded from sweep) 5 stock probes pending pineforge-data
@@ -130,11 +132,12 @@ corpus/
 ├── README.md                   this file
 ├── CMakeLists.txt              per-strategy .so build glob
 ├── .gitignore                  ignores compiled strategy libs, data/derived/, .omc/
+├── owned_strategies.json       ownership, coverage, hashes, and Excellent evidence for 60 additions
 ├── validation_report.md        canonical parity disposition, regenerated each sweep
 └── validation_report.{html,pdf}   rendered from .md
 ```
 
-Total: **282** probes.
+Total: **312** probes.
 
 ## Naming convention
 
@@ -161,43 +164,43 @@ The 33 categories (with probe counts):
 
 | Category    | Count | Surface exercised                                          |
 | ----------- | ----: | ---------------------------------------------------------- |
-| `ta`        |    62 | TA built-in math (rsi, macd, sma, hma, …)                  |
+| `ta`        |    73 | TA built-in math (rsi, macd, sma, hma, …)                  |
 | `composite` |    53 | Multi-surface integration probes (community-style scripts) |
-| `order`     |    46 | Entry/exit/cancel order placement                          |
-| `udt`       |    23 | User-defined types + methods                               |
-| `mtf`       |    18 | `request.security` regular HTF                             |
-| `bracket`   |    16 | TP/SL via `strategy.exit` / `strategy.order`               |
-| `analyzer`  |     7 | Engine analyzer / parity isolation                         |
-| `matrix`    |     7 | `matrix<T>` typed and generic                              |
+| `order`     |    48 | Entry/exit/cancel order placement                          |
+| `udt`       |    28 | User-defined types + methods                               |
+| `mtf`       |    19 | `request.security` regular HTF                             |
+| `bracket`   |    17 | TP/SL via `strategy.exit` / `strategy.order`               |
+| `matrix`    |     9 | `matrix<T>` typed and generic                              |
+| `analyzer`  |     8 | Engine analyzer / parity isolation                         |
 | `drawing`   |     6 | Drawing objects as data (`line`, `box`, `chart.point`)      |
 | `pyramid`   |     5 | `pyramiding=N`                                             |
+| `session`   |     4 | `session()` / TZ / DST                                     |
 | `barstate`  |     3 | `barstate.*` checks                                        |
 | `cap`       |     3 | Intraday risk caps                                         |
 | `oca`       |     3 | OCA group cancel / reduce / none                           |
 | `magnifier` |     3 | `bar_magnifier` sub-bar walks                              |
 | `na`        |     3 | `na` propagation                                           |
-| `session`   |     3 | `session()` / TZ / DST                                     |
+| `array`     |     2 | Array lifecycle and iteration                              |
 | `ltf`       |     2 | `request.security_lower_tf` arrays                         |
 | `input`     |     2 | `input.source` runtime override / subscript                |
+| `map`       |     2 | Map collection behavior                                    |
+| `math`      |     2 | Explicit math and loop behavior                            |
 | `recompute` |     2 | `calc_on_every_tick` / TA recompute                        |
+| `stats`     |     2 | Performance stats / reporting                              |
+| `syntax`    |     2 | Scalar and switch semantics                                |
+| `timeframe` |     2 | Chart/input timeframe handling                             |
 | `vwap`      |     2 | VWAP band pricing / fills                                  |
-| `array`     |     1 | Array lifecycle and iteration                              |
 | `bands`     |     1 | Statistical-band behavior                                  |
 | `calendar`  |     1 | Calendar filters                                           |
 | `control`   |     1 | Explicit control-flow behavior                             |
 | `enum`      |     1 | Enum type and input selection                              |
-| `map`       |     1 | Map collection behavior                                    |
-| `math`      |     1 | Explicit math and loop behavior                            |
 | `risk`      |     1 | risk gates / limits                                        |
-| `stats`     |     1 | performance stats / reporting                              |
-| `syntax`    |     1 | Scalar and switch semantics                                |
-| `timeframe` |     1 | script_tf/input_tf timeframe handling                      |
 | `volume`    |     1 | Volume-flow behavior                                       |
 | `anomaly`   |     1 | Documented TV non-determinism                              |
 
 (The `symbol-specified/` subtree — 5 stock probes needing per-symbol OHLCV
 and SymInfo overrides — is excluded from the default sweep pending
-pineforge-data integration; it is not counted in the 282.)
+pineforge-data integration; it is not counted in the 312.)
 
 ## Where the numbers come from
 

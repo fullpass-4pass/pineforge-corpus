@@ -1,0 +1,46 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Owned Strategy: Courier UDT Return Method
+// A typed factory returns a volatility envelope used immediately by a method.
+strategy("PineForge — Courier UDT Return Method", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.fixed, default_qty_value=2,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+type CourierEnvelope
+    float center
+    float width
+    int createdAt
+
+buildEnvelope(float source, int centerLength, int rangeLength) =>
+    centerValue = ta.ema(source, centerLength)
+    widthValue = ta.atr(rangeLength)
+    CourierEnvelope.new(centerValue, widthValue, bar_index)
+
+method upperGate(CourierEnvelope self, float multiplier) =>
+    self.center + self.width * multiplier
+
+centerLength = input.int(37, "Envelope Center Length", minval=5, group="Envelope")
+rangeLength = input.int(16, "Envelope Range Length", minval=2, group="Envelope")
+entryMultiplier = input.float(1.15, "Entry Width", minval=0.1, step=0.05, group="Envelope")
+maximumAtrLoss = input.float(2.4, "Maximum ATR Loss", minval=0.5, step=0.1, group="Risk")
+
+CourierEnvelope activeEnvelope = buildEnvelope(close, centerLength, rangeLength)
+upperBoundary = activeEnvelope.upperGate(entryMultiplier)
+ageIsValid = bar_index - activeEnvelope.createdAt == 0
+
+enterLong = ageIsValid and ta.crossover(close, upperBoundary)
+envelopeEnded = close < activeEnvelope.center
+riskExceeded = strategy.position_size > 0 and close < strategy.position_avg_price - activeEnvelope.width * maximumAtrLoss
+
+if strategy.position_size == 0 and enterLong
+    strategy.entry("Courier Long", strategy.long)
+else if strategy.position_size > 0 and (envelopeEnded or riskExceeded)
+    strategy.close("Courier Long", comment=riskExceeded ? "ATR risk" : "Envelope ended")
+
+plot(activeEnvelope.center, "Envelope Center", color=color.orange)
+plot(upperBoundary, "Envelope Gate", color=color.blue)
