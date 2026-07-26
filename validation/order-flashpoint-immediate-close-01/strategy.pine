@@ -1,0 +1,35 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Owned Strategy: Flashpoint Immediate Close
+// A severe close-to-close volatility shock invokes an immediate market exit.
+strategy("PineForge — Flashpoint Immediate Close", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.fixed, default_qty_value=2,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+trendLength = input.int(47, "Trend EMA Length", minval=5, group="Signal")
+momentumLength = input.int(12, "Momentum ROC Length", minval=2, group="Signal")
+entryMomentum = input.float(0.6, "Entry Momentum %", minval=0.1, step=0.1, group="Signal")
+shockThreshold = input.float(-2.4, "Immediate Shock %", maxval=-0.2, step=0.1, group="Risk")
+
+trendLine = ta.ema(close, trendLength)
+momentum = ta.roc(close, momentumLength)
+oneBarReturn = ta.roc(close, 1)
+
+enterLong = ta.crossover(momentum, entryMomentum) and close > trendLine
+ordinaryExit = strategy.position_size > 0 and close < trendLine
+flashpoint = strategy.position_size > 0 and oneBarReturn <= shockThreshold
+
+if strategy.position_size == 0 and enterLong
+    strategy.entry("Flashpoint Long", strategy.long)
+else if flashpoint
+    strategy.close("Flashpoint Long", comment="Immediate shock", immediately=true)
+else if ordinaryExit
+    strategy.close("Flashpoint Long", comment="Trend ended")
+
+plot(trendLine, "Trend EMA", color=color.orange)
+plot(oneBarReturn, "One-Bar Return %", color=color.red, display=display.data_window)

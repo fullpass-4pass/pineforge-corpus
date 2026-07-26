@@ -1,0 +1,45 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Owned Strategy: Switchboard Method Arms
+// A user-selected mode dispatches typed score methods through switch arms.
+strategy("PineForge — Switchboard Method Arms", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.fixed, default_qty_value=2,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+type SwitchGauge
+    float fast
+    float slow
+    float volatility
+
+method weightedSpread(SwitchGauge self, float sensitivity) =>
+    (self.fast - self.slow) / math.max(self.volatility, syminfo.mintick) * sensitivity
+
+mode = input.string("Balanced", "Dispatch Mode", options=["Responsive", "Balanced", "Patient"], group="Dispatch")
+fastLength = input.int(15, "Fast EMA Length", minval=2, group="Signal")
+slowLength = input.int(47, "Slow EMA Length", minval=5, group="Signal")
+atrLength = input.int(18, "ATR Length", minval=2, group="Risk")
+entryScore = input.float(0.32, "Entry Score", minval=-5, maxval=5, step=0.01, group="Signal")
+maximumAtrLoss = input.float(2.3, "Maximum ATR Loss", minval=0.5, step=0.1, group="Risk")
+
+SwitchGauge gauge = SwitchGauge.new(ta.ema(close, fastLength), ta.ema(close, slowLength), ta.atr(atrLength))
+score = switch mode
+    "Responsive" => gauge.weightedSpread(1.55)
+    "Balanced" => gauge.weightedSpread(1.0)
+    => gauge.weightedSpread(0.68)
+
+enterLong = ta.crossover(score, entryScore)
+regimeEnded = score < 0
+riskExceeded = strategy.position_size > 0 and close < strategy.position_avg_price - gauge.volatility * maximumAtrLoss
+
+if strategy.position_size == 0 and enterLong
+    strategy.entry("Switchboard Long", strategy.long)
+else if strategy.position_size > 0 and (regimeEnded or riskExceeded)
+    strategy.close("Switchboard Long", comment=riskExceeded ? "ATR risk" : "Dispatch ended")
+
+plot(gauge.slow, "Slow EMA", color=color.orange)
+plot(score, "Dispatched Score", color=color.blue, display=display.data_window)

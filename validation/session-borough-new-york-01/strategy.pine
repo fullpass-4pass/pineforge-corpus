@@ -1,0 +1,34 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Owned Strategy: Borough New York Session
+// An IANA New York session stays aligned through daylight-saving changes.
+strategy("PineForge — Borough New York Session", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.fixed, default_qty_value=2,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+sessionWindow = input.session("0930-1600", "New York Session", group="Session")
+trendLength = input.int(38, "Trend EMA Length", minval=5, group="Signal")
+minimumRsi = input.float(52.0, "Minimum RSI", minval=20, maxval=80, step=1, group="Signal")
+
+sessionStamp = time(timeframe.period, sessionWindow, "America/New_York")
+inSession = not na(sessionStamp)
+wasInSession = not na(sessionStamp[1])
+sessionOpened = inSession and not wasInSession
+sessionClosed = wasInSession and not inSession
+
+trendLine = ta.ema(close, trendLength)
+rsiValue = ta.rsi(close, 14)
+eligibleOpen = sessionOpened and close > trendLine and rsiValue > minimumRsi
+
+if strategy.position_size == 0 and eligibleOpen
+    strategy.entry("Borough Long", strategy.long)
+else if strategy.position_size > 0 and sessionClosed
+    strategy.close("Borough Long", comment="New York session ended")
+
+plot(trendLine, "Trend EMA", color=color.orange)
+bgcolor(inSession ? color.new(color.blue, 92) : na, title="New York Session")

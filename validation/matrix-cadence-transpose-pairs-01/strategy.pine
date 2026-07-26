@@ -1,0 +1,59 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Owned Strategy: Cadence Matrix Pairing
+// A transposed grid pairs price direction and volume confirmation by horizon.
+strategy("PineForge — Cadence Matrix Pairing", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.fixed, default_qty_value=2,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+shortHorizon = input.int(6, "Short Horizon", minval=2, group="Pair Grid")
+mediumHorizon = input.int(18, "Medium Horizon", minval=3, group="Pair Grid")
+longHorizon = input.int(54, "Long Horizon", minval=5, group="Pair Grid")
+requiredPairs = input.int(2, "Required Confirmed Pairs", minval=1, maxval=3, group="Pair Grid")
+trendLength = input.int(43, "Trend EMA Length", minval=5, group="Trend")
+atrLength = input.int(16, "ATR Length", minval=2, group="Risk")
+maximumAtrLoss = input.float(2.4, "Maximum ATR Loss", minval=0.5, step=0.1, group="Risk")
+
+shortPriceUp = close > close[shortHorizon] ? 1.0 : 0.0
+mediumPriceUp = close > close[mediumHorizon] ? 1.0 : 0.0
+longPriceUp = close > close[longHorizon] ? 1.0 : 0.0
+shortVolumeFirm = volume > ta.sma(volume, shortHorizon) ? 1.0 : 0.0
+mediumVolumeFirm = volume > ta.sma(volume, mediumHorizon) ? 1.0 : 0.0
+longVolumeFirm = volume > ta.sma(volume, longHorizon) ? 1.0 : 0.0
+
+var matrix<float> factorRows = matrix.new<float>(2, 3, 0.0)
+factorRows.set(0, 0, shortPriceUp)
+factorRows.set(0, 1, mediumPriceUp)
+factorRows.set(0, 2, longPriceUp)
+factorRows.set(1, 0, shortVolumeFirm)
+factorRows.set(1, 1, mediumVolumeFirm)
+factorRows.set(1, 2, longVolumeFirm)
+horizonPairs = matrix.transpose(factorRows)
+
+int confirmedPairs = 0
+for horizonIndex = 0 to 2
+    priceVote = horizonPairs.get(horizonIndex, 0)
+    volumeVote = horizonPairs.get(horizonIndex, 1)
+    if priceVote == 1.0 and volumeVote == 1.0
+        confirmedPairs += 1
+
+trendLine = ta.ema(close, trendLength)
+atrValue = ta.atr(atrLength)
+consensusReady = confirmedPairs >= requiredPairs
+
+enterLong = consensusReady and not consensusReady[1] and close > trendLine
+consensusEnded = confirmedPairs == 0 or close < trendLine
+riskExceeded = strategy.position_size > 0 and close < strategy.position_avg_price - atrValue * maximumAtrLoss
+
+if strategy.position_size == 0 and enterLong
+    strategy.entry("Cadence Long", strategy.long)
+else if strategy.position_size > 0 and (consensusEnded or riskExceeded)
+    strategy.close("Cadence Long", comment=riskExceeded ? "ATR risk" : "Pair consensus")
+
+plot(trendLine, "Trend EMA", color=color.orange)
+plot(confirmedPairs, "Confirmed Horizon Pairs", color=color.blue, display=display.data_window)

@@ -5,6 +5,7 @@
 **/strategy.dylib
 **/strategy.so
 **/strategy.dll
+**/fingerprint.json
 
 # Chart feeds derived locally from the single committed 1m feed by the
 # engine repo's scripts/derive_corpus_feeds.py
