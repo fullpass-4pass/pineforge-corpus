@@ -1,0 +1,7 @@
+{
+  "_comment": "Pending private TradingView capture on BINANCE:ETHUSDT.P, 15-minute chart, Asia/Taipei chart timezone, Deep Backtesting custom range 2025-04-01 through 2026-05-04. Inputs and strategy properties use the owned source defaults.",
+  "tv_trades_csv_tz": "asia_taipei",
+  "ohlcv_csv": "../../data/derived/ohlcv_ETH-USDT-USDT_15m.csv",
+  "input_tf": "15",
+  "script_tf": "15"
+}

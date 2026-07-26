@@ -1,0 +1,45 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Aurora Market Bracket
+// Independently authored for deterministic backtest and runtime coverage.
+strategy("PineForge — Aurora Market Bracket", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=10,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+fastLength = input.int(18, "Fast EMA", minval=2, group="Signal")
+slowLength = input.int(47, "Slow EMA", minval=3, group="Signal")
+atrLength = input.int(16, "ATR Length", minval=2, group="Risk")
+stopAtr = input.float(1.8, "Stop ATR", minval=0.25, step=0.05, group="Risk")
+targetAtr = input.float(2.7, "Target ATR", minval=0.25, step=0.05, group="Risk")
+allowShort = input.bool(true, "Allow Short", group="Execution")
+
+fastEma = ta.ema(close, fastLength)
+slowEma = ta.ema(close, slowLength)
+atrValue = ta.atr(atrLength)
+
+longSignal = ta.crossover(fastEma, slowEma)
+shortSignal = allowShort and ta.crossunder(fastEma, slowEma)
+
+if longSignal
+    strategy.entry("Aurora Long", strategy.long)
+if shortSignal
+    strategy.entry("Aurora Short", strategy.short)
+
+if strategy.position_size > 0
+    longStop = strategy.position_avg_price - atrValue * stopAtr
+    longTarget = strategy.position_avg_price + atrValue * targetAtr
+    strategy.exit("Aurora Long Risk", from_entry="Aurora Long", stop=longStop, limit=longTarget)
+
+if strategy.position_size < 0
+    shortStop = strategy.position_avg_price + atrValue * stopAtr
+    shortTarget = strategy.position_avg_price - atrValue * targetAtr
+    strategy.exit("Aurora Short Risk", from_entry="Aurora Short", stop=shortStop, limit=shortTarget)
+
+plot(fastEma, "Fast EMA", color=color.teal)
+plot(slowEma, "Slow EMA", color=color.orange)
+

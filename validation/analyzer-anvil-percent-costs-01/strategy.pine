@@ -1,0 +1,35 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Anvil Percent Costs
+strategy("PineForge — Anvil Percent Costs", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=7.5,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.08, slippage=2,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+fastLength = input.int(23, "Fast SMA", minval=2, group="Signal")
+slowLength = input.int(71, "Slow SMA", minval=3, group="Signal")
+stopPercent = input.float(3.4, "Stop %", minval=0.2, step=0.1, group="Risk") * 0.01
+targetPercent = input.float(5.2, "Target %", minval=0.2, step=0.1, group="Risk") * 0.01
+
+fastSma = ta.sma(close, fastLength)
+slowSma = ta.sma(close, slowLength)
+
+if ta.crossover(fastSma, slowSma)
+    strategy.entry("Anvil Long", strategy.long)
+
+if ta.crossunder(fastSma, slowSma)
+    strategy.close("Anvil Long", comment="Trend invalidation")
+
+if strategy.position_size > 0
+    stopPrice = strategy.position_avg_price * (1.0 - stopPercent)
+    targetPrice = strategy.position_avg_price * (1.0 + targetPercent)
+    strategy.exit("Anvil Costed Bracket", from_entry="Anvil Long",
+         stop=stopPrice, limit=targetPrice)
+
+plot(fastSma, "Fast SMA", color=color.silver)
+plot(slowSma, "Slow SMA", color=color.black)
+

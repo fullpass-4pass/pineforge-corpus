@@ -1,0 +1,48 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Harbor Stop Limit
+// A stop-limit order requires breakout activation and a bounded maximum fill price.
+strategy("PineForge — Harbor Stop Limit", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=5,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+harborLength = input.int(35, "Harbor Range", minval=5, group="Signal")
+atrLength = input.int(14, "ATR Length", minval=2, group="Signal")
+activationAtr = input.float(0.10, "Activation Buffer ATR", minval=0, step=0.02, group="Execution")
+limitAtr = input.float(0.28, "Maximum Fill Distance ATR", minval=0.05, step=0.01, group="Execution")
+stopAtr = input.float(2.4, "Protective Stop ATR", minval=0.5, step=0.1, group="Risk")
+maximumBars = input.int(64, "Maximum Hold Bars", minval=5, group="Risk")
+
+atrValue = ta.atr(atrLength)
+rangeHigh = ta.highest(high, harborLength)[1]
+rangeMid = (ta.highest(high, harborLength)[1] + ta.lowest(low, harborLength)[1]) / 2.0
+activationPrice = rangeHigh + atrValue * activationAtr
+limitPrice = activationPrice + atrValue * limitAtr
+validSetup = close > rangeMid and close < activationPrice
+var int fillBar = na
+
+if strategy.position_size == 0 and validSetup
+    strategy.entry("Harbor Breakout", strategy.long,
+         stop=activationPrice, limit=limitPrice)
+else if strategy.position_size == 0
+    strategy.cancel("Harbor Breakout")
+
+if strategy.position_size > 0 and strategy.position_size[1] <= 0
+    fillBar := bar_index
+if strategy.position_size == 0
+    fillBar := na
+
+if strategy.position_size > 0
+    strategy.exit("Harbor Guard", from_entry="Harbor Breakout",
+         stop=strategy.position_avg_price - atrValue * stopAtr)
+    if not na(fillBar) and bar_index - fillBar >= maximumBars
+        strategy.close("Harbor Breakout", comment="Harbor time limit")
+
+plot(rangeHigh, "Range High", color=color.blue)
+plot(limitPrice, "Stop-Limit Ceiling", color=color.orange)
+

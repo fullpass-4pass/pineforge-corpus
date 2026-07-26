@@ -1,0 +1,46 @@
+//@version=6
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 PineForge
+// PineForge Corporate Strategy: Forge Loop Channel
+// Explicit iteration constructs a logarithmically adjusted breakout channel.
+strategy("PineForge — Forge Loop Channel", overlay=true,
+     initial_capital=100000, currency=currency.USD,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=6,
+     pyramiding=0, commission_type=strategy.commission.percent,
+     commission_value=0.05, slippage=1,
+     margin_long=100, margin_short=100,
+     process_orders_on_close=false, calc_on_order_fills=false)
+
+channelLength = input.int(24, "Channel Length", minval=5, maxval=80, group="Signal")
+logBuffer = input.float(0.18, "Log Buffer Multiplier", minval=0, step=0.02, group="Signal")
+atrLength = input.int(16, "ATR Length", minval=2, group="Risk")
+stopAtr = input.float(2.3, "Stop ATR", minval=0.5, step=0.1, group="Risk")
+
+float channelHigh = high[1]
+float channelLow = low[1]
+float logMovement = 0.0
+for offset = 2 to channelLength
+    channelHigh := math.max(channelHigh, high[offset])
+    channelLow := math.min(channelLow, low[offset])
+    logMovement += math.abs(math.log(close[offset - 1] / close[offset]))
+
+averageLogMove = logMovement / math.max(channelLength - 1, 1)
+upperTrigger = channelHigh * (1.0 + averageLogMove * logBuffer)
+lowerTrigger = channelLow * (1.0 - averageLogMove * logBuffer)
+atrValue = ta.atr(atrLength)
+
+if ta.crossover(close, upperTrigger)
+    strategy.entry("Forge Long", strategy.long)
+if ta.crossunder(close, lowerTrigger)
+    strategy.entry("Forge Short", strategy.short)
+
+if strategy.position_size > 0
+    strategy.exit("Forge Long Guard", from_entry="Forge Long",
+         stop=strategy.position_avg_price - atrValue * stopAtr)
+if strategy.position_size < 0
+    strategy.exit("Forge Short Guard", from_entry="Forge Short",
+         stop=strategy.position_avg_price + atrValue * stopAtr)
+
+plot(upperTrigger, "Adaptive Upper", color=color.green)
+plot(lowerTrigger, "Adaptive Lower", color=color.red)
+
