@@ -1,6 +1,6 @@
 # PineForge Corpus Validation Report
 
-**Generated:** 2026-07-26 (UTC) — engine `14e286a`, corpus `11f2166`
+**Generated:** 2026-08-07 (UTC) — engine `8df08f2`, corpus `84c4c8e`
 
 All probes live under `corpus/validation/`; categories below are derived
 from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
@@ -119,7 +119,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`composite-boscurv-integration-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-boscurv-integration-01/) | `composite` | excellent | `strict` | 1026 | 1026 | 1026 | 0.0000% | 0.0000% | 0.0000% | 0.0798% |
 | [`composite-boscurv-linreg-slope-channel-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-boscurv-linreg-slope-channel-01/) | `composite` | excellent | `strict` | 857 | 857 | 857 | 0.0000% | 0.0000% | 0.0000% | 0.0770% |
 | [`composite-boscurv-pivot-bos-trigger-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-boscurv-pivot-bos-trigger-01/) | `composite` | excellent | `strict` | 906 | 906 | 906 | 0.0000% | 0.0000% | 0.0000% | 0.0848% |
-| [`composite-bracket-cap-range-pending-stop-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-bracket-cap-range-pending-stop-01/) | `composite` | excellent | `strict` | 1192 | 1192 | 1192 | 0.0000% | 0.0000% | 0.0000% | 0.0569% |
+| [`composite-bracket-cap-range-pending-stop-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-bracket-cap-range-pending-stop-01/) | `composite` | excellent | `strict` | 1192 | 1192 | 1192 | 0.0000% | 0.0000% | 0.0000% | 0.0533% |
 | [`composite-ies-adx-regime-classify-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-adx-regime-classify-01/) | `composite` | excellent | `strict` | 682 | 682 | 682 | 0.0000% | 0.0000% | 0.0000% | 0.0769% |
 | [`composite-ies-bb-kc-squeeze-release-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-bb-kc-squeeze-release-01/) | `composite` | excellent | `strict` | 902 | 902 | 902 | 0.0000% | 0.0000% | 0.0000% | 0.0799% |
 | [`composite-ies-cooldown-daily-cap-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-ies-cooldown-daily-cap-01/) | `composite` | excellent | `strict` | 727 | 727 | 727 | 0.0000% | 0.0000% | 0.0000% | 0.0838% |
