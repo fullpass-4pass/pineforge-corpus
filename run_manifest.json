@@ -1,9 +1,9 @@
 {
-  "engineCommit": "8a311ac77f2aa9082f9b53658d19ff39b85743c3",
+  "engineCommit": "b1cfd0a5545a84e47b3bcc58ed3319648aa68962",
   "engineSourceCommitAt": "2026-08-12T17:21:41+08:00",
   "feedSha256": "db8c1332da093008cfbd063e05db0b33fe8f7fd35d78cf058a366519eb9f6cc5",
   "kind": "pineforge-corpus-run-manifest",
-  "mintedAt": "2026-08-12T09:47:36.943992+00:00",
+  "mintedAt": "2026-08-12T10:06:54.539488+00:00",
   "rubricSha256": "eda06978a8a0ec0f160f251977dd2715aa547ee7befb50a1e77a5055b0ba61c9",
   "schemaVersion": 2,
   "tapes": {
