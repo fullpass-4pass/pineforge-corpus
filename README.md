@@ -23,6 +23,13 @@ behaviour matches TradingView on the same bar feed.
   `pineforge-utils/parity-anomalies/tv-margin-boundary.md`.
 - **0** moderate / weak / minimal / missing.
 
+Beyond this public corpus, the engine is also validated on a **closed test
+set** of **415 community-shared TradingView scripts** (kept private under
+TradingView's Terms of Service — not redistributable): **396/396 excellent
+(100%)** across **~520k trades**, with **19 TV-side anomalies** discovered
+and documented during that research. Combined with the public corpus this
+totals **~950k trades** verified trade-for-trade against TradingView.
+
 The 60 PineForge-owned additions introduced across the 282- and 312-probe
 expansions are all independently authored, source-bound to actual
 private-editor TradingView exports, and graded excellent by the native Corpus
