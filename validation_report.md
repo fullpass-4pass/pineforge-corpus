@@ -1,6 +1,6 @@
 # PineForge Corpus Validation Report
 
-**Generated:** 2026-08-12 (UTC) — engine `96bb067`, corpus `b5d53d2`
+**Generated:** 2026-08-13 (UTC) — engine `337729f`, corpus `93d3e01`
 
 All probes live under `corpus/validation/`; categories below are derived
 from each slug's leading hyphen-token (e.g. `ta-...`, `composite-...`).
@@ -28,7 +28,7 @@ captured in the probe's `inputs.json` notes field where present.
 | **strong** | [`composite-trendmaster-three-tier-ema-state-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/composite-trendmaster-three-tier-ema-state-01/) | 220 | 220 | 0.0000% | 0.0631% | Park at strong: residual is a TradingView deep-backtest window-origin artifact on a var-based EMA stack edge detector. TV appears to initialize near 2025-04-02 under the 15m bar ceiling, while the engine warms from the full 2020-origin feed; the first boundary transitions diverge (TV 4 trades vs engine 2) and then resync cleanly for 220/220 matched trades. Not a broker anomaly and not an engine/codegen defect; do not trim coverage or alter trade_start/trading_is_active semantics to chase excellent. |
 | **strong** | [`ta-momentum-roc-zero-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-momentum-roc-zero-cross-01/) | 5690 | 5691 | 0.0176% | 0.0782% | count Δ 0.02% |
 | **strong** | [`ta-pivot-atr-stop-target-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-pivot-atr-stop-target-01/) | 1618 | 1619 | 0.0618% | 0.0968% | count Δ 0.06% |
-| **strong** | [`ta-stochastic-rsi-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-stochastic-rsi-cross-01/) | 1336 | 1336 | 0.0000% | 0.1233% | coverage 96.9% |
+| **strong** | [`ta-stochastic-rsi-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-stochastic-rsi-cross-01/) | 1336 | 1336 | 0.0000% | 0.1211% | coverage 96.6% |
 
 ## Per-Category Summary
 
@@ -343,7 +343,7 @@ trades (PnL excludes scratch trades with `|tv_pnl| < $0.01`).
 | [`ta-sma-dual-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-sma-dual-cross-01/) | `ta` | excellent | `strict` | 2150 | 2150 | 2150 | 0.0000% | 0.0000% | 0.0000% | 0.0790% |
 | [`ta-stdev-sma-expansion-break-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-stdev-sma-expansion-break-01/) | `ta` | excellent | `strict` | 878 | 878 | 878 | 0.0000% | 0.0000% | 0.0000% | 0.0782% |
 | [`ta-stoch-slow-k-d-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-stoch-slow-k-d-cross-01/) | `ta` | excellent | `strict` | 7585 | 7585 | 7585 | 0.0000% | 0.0000% | 0.0000% | 0.0762% |
-| [`ta-stochastic-rsi-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-stochastic-rsi-cross-01/) | `ta` | strong | `strict` | 1336 | 1336 | 1296 | 0.0000% | 0.0000% | 0.0000% | 0.1233% |
+| [`ta-stochastic-rsi-cross-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-stochastic-rsi-cross-01/) | `ta` | strong | `strict` | 1336 | 1336 | 1292 | 0.0000% | 0.0000% | 0.0000% | 0.1211% |
 | [`ta-str-match-regex-filter-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-str-match-regex-filter-01/) | `ta` | excellent | `strict` | 1916 | 1916 | 1916 | 0.0000% | 0.0000% | 0.0000% | 0.0779% |
 | [`ta-supertrend-adx-filter-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-supertrend-adx-filter-01/) | `ta` | excellent | `strict` | 455 | 455 | 455 | 0.0000% | 0.0000% | 0.0000% | 0.0769% |
 | [`ta-supertrend-direction-flip-01`](https://github.com/pineforge-4pass/pineforge-corpus/tree/main/validation/ta-supertrend-direction-flip-01/) | `ta` | excellent | `strict` | 819 | 819 | 819 | 0.0000% | 0.0000% | 0.0000% | 0.0757% |
