@@ -1,4 +1,10 @@
 {
-  "_comment": "Use default full-history derived 15m feed so EMA state warms before the TV comparison window.",
-  "notes": "Park at strong: residual is a TradingView deep-backtest window-origin artifact on a var-based EMA stack edge detector. TV appears to initialize near 2025-04-02 under the 15m bar ceiling, while the engine warms from the full 2020-origin feed; the first boundary transitions diverge (TV 4 trades vs engine 2) and then resync cleanly for 220/220 matched trades. Not a broker anomaly and not an engine/codegen defect; do not trim coverage or alter trade_start/trading_is_active semantics to chase excellent."
+  "_comment": "EMA warmup depth must match the TradingView chart history used for this export. The TV export's series origin is 2025-03-31 00:00 UTC: ta.ema(close,200) goes live at bar index 199 = 2025-04-02 01:45 UTC, which is exactly TV's first signal bar (fill at the next bar open, 02:00 UTC @1891.71). Same config shape as the sibling composite-trendmaster-integration-01.",
+  "ohlcv_start_ms": 1743379200000,
+  "runtime_overrides": {
+    "syminfo_metadata": {
+      "chart_ema_na_warmup": 1
+    }
+  },
+  "notes": "Excellent (224/224 matched, coverage 100.0%). Supersedes the earlier park-at-strong note, which mis-attributed the residual to an unfixable 'TV deep-backtest window-origin artifact'. The residual was a harness-config mismatch of this probe's own making: the previous inputs.json deliberately selected the default full-history 2020-origin 15m feed ('so EMA state warms before the TV comparison window'), while the TV export carries a range-local origin with zero pre-range history (unified range-local seeding, findings 331-333). The engine's three EMAs were therefore converged for five years before the window and its var-based stack-state edge detector had already latched a different regime at the boundary, so the first transitions diverged (TV 4 trades vs engine 2) before resyncing for 220 matched. Origin established by oracle, not assumption: a two-axis sweep of ohlcv_start_ms x chart_ema_na_warmup (2025-03-28..2025-04-02 at 6h steps, then +/-8 bars at 15m granularity), each point scored with scripts/verify_corpus.py, has exactly one setting that reaches 224/224 with zero unmatched TV trades - ohlcv_start_ms=1743379200000 with chart_ema_na_warmup=1, bit-for-bit the config the sibling composite-trendmaster-integration-01 already ships. Coverage rises 98.2% -> 100.0%; no coverage was trimmed and trade_start / trading_is_active semantics are unchanged."
 }
