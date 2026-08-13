@@ -1,9 +1,9 @@
 {
-  "engineCommit": "96bb067a0d57514a0b421309cb209124078b3a31",
-  "engineSourceCommitAt": "2026-08-13T02:37:15+08:00",
+  "engineCommit": "337729f021237ec420f57f04f8e283775b426a87",
+  "engineSourceCommitAt": "2026-08-12T21:17:07Z",
   "feedSha256": "db8c1332da093008cfbd063e05db0b33fe8f7fd35d78cf058a366519eb9f6cc5",
   "kind": "pineforge-corpus-run-manifest",
-  "mintedAt": "2026-08-12T18:42:28.583152+00:00",
+  "mintedAt": "2026-08-13T00:46:48.017264+00:00",
   "rubricSha256": "eda06978a8a0ec0f160f251977dd2715aa547ee7befb50a1e77a5055b0ba61c9",
   "schemaVersion": 2,
   "tapes": {
@@ -274,7 +274,7 @@
     "validation/ta-sma-dual-cross-01": "13c822b19bc7a435bf2ccd754cb74da43bfa134d1668745bbe25be2b366f1b2f",
     "validation/ta-stdev-sma-expansion-break-01": "bf1329b48d1ee1e4df1d5b20f7e01a609f6c32c1be8e9972aef30c539adf0f7f",
     "validation/ta-stoch-slow-k-d-cross-01": "a7ad4aa09801ec915f49b9bb1286f7403c944b28b0f23deb63fe92a85cb6b7d2",
-    "validation/ta-stochastic-rsi-cross-01": "10fd1dcb87fdcf774b78476389e83ca8cd706be54aa9caa6c2e02d139375fb99",
+    "validation/ta-stochastic-rsi-cross-01": "e7c85ae1ca556a19b173def553e65161535abc6217341b1d609b50db25943f05",
     "validation/ta-str-match-regex-filter-01": "53e58418907a7827dee7d1937dd321eb88eb1316d0d7c43c18acc60b3ccd3cb7",
     "validation/ta-supertrend-adx-filter-01": "cdc526f7600e54caff83d0107b857af5adb1ce3f3251b1398ea5304528bfdfa4",
     "validation/ta-supertrend-direction-flip-01": "ace66cfa5584c71734e6c200c1466d480dcd0240cee42815908931c03f09d27c",
