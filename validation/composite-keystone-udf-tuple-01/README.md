@@ -15,11 +15,11 @@ basis invalidation, and a width-scaled bracket.
 - Inputs and strategy properties: source defaults
 - Public publication: not performed
 - Owned source SHA-256:
-  `a90d6029884b028c4cf6acc2b3d08efd1d9dff7ef80c3a796a3dc14f3f6c3b88`
+  `8d28a8ad26881e896d33cf4efbdd3290eebbc1ae33037fa75eee58e053fff69a`
 - Generated C++ SHA-256:
   `89d3eaecf7a61a4378570fc9dd1124f4b8081d77b9f688cff42fe0cffda2b9d9`
 - TradingView export SHA-256:
-  `099fa32782538ff268f2d31b3735a640648f471cf79a0424997bd78d221d7aeb`
+  `2f4efa97a16d7b3102a816837eb21053b8f0ae51f63ae01532f0585278df5b6d`
 - Native PineForge Corpus result: `excellent`
 
 This is a validation example, not a performance claim or investment advice.

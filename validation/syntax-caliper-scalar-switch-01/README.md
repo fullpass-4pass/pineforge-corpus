@@ -16,9 +16,9 @@ so the language semantics remain the example's distinct purpose.
 - Inputs and strategy properties: source defaults
 - Public publication: not performed
 - Owned source SHA-256:
-  `0a2d09ea74e981e3e8b6d2696fef03ae39753b3624f1bc0d104fea87e28c2b92`
+  `9ba3226eed8f28ad00c5067fd860e5165a9fa1616930408436f6f8bf96d0a557`
 - TradingView export SHA-256:
-  `abebc9b9652f6c5919d3dfbb23a26606c94cbd8c0668c889e00f13b39d440f66`
+  `a56c3493a47e2bad47851784283c0443fa018c652469022bdbda2059a7cca7f7`
 
 The native corpus verifier classifies this exact source/export/settings tuple
 as `excellent`. No performance claim or investment advice is intended.

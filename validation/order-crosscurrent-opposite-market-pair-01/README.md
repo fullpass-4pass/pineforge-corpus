@@ -15,11 +15,11 @@ ATR stop bounds each position.
 - Inputs and strategy properties: source defaults
 - Public publication: not performed
 - Owned source SHA-256:
-  `c95f99b4d2fff57b5d87537825aa07eae96a7972a9301b5f3bc194d834a9856c`
+  `3d830885bb46ca90c26aff37992151352d304d0b1c0c5e339f4b9a6424ab08fc`
 - Generated C++ SHA-256:
   `cfa1b761829b7546613aeae213da5c4201aa65e6f5885dcbbf90d742794b9a83`
 - TradingView export SHA-256:
-  `b01a58765e10b0b8007debaa9628b42061cc6ca7439c7b7052d6b59fe4f6d7e7`
+  `e9e7bffab7d3228b68212261810ac2dc05a3f08c2c4cafc9128c5c966396c84e`
 - Native PineForge Corpus result: `excellent`
 
 This is a validation example, not a performance claim or investment advice.

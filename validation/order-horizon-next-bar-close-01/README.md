@@ -14,11 +14,11 @@ exercise ordinary next-bar market entry and a deterministic bar-count
 - Inputs and strategy properties: source defaults
 - Public publication: not performed
 - Owned source SHA-256:
-  `f5c864d778fb8519513677c319f6c2bf9aeb14dd71c699cc173d55e8cafe555a`
+  `dc2134bb794d89de7594271ef7b24c01f391726ddda2577985033f1bbed26bc7`
 - Generated C++ SHA-256:
   `1cfb3b61faacfc114def8fc7daaf52c4eb9fae76d899c93d3f2309f07ba19565`
 - TradingView export SHA-256:
-  `ba31ca983359e2968d8da9cef8b331b6a3f0dddbb7104c49e8f7a170064491e4`
+  `36b3e42c73425ab3c3c19a942451c0d74239716b841327e5c8839e39cb96bd39`
 - Native PineForge Corpus result: `excellent`
 
 An earlier local capture accidentally retained TradingView's new-strategy

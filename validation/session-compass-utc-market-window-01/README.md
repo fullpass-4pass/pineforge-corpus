@@ -15,11 +15,11 @@ inside the window.
 - Other inputs and strategy properties: source defaults
 - Public publication: not performed
 - Owned source SHA-256:
-  `8c9e46e6cefa0da3590d5a64e6c2ddd28ee9f325aa14271321f8ac89c175983e`
+  `39b293e6b1b064008b65150638c8f3f4b8a6441e983325c03160e8e3e486e7f6`
 - Generated C++ SHA-256:
   `7098736e8add0e5ffdb51b24db20022b1aa710f7eec406d7dee6eaf207a3e5a5`
 - TradingView export SHA-256:
-  `1ce1e20e8914c58489b673f383ff34ca6b6653b729714e127830e82e6ca8f6f1`
+  `6fa95a6c62eb7c0d53969dcb089d72debd0679b3fdf564e77a303f5365f9159b`
 - Native PineForge Corpus result: `excellent`
 
 This is a validation example, not a performance claim or investment advice.

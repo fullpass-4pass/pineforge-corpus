@@ -21,9 +21,9 @@ from forced-liquidation behavior.
 - Other inputs and strategy properties: source defaults
 - Public publication: not performed
 - Owned source SHA-256:
-  `77027fec26840a4403914402ee01308f1b6b7d9471fdf65fe5be3d1fa9b24303`
+  `98f1e3f4bfad5ecd6cd5315919d9857030d096956585470d50b44353a5eb28d0`
 - TradingView export SHA-256:
-  `29e9785d1eeb3548b5b51dfa133650b5db314f2064060ac427f2855748559c74`
+  `7c142617ca78c7c4cb189f5fdfc1a6861195194fcaa301a54d0e0cc7fcdb8b27`
 
 The native corpus verifier classifies this exact source/export/settings tuple
 as `excellent`. The final open report row is treated as a report-only tail by

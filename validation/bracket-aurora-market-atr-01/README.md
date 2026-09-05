@@ -15,9 +15,9 @@ are derived from ATR.
 - Inputs and strategy properties: source defaults
 - Public publication: not performed
 - Owned source SHA-256:
-  `516965fc2dfd71cdac485321adc793c2e2b8f44f32c51b327523be2029ff3d16`
+  `5552cf9e44cb57e9c99b3621f40bf4e66c74d34f7bddbc55c0255306ffc5fa3f`
 - TradingView export SHA-256:
-  `1befa049ddc7b258cd4d40749864ee9478d0ddfc0ab94d97587883a30e03934f`
+  `8958d9db93bd1d2b94a999fd14ebed2034434b88e2a8e656fb0814f8bfe5a683`
 
 The trade export is a factual result from TradingView's broker emulator. It
 does not imply endorsement, profitability, or investment advice.

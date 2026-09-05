@@ -79,9 +79,9 @@
         "engine_trade_tape_sha256": "cec146855c4541feffea88ec99915b339b14f9e79648075aa92eaad23c96c165",
         "generated_cpp_sha256": "377603c3d18214dc844df34af2d80787619e27d055bf93728304cab14d40b6b1",
         "inputs_sha256": "629692bc2f5161b978b89fc1d45ce970939ffbd879c940b8229d8bb642ff106d",
-        "readme_sha256": "2f0ad660f3c10b04b6277d6b2e45e6ea1f9ee54ed6990f6205e00b426ee7cbeb",
-        "source_sha256": "db1089ef5b11ec2470cf84d8e3232c3927f0ddb2b8238b87d4946637ae45e4f8",
-        "tradingview_trade_export_sha256": "0ba015ccb9e98cc24d1eff1a5c6ac87965e09751f6c96cd03cf6e1b23b7e7653"
+        "readme_sha256": "2e91d8bc1404ec6b19e8d9ffc9cdee178f99603ee23de55b98836f3162f455d5",
+        "source_sha256": "937b08da51a53e5280b73f7ed8f0f267c098649eed84026b498bb3a7a5a84473",
+        "tradingview_trade_export_sha256": "d8d18952199ac82d75df40d19c38bd79524ed6ac5670387810e2b3c9c00cbe9d"
       },
       "batch": 1,
       "category": "trend_filter",
@@ -124,8 +124,8 @@
         "generated_cpp_sha256": "57ebc705d85a95df27a0a561170d15d2b81e9350f165dedf594e7a6d71be695b",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "24f3f28ab2612a2d3d9ba2e2f0690f94ba91ab0e211d7d9a4bd9f8c9253aa2ae",
-        "source_sha256": "49bad327f6cd68257804d0a791489eff23c71500bed382426e1ed4a4aa219812",
-        "tradingview_trade_export_sha256": "43d064e6332b69e6b305c9a1dcdb71b45a3a885b98a278f25b91791b494ab8e1"
+        "source_sha256": "b476822b787d5fedef6168ee21738957ba4838b1db715730b464a8e89f2316ba",
+        "tradingview_trade_export_sha256": "5c3d76fdd09a02502e73270a5cda2ac313caf2bd96ad9d904f0753f1b57c6fb8"
       },
       "batch": 3,
       "category": "cash_sizing",
@@ -164,8 +164,8 @@
         "generated_cpp_sha256": "27b033f25eb156719200c82afdac4e4cef30433b9a8af47f1c41ef131319829f",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "975501184d45d683ad36a1691a595aa0ebcc3ac3fbe6cf00453e354c13c7331c",
-        "source_sha256": "82649895e42511fe14a526dfdb84386e492bcd1540e3d69ff60758baebc66946",
-        "tradingview_trade_export_sha256": "1e2f430972e10cc49e31981c0aeb40d8403ea692a2ba18753370839f8a895f07"
+        "source_sha256": "e756e6cb068a00f5ee9cc84efbd6055490366cfbf047d52bd46e99c103fb7ab3",
+        "tradingview_trade_export_sha256": "94629c4c9e22fe100a429043d76b051b4fbc96b563caa6695ac50e086c8ac98d"
       },
       "batch": 2,
       "category": "momentum_rank",
@@ -205,8 +205,8 @@
         "generated_cpp_sha256": "a90e8bd3c4ce342b2d771bf8ea59b79b29a04fd560a445d6bd16ba130786fd64",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "c6127b8ece574fb5ceecf37aa563a4370f062ae2e84c2f442a073a6caf7d9a0a",
-        "source_sha256": "ae487a1d574f83c64708a67f97f11b58cf238de27b2b81701fb2ac3345946579",
-        "tradingview_trade_export_sha256": "7e2e1201f4623dd03bf9020dc7ae4a56384d435ea1b2fd7b87580994d611477c"
+        "source_sha256": "056df893ca930c6c30b0162943f52ac608b5eb568b12a46b27b4c871c31f2072",
+        "tradingview_trade_export_sha256": "7d541a4cb3cd19c254f77574aaac377005c501d323c2d74ba121547c0f0321d9"
       },
       "batch": 2,
       "category": "rolling_state",
@@ -245,8 +245,8 @@
         "generated_cpp_sha256": "615128efc046fa375b795ac6c4a1f592b1fc98f81b19f305d3657dfc22850921",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "cfb6e12ee73b4c29e79799078b7aa9ad5ec6b48904e9a9b768b20728cbc0afe8",
-        "source_sha256": "72e9cab52e1e112f9d16b277a51fff36e6f091a14edbe0fa064c26aca7b89f6f",
-        "tradingview_trade_export_sha256": "906f789562156055cd727ee04815daf7f5831cb08d999c138afd8574a7a607da"
+        "source_sha256": "5a6b66c88dd3b7b2918328db31105aebad22f49d9e064a69eb409f40f35db497",
+        "tradingview_trade_export_sha256": "b53ea3d2ee8759d76d3dec688f0635f25fb64d66bb0bd19fdbf071c85a1abee6"
       },
       "batch": 2,
       "category": "mean_reversion",
@@ -285,8 +285,8 @@
         "generated_cpp_sha256": "7a2bd08fc4c50c45fe2ec6bd38564705166d8b6535547aae8a97a3c2e9a60ab6",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "69e0ac9109457b88ed66bfee3a95958dc7d1287c2d452ac656d265eda70c14bd",
-        "source_sha256": "c0679fd7d0fdc823255d93a8ac099c263cfc7ffc871c248b32b9797b9a4f5925",
-        "tradingview_trade_export_sha256": "9b35cfab36118bdc36b43357b9cd8938529b5d4721f5ae200fd80eea84d6b180"
+        "source_sha256": "f6d84d7937b7547e68204e9e0952a77a15de1185cd11c210c60304565595846a",
+        "tradingview_trade_export_sha256": "a6cd9a28bb8d51668b87bdfe37ce478a72213fa383d4cf3e80bc3adb020bc47c"
       },
       "batch": 3,
       "category": "confirmed_trend",
@@ -326,9 +326,9 @@
         "engine_trade_tape_sha256": "c32bc63994e3be920a0f7367224972946f536257fdbf91e66e09e53aa52a8687",
         "generated_cpp_sha256": "bd9a5bc22247389094b3ebc7e899ca57da5b4e790c2aab4f4b769103eaec8a42",
         "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
-        "readme_sha256": "f2aff6453d22e120d3e0e1d31e5d560bea0d4a352d81e77afa660b62525f25c3",
-        "source_sha256": "516965fc2dfd71cdac485321adc793c2e2b8f44f32c51b327523be2029ff3d16",
-        "tradingview_trade_export_sha256": "1befa049ddc7b258cd4d40749864ee9478d0ddfc0ab94d97587883a30e03934f"
+        "readme_sha256": "218db846df49f181898f5fa8e46aa626eedb6a8f2d8246892a32fb82af2a2f6b",
+        "source_sha256": "5552cf9e44cb57e9c99b3621f40bf4e66c74d34f7bddbc55c0255306ffc5fa3f",
+        "tradingview_trade_export_sha256": "8958d9db93bd1d2b94a999fd14ebed2034434b88e2a8e656fb0814f8bfe5a683"
       },
       "batch": 1,
       "category": "trend",
@@ -371,8 +371,8 @@
         "generated_cpp_sha256": "9451096d2808462fdda7e246e50f49fc80f79d9c8fcc2441f75dcba1177815ec",
         "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
         "readme_sha256": "c60823975178cd7266e5363784822834ba0d3119e5db96e0a1607a1cd966c697",
-        "source_sha256": "4f36dd0c9737d461370cb619ad82be0251b1a31ce840dcc26c10a998be189bb3",
-        "tradingview_trade_export_sha256": "ae89807e40960b20d02423e6489b951a198fb01f8a278692a426db283e2bb53a"
+        "source_sha256": "04d18ba75cd60b74f7be747cf65a509d12d247367dd364d71c0734ee6860ed13",
+        "tradingview_trade_export_sha256": "bac1ee38bdbe2e9d21bb5dd8d4d49b05f97f241fc6b158734b777dda108ec1cb"
       },
       "batch": 3,
       "category": "trend_exit_management",
@@ -409,8 +409,8 @@
         "generated_cpp_sha256": "e2da4d9468765e8c68bc7f2d4aa5014f7855bb87a20288cb4e39e33936fe55bd",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "eee1c5c883a05d6ac07f49b2642517391d6bf4ce701e5021a057ce2c9f17e5e2",
-        "source_sha256": "5008c3e960e8213edeb5b1f0e6228b84b68ee63352ad24763242c16b0860f91c",
-        "tradingview_trade_export_sha256": "df551212b59232f4ffd522e38d10319d47c99a385c93d70f87696e8662b14e7f"
+        "source_sha256": "28fd97aae2478fce353c1cbf1ead86f445d3eb6c8da342ae622381dbf9ea0726",
+        "tradingview_trade_export_sha256": "654a7b5372e42def72968ffde1393106885c97e5d16d147cc713976daaf67798"
       },
       "batch": 3,
       "category": "bracket_revision",
@@ -447,8 +447,8 @@
         "generated_cpp_sha256": "fdacd9b15b90a0929bbfecbc98c3873b7e376bf60664979961784310dc75b268",
         "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
         "readme_sha256": "df32d9e8e976ee9440627352643e722addf8f9976b0d794ac7119e2c987dc9dc",
-        "source_sha256": "5d66eedfd5bff3166526dfb3375a78eec54b9e3e9071791850a41a76ce5d69e2",
-        "tradingview_trade_export_sha256": "dd681d3722e835e1739429eaebd98250beb77e65cfd6a55fdd9a3f51a417e6f8"
+        "source_sha256": "5dfb96e28b923ef40bc26da198ae17164b08254633e3fa9e25adf32121337b1e",
+        "tradingview_trade_export_sha256": "a45a77b2178f9c252fa6e42a655da04235397b35d05820c10b96e3d5a6bbb46e"
       },
       "batch": 3,
       "category": "fill_recalculation",
@@ -486,8 +486,8 @@
         "generated_cpp_sha256": "85cd534687894d60cfeb5e76d70fb2094aea30ac31a0183ffe7ea2eb59c4698d",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "437d9af4b0e06508102059ccf313135d1f833d59afd080b94ec89a85e3c1c2b7",
-        "source_sha256": "97011c15a4679fbe88834030c6609c21aae7d6404521200028e422d51458702d",
-        "tradingview_trade_export_sha256": "2c987dfea5dc5a6dba0ccd29fea88f1136f9e034ee4c2d6b6a006aea8afada55"
+        "source_sha256": "04ccf8738454434a408e83428502397f5c31cf10d890b0a40c3d95063512d63b",
+        "tradingview_trade_export_sha256": "60b44b62af6ecaf15c445b1104d0215327d89f9db87677e2d9fd1f817bd41ead"
       },
       "batch": 2,
       "category": "calendar_momentum",
@@ -527,8 +527,8 @@
         "generated_cpp_sha256": "7734b254a786c84508faf4f94033aa500f189ee644c0eedcebe745971e0d662e",
         "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
         "readme_sha256": "fa373c42ecb69c5583e0164a9149a82bbf226f060d361fe58bc2aecab2326376",
-        "source_sha256": "bdbabb1d79b6a761b83e348e6671ae8851c8d8d77171d66561caa4d58b3636d6",
-        "tradingview_trade_export_sha256": "ca9639dd572ea00c747763b9ac2d790e5d71abd9a3987aeddde0f3db62af44a3"
+        "source_sha256": "f41e854bd7a086f5893e5a9d53545cbe9fd395a2e768adf7f342034a001ca350",
+        "tradingview_trade_export_sha256": "bd770408d927bfd713000025cef2092d4ca2eda6b302076925ac71af0c936d43"
       },
       "batch": 3,
       "category": "session_risk",
@@ -566,9 +566,9 @@
         "engine_trade_tape_sha256": "c8251dffeb7ff61c947e5419d33f8b841bf1d9368c2c4b38f43d5b2453c823bc",
         "generated_cpp_sha256": "89d3eaecf7a61a4378570fc9dd1124f4b8081d77b9f688cff42fe0cffda2b9d9",
         "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
-        "readme_sha256": "0d4dafeacb873999e573348f67cbf071b07af47d80192a250391a2d01ecb7636",
-        "source_sha256": "a90d6029884b028c4cf6acc2b3d08efd1d9dff7ef80c3a796a3dc14f3f6c3b88",
-        "tradingview_trade_export_sha256": "099fa32782538ff268f2d31b3735a640648f471cf79a0424997bd78d221d7aeb"
+        "readme_sha256": "905e2762d549ec8863e6a1328520b012519d13fba4f1ed35925a626d65fd3e86",
+        "source_sha256": "8d28a8ad26881e896d33cf4efbdd3290eebbc1ae33037fa75eee58e053fff69a",
+        "tradingview_trade_export_sha256": "2f4efa97a16d7b3102a816837eb21053b8f0ae51f63ae01532f0585278df5b6d"
       },
       "batch": 1,
       "category": "volatility_regime",
@@ -609,8 +609,8 @@
         "generated_cpp_sha256": "b47d96190321cc450124fe58a5657eb4b3e33943049be6993368054e1223ebfe",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "f68269e8625a6d5f4c3cb8efc5aec9d2922e23306ce16081670607e0a2eaa951",
-        "source_sha256": "858fdd8d3e1858596626955f87713ed69a5c9b5b885e680acfa86429aaa0004f",
-        "tradingview_trade_export_sha256": "44117bd63be4fece99616da11b4f429e89642ecb79a5d939c9962d9e93617fe3"
+        "source_sha256": "bfc1ee65c33ecb4cee03f6ce95e1be00f73997375bcd87eb8b28693c82a390fe",
+        "tradingview_trade_export_sha256": "d42e27be0e64d324b4f4fc6d3492a5777da74ec9ce7d3620f0097434a79f5036"
       },
       "batch": 3,
       "category": "weighted_breakout",
@@ -649,8 +649,8 @@
         "generated_cpp_sha256": "33c24915333d3f2d7bece7879cc019c6fff4aaac5f2be63454c921534316e674",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "3945663009c093a8615986de922033f083bdd7ed562ccfffa9d35db5355edbc3",
-        "source_sha256": "f9bc1ae08ecc9528dbbebac31e7adb7301795afd67dc648b7f69ba6d29a067d1",
-        "tradingview_trade_export_sha256": "7eb80e0a7e966c688e9246441acc0c34ae899802252100df8c2af8789f38dc49"
+        "source_sha256": "f48fa31e3c66ba51a90a1621c0fb759b2d2aaaa7e0dbcd0ec0e5be5eb26b1050",
+        "tradingview_trade_export_sha256": "033693267a9bd079fb67622e734df1569dba8443bca3247d7963b8252bc06211"
       },
       "batch": 3,
       "category": "selectable_regime",
@@ -691,8 +691,8 @@
         "generated_cpp_sha256": "31005cc6211d27da33ae213095bde7f5f501f4047e9124855fe9b2282b2a11f5",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "13e96de98a80c1da4f797197074dfd5fc059d08f314a43110a30a83601eb16d3",
-        "source_sha256": "136b92aa58c32cce1e4b3c807f4cd7a001cf4d10992e2cb9d74faceb38d1a4ee",
-        "tradingview_trade_export_sha256": "93691208cf648fb1728a141b38c7d1092ffd3210ffe838846f1139c2cf7eb44f"
+        "source_sha256": "89989c026ce8379b65400c70adc81cb606b57b4f3afe85e6ce05522047f0cced",
+        "tradingview_trade_export_sha256": "7a7302b6f16167956f9ee68605a98e37e4367d9db0719dc872c5d37f4cbded65"
       },
       "batch": 2,
       "category": "state_lookup",
@@ -730,8 +730,8 @@
         "generated_cpp_sha256": "8699c5a8e4e52cf41e3db82b65540caa0891cad6b8b52264709acb834c221d60",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "c61472c88f2fa43d00f46cc0e266b6c50542bb1c522cf45f5c9ac37484728e41",
-        "source_sha256": "6f3756079fb7cac811a30bb8aa70ef7659de270f3cb7d21d078b50adf56a62f7",
-        "tradingview_trade_export_sha256": "08991b9c1dffea5202431869e99e446d7cc2b66582abb3df3dac899b97f870da"
+        "source_sha256": "117e68d14fbb0cdeb4bcb8431a478aef27439ceddab28c53c2e952e670974f7a",
+        "tradingview_trade_export_sha256": "4d500edb13c3a95de5e045358d10caf01cb98a9f76211e7cab39a8517df50d4f"
       },
       "batch": 2,
       "category": "regime_weighting",
@@ -768,8 +768,8 @@
         "generated_cpp_sha256": "188af762876edbe6cc48de6f5169f0e0ffa14b0303da2d684a2bacd02f36e70f",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "34a095adb6e1396093aa18ca807f721f5ee8b08c503893c7796b87f89795f2b8",
-        "source_sha256": "51f418f77cf3394fc87348be2560777977a499d9211b2f75b0d0c6801b99d42d",
-        "tradingview_trade_export_sha256": "cb09b4ab68d4fc309aa7284d84c64a43675deff6359ddff993e473d62048c450"
+        "source_sha256": "6fbf506117b5dac3a359b4ae54d60e910d8cc88813556195a35bf9442454ebd0",
+        "tradingview_trade_export_sha256": "5672bd6f1312ca1589a52cf4b1d1239436850ecec2e2810e001da312b66cc2a1"
       },
       "batch": 2,
       "category": "breakout",
@@ -808,8 +808,8 @@
         "generated_cpp_sha256": "a026218473004af2a1034ef055e0d334e3ec4b89aaaf33db4244ab79024d00ea",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "a0d1043429dcc01a61f37ed6cf98d5240ef08dfe9f2ccf3879b6dd3643bc3167",
-        "source_sha256": "5d247c848b05577221dc7d5758b9d96966afed19b58a052f0c7ae7dc92192e46",
-        "tradingview_trade_export_sha256": "65f9d43bdeea839346e7a5dc84cd82a2d2500c5c17bdb3db56164f1a09f0e1ed"
+        "source_sha256": "5137c952b1bae97768523b48348fed226dbc74e7a75c9272c54a2de27b00d9dd",
+        "tradingview_trade_export_sha256": "ac71c161e5b033694d46a78878064dd9072a389a4e413a9c164ccf1b13cfb21f"
       },
       "batch": 1,
       "category": "nonlinear_trend",
@@ -846,8 +846,8 @@
         "generated_cpp_sha256": "2a2271cee4962f29d46e8c4f7a56c390149b376d795109a82c68f42ac23a2931",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "e828c5b86dfdd0eabdf0d1568b0827cb7cdf2338aeededbcedd44140d72ecdc3",
-        "source_sha256": "cdd7ff640d2ae3afc1597587e9e592e0f55a7bfe3b6fb87b2dcaea9a42f79d52",
-        "tradingview_trade_export_sha256": "696ffb4e10f4b8aa1e39922b926632a1622176713971488473d8039606a234cb"
+        "source_sha256": "0a273411083d3ad8bdbbf6e8c8021b09d9181ec72fc617eaf9a19184ff74adf9",
+        "tradingview_trade_export_sha256": "7204bd5e87134957360c8e1671c1252eb24da47379cdfd1e31c6f359dd56673a"
       },
       "batch": 2,
       "category": "multi_horizon_confirmation",
@@ -885,8 +885,8 @@
         "generated_cpp_sha256": "57e71270f00c3b373e18f08a4869c1e6ac8b1f2ef1397d7207cf39d892fa9264",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "4404f08456f89fc24262bc3a3804dedde6608d759c512458f5a45b10c96a4690",
-        "source_sha256": "cb84504d7a7dde802f8400dd9a8d31dfebb99571533bc0ab7dc75c936f4cac40",
-        "tradingview_trade_export_sha256": "d7aec563d5ab567010bf0220ff8cf637d99a99344b47aae79aeb4408ddd0778a"
+        "source_sha256": "89d5ab548eb075771a0a40555d0ad8eb398b4093b26625b031d86a49d6fc886c",
+        "tradingview_trade_export_sha256": "26490df6fc07cb2c4f3b7f4decd075523c10f5f24ff25859dad367a80698ea39"
       },
       "batch": 2,
       "category": "covariance_regime",
@@ -924,8 +924,8 @@
         "generated_cpp_sha256": "d8440a5b2f20e4a1aa9bbabb8a7e64ae8ba6a29c9543f3d63313d0468c94f01a",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "42d2a7aad33a6f093075817e08f4c9bc344e8abc55097e7be7601cf0a8ce79d6",
-        "source_sha256": "4053d7b336677f8cec18f7836453cd16d059b2cb45ea0c6e8cc75561e008a0e2",
-        "tradingview_trade_export_sha256": "e5d9d7fa9f388963002cd3db00c812ef667c75bbf8f8ef5888ed5a97e4160624"
+        "source_sha256": "48d6691c591e4286abd4bd3ee852434774a97781f019f432f42cd046e23dde1c",
+        "tradingview_trade_export_sha256": "33cc819c51d49b7af698abc5209daaf5b6d01b8113597cc248ea22aa755f1c40"
       },
       "batch": 2,
       "category": "multi_factor",
@@ -963,8 +963,8 @@
         "generated_cpp_sha256": "bd6a720fb8e3267981c5733a30651a4418f45b231d1dd6d93810f04d7e2627c2",
         "inputs_sha256": "21e2a1ca27953fd247cb6c75b5eaba08025a3158280aabbc01078359e78d284a",
         "readme_sha256": "c94314b52c1de311e32e83a5da23ac194f6aba9eaa4a6a081937ba1d4022419d",
-        "source_sha256": "e314f3bd5d8a354f42fecb05928c7180204e1262d3d31199d4651aaeb903eb49",
-        "tradingview_trade_export_sha256": "19e37726ca66d0e8cfc92ac5cf35ea06b68bc1e356b21ca2e983ec8e8ac08a1c"
+        "source_sha256": "a9560ed865dca0b2322ad29105f6b9943c8671967c9d2168213e75e84c335c62",
+        "tradingview_trade_export_sha256": "826fb3713895afde7d545b8ba7fd464600ae564cde207c9ebd90ab0fdbf21192"
       },
       "batch": 3,
       "category": "multi_timeframe_volatility",
@@ -1001,8 +1001,8 @@
         "generated_cpp_sha256": "3216549bebf34a094ce984b3717f67126c0e3c3a86912011f6fc17cfdd80aa29",
         "inputs_sha256": "65b5f8c7f9e0810bd706d6736a64d8075933b79c966d1a2000da95446b6904d9",
         "readme_sha256": "19fa2337b4c4bc8cbf5374bbbaf748a0a38bd4fd8e377c95b8a355d7748fc017",
-        "source_sha256": "858e2d627e7f8931aee99fdb5218b60fd57b7740fe5115c66ba2834ffc916bef",
-        "tradingview_trade_export_sha256": "aa5d96f38cda5fcdcdf741c28b59b4b431e18475fc96ca4ab0f1901ffaf4d177"
+        "source_sha256": "6f17e2c33ef1e69e553d02d9025b168f9bfce6ddf9ae6cbc77c1a6e3ff224e31",
+        "tradingview_trade_export_sha256": "23c8ffb5fb37d4824c4b18510513b0b4fcfce2c28ddab5a39fc8d4987bae9fc5"
       },
       "batch": 3,
       "category": "multi_timeframe_trend",
@@ -1044,8 +1044,8 @@
         "generated_cpp_sha256": "ad277c64851e561f0b3e880dbd0c08071d70195c2c874a143c99679491be4189",
         "inputs_sha256": "e2a2388f86650f143fb5e26f6e62a2d44e958fb513f2682d4709024c4384f429",
         "readme_sha256": "788731ca985a3db481aa900c15c0500622ee6bbaff1ed579cc08e20cdb905bbf",
-        "source_sha256": "1f10a0d09133a41293d7275440ece79bf155f26bc5154fd65eb05e55b6d0fdde",
-        "tradingview_trade_export_sha256": "9f71a3fc2ca14455ad320a15e4fe27b413709480d616cbd5445994fdd8ff698a"
+        "source_sha256": "36cc7703c6f249e76a35d3306254f55ef50054fe9cc41336ada9f77fe1283154",
+        "tradingview_trade_export_sha256": "b242ec9f69a37cb2012fd92fb46f1ef61d6f84e37db03f908dea98f04765476d"
       },
       "batch": 3,
       "category": "daily_reference",
@@ -1085,9 +1085,9 @@
         "engine_trade_tape_sha256": "200a4f0c13b4033cb020e0c314d099483687ec693d4905e58a541e97befee103",
         "generated_cpp_sha256": "afd1495c4cbf97888aa45678287cb3c7feb9f369a8bbd8ed073dd7cdd584cd07",
         "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
-        "readme_sha256": "81d24517f78d2ffadbe9e054214202adb9444e2326c07117f8534282c39c2a74",
-        "source_sha256": "c915938ae8d7307faf5960962acdc529dfc4dafa0639c569845b1461e6f1765d",
-        "tradingview_trade_export_sha256": "31abc8c8702463e159b6b52926cebc2a088fb40c9989c5010a808bdfaf923500"
+        "readme_sha256": "c7313ef31f1a0f448c4984825e9ba991acbf3cb763f3f63a99f984d634cea0cf",
+        "source_sha256": "16ff648758a1b3bfcf78fbd77cbc37662974c35ef10438429d0172a98601f4f5",
+        "tradingview_trade_export_sha256": "73a26d4f6634793f1b209edb12cf1b2eaedbcc0ed581bced3fe128284059cd8b"
       },
       "batch": 1,
       "category": "mean_reversion",
@@ -1130,9 +1130,9 @@
         "engine_trade_tape_sha256": "52d900030f17d953630b0ee326ef7553412635dcf1d46cef151dff313df75392",
         "generated_cpp_sha256": "cfa1b761829b7546613aeae213da5c4201aa65e6f5885dcbbf90d742794b9a83",
         "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
-        "readme_sha256": "4f2b6d74f58c3bba55b2bf72da5dad02efe6345fe9b4e5b2d277a2aa648063df",
-        "source_sha256": "c95f99b4d2fff57b5d87537825aa07eae96a7972a9301b5f3bc194d834a9856c",
-        "tradingview_trade_export_sha256": "b01a58765e10b0b8007debaa9628b42061cc6ca7439c7b7052d6b59fe4f6d7e7"
+        "readme_sha256": "c4f7f08a02f9830c0a5ebbfc2d108da28e0b66d64c95f4a31ae4483a6ef0279d",
+        "source_sha256": "3d830885bb46ca90c26aff37992151352d304d0b1c0c5e339f4b9a6424ab08fc",
+        "tradingview_trade_export_sha256": "e9e7bffab7d3228b68212261810ac2dc05a3f08c2c4cafc9128c5c966396c84e"
       },
       "batch": 1,
       "category": "regime_switch",
@@ -1169,8 +1169,8 @@
         "generated_cpp_sha256": "50b1d228aff1a5ac4abe47b1eadff7af2427c2d9303c7e2d70e05a59409fd770",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "6bf1b7f52f78030e5cc6cb167af5bae164c2004ca841a0aa26c5bdd39d192772",
-        "source_sha256": "9d992ba34a6ae949483fe9998f02aeac657dd4ef789c676f987f3c31a6fbd2b9",
-        "tradingview_trade_export_sha256": "afc2cd33871e64ad8256c1eb124edacc1522e9cf612d74cb1877ffa75528f615"
+        "source_sha256": "3ca55a64813b11d01f71c5b534c122b59fed6b7ff529fa946cbad4f5ee9d4761",
+        "tradingview_trade_export_sha256": "cda89d2f2528ac53b751badf64ae1f092d6bceb9e4993f56e31926fb4fa17200"
       },
       "batch": 3,
       "category": "same_bar_market_exit",
@@ -1207,8 +1207,8 @@
         "generated_cpp_sha256": "103e076c5de46245fb8e126d936afc3627ad2dc9d87f1032a85c03b8afb30afe",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "887b83e87e87fb76fe792cd6b4eeb0f12699ac91a30949cafac8dbaabee4fb91",
-        "source_sha256": "fefe0b23991a7208188dd16ce916b91f995eba91259b09a93959f043eec8626e",
-        "tradingview_trade_export_sha256": "4fef771bbb87df11b84eb153c848e193266a733c6ffb4a6c37e029bf31aecc8c"
+        "source_sha256": "854e3620fc8950ca78a59d59ff31777f91fea234e966a33fd013780b3a1d3719",
+        "tradingview_trade_export_sha256": "46970ac6d6671937d4894f2aa0649370169f3c415b3ffc716896ac7b52d2834a"
       },
       "batch": 2,
       "category": "breakout_retest",
@@ -1244,9 +1244,9 @@
         "engine_trade_tape_sha256": "7fb7e5d5879ff6bdbe607f281fce1883d46098778a5cb04803eff1bea9b04ec8",
         "generated_cpp_sha256": "1cfb3b61faacfc114def8fc7daaf52c4eb9fae76d899c93d3f2309f07ba19565",
         "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
-        "readme_sha256": "32dd690f4b006ba65cbaa390d3f1b4a742a564e11d206776855fa012ce68e352",
-        "source_sha256": "f5c864d778fb8519513677c319f6c2bf9aeb14dd71c699cc173d55e8cafe555a",
-        "tradingview_trade_export_sha256": "ba31ca983359e2968d8da9cef8b331b6a3f0dddbb7104c49e8f7a170064491e4"
+        "readme_sha256": "aaf1a7628266921008bb7f2e34f7656f3af3c8a8260fc34ad878363e5a0233fe",
+        "source_sha256": "dc2134bb794d89de7594271ef7b24c01f391726ddda2577985033f1bbed26bc7",
+        "tradingview_trade_export_sha256": "36b3e42c73425ab3c3c19a942451c0d74239716b841327e5c8839e39cb96bd39"
       },
       "batch": 1,
       "category": "time_exit",
@@ -1284,8 +1284,8 @@
         "generated_cpp_sha256": "6bfd5eb273a950a647a073d30d3a322e257f44569e3ee4ade188fabb9c574312",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "e1bd0469894769048e5fc26f1761678b4644744e377ea9fd006537f3ce82cc95",
-        "source_sha256": "cafc2b52eefb207bcca91231f074d47ebf1decbd4b448a718ae0c65818f3d87c",
-        "tradingview_trade_export_sha256": "4f82bd271c71d302cb49a44bd52bcd1745ccde8aa9c3ef1052d88c716a05f33e"
+        "source_sha256": "bb45529bc91947a5b13359c44486e630e193c08e2c0b7425d50643d8e25cdb40",
+        "tradingview_trade_export_sha256": "a46a723a3923e0bad2a9e1b567d8c1d1956f9de9b33529d2892ea6eb25b3fe78"
       },
       "batch": 2,
       "category": "pullback",
@@ -1323,9 +1323,9 @@
         "engine_trade_tape_sha256": "272ee9f8b1acf3b836176aaa3ac6a1fc0d9d93cd977d2677c08a2f4484f330fb",
         "generated_cpp_sha256": "4fa57c99896b40d4b5a8082e82c2bae7a8553f0d2ea23f12e1f83c0c2f025621",
         "inputs_sha256": "43c6676d177fd268e772c0155292b0b044c762323a1aa1cc0f3d0008adbc6fb2",
-        "readme_sha256": "fbb28fe16125813ba1c34fbca232dc7ea34c73489d17fd9d160b012c88f8c4ca",
-        "source_sha256": "77027fec26840a4403914402ee01308f1b6b7d9471fdf65fe5be3d1fa9b24303",
-        "tradingview_trade_export_sha256": "29e9785d1eeb3548b5b51dfa133650b5db314f2064060ac427f2855748559c74"
+        "readme_sha256": "18f38d61b2ec64a02d812bb286e44490748a7a23b0ce52487d075ced5bf92f36",
+        "source_sha256": "98f1e3f4bfad5ecd6cd5315919d9857030d096956585470d50b44353a5eb28d0",
+        "tradingview_trade_export_sha256": "7c142617ca78c7c4cb189f5fdfc1a6861195194fcaa301a54d0e0cc7fcdb8b27"
       },
       "batch": 1,
       "category": "momentum",
@@ -1363,8 +1363,8 @@
         "generated_cpp_sha256": "5b06b9078c3e2cda74f34971156a946ee2f83f39658843cc6aa001164b442a14",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "2d006d2d37c4a2b089df2608bacd23bce14fe3edfe56c0be3c9e959ad2200d00",
-        "source_sha256": "2b37a743e8d02872d267e96e1a701a6ff8c1e979d02a792dbbcab20605f1b0d2",
-        "tradingview_trade_export_sha256": "03d59e5cd2139b52c1bc2bab56dad7d1563156cb8661a8403059ac85fa6f0ccf"
+        "source_sha256": "65d2372fcbdcaa7fb061f96390b7354a32d9f8012e5c25a4503871a04969e431",
+        "tradingview_trade_export_sha256": "978b95e8b710c332268e839cdb222b85228b59fca2a7b1c2bf7c3a8aaa7d1c4c"
       },
       "batch": 3,
       "category": "partial_market_exit",
@@ -1401,8 +1401,8 @@
         "generated_cpp_sha256": "1c8b4afa7fc275cd22a8df8ee4bcc6dce3f4a67dbb90ddb632b472d220795191",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "25b4693f8b8150c24a52af54cbd6256bf1c66157f0d68acaa6d66548b74279c1",
-        "source_sha256": "bf49b39130b02f7d54f8d2a32607847e6639422aad9d0bf0ffdffb31d668671f",
-        "tradingview_trade_export_sha256": "b34c5e03f865717bd8b09880c3e1636d05018a41c6ea94b59e90a495c196001b"
+        "source_sha256": "679a5bfe4b00fc22b6c57c97fff5824d1a812597e2121ad0712fd29b7005fe8b",
+        "tradingview_trade_export_sha256": "1bc835a99303be929c490e01fc3b89a122b8710d85e0c9c0254f334b494d03cb"
       },
       "batch": 2,
       "category": "breakout",
@@ -1440,8 +1440,8 @@
         "generated_cpp_sha256": "9c1dcd75651b62ef3b3f006e53de1c97122b87ac8dde61b1c69aae744bb2543a",
         "inputs_sha256": "300e9b392ea5629a66e53ccc4717767edbf7794320d1587408f6ac80b7c05781",
         "readme_sha256": "6a88193980e902ce98cc0018be38d81a5017f80aa4d1005d8160fe05fb5f0d99",
-        "source_sha256": "f268caed4649de9c73d1c64d521519f632a12ba3ec75280fb2884e6bc76eaf4e",
-        "tradingview_trade_export_sha256": "54e5bb5ab28fcd52f9216e1ba45c981afeef4d241f52ec9affc3d5eecd31026d"
+        "source_sha256": "ff5f74437f895292f6f6da4d17b034fd7f7c2a3845eadde0013b8a3dd68fb184",
+        "tradingview_trade_export_sha256": "d8b9a8db4a8f093f4205ff0b3d7c1c6635281bbd741120bb53d75380f2126746"
       },
       "batch": 3,
       "category": "trend_pullback",
@@ -1480,8 +1480,8 @@
         "generated_cpp_sha256": "b8a03bbd4b8630d9c7f81b437264d365b768959c604fed71dc2cad5808352148",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "7a8577101656b924198f089746fe52fb03ca7d73cf0564ab46a36ba99d547b14",
-        "source_sha256": "31fcb22ab37efa20a3be5152f12452a6d183d7552d35d1eb9b9d93baa7f517c6",
-        "tradingview_trade_export_sha256": "f314d66fb0ca9430e8b327f1f35bcfb4b4952a0ad927c52a53ade9b6f001f49b"
+        "source_sha256": "c6f3168334d5a03addef829e1d6ce08024d53c443db1fb049b14cf580e92df9e",
+        "tradingview_trade_export_sha256": "44167a32edb9b069eb511d2ed4552ba33623f53894f5f59601b4af708255adc3"
       },
       "batch": 3,
       "category": "dst_session",
@@ -1518,9 +1518,9 @@
         "engine_trade_tape_sha256": "b578c1661b161a77e7972fa54c30ef0cc3add3a8989bae0184e829bd11425a68",
         "generated_cpp_sha256": "7098736e8add0e5ffdb51b24db20022b1aa710f7eec406d7dee6eaf207a3e5a5",
         "inputs_sha256": "b6644d96a7f958a85451f6af5dda7ac7811c8abfc7795171f12d10d56439e017",
-        "readme_sha256": "859154f765ab5656e63373e8705bf0a558500e975c5554ece24fc1689c2ac106",
-        "source_sha256": "8c9e46e6cefa0da3590d5a64e6c2ddd28ee9f325aa14271321f8ac89c175983e",
-        "tradingview_trade_export_sha256": "1ce1e20e8914c58489b673f383ff34ca6b6653b729714e127830e82e6ca8f6f1"
+        "readme_sha256": "05931ac3486656196b5cb881b3804943d4b127275a3e851f9e23231183293267",
+        "source_sha256": "39b293e6b1b064008b65150638c8f3f4b8a6441e983325c03160e8e3e486e7f6",
+        "tradingview_trade_export_sha256": "6fa95a6c62eb7c0d53969dcb089d72debd0679b3fdf564e77a303f5365f9159b"
       },
       "batch": 1,
       "category": "session_momentum",
@@ -1562,8 +1562,8 @@
         "generated_cpp_sha256": "775bed8663d9df243697617b2a2ba8340ee717325ac8e1f57a00ebb93b10fd69",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "3aa75df2a5957fc8e42d758b0a9cdf9bf0a4796105dd95f9d89ca3f3d0191029",
-        "source_sha256": "56b5e22c55c0f939599522f097a64f33346879f1482f138bef8b4828026614ce",
-        "tradingview_trade_export_sha256": "19f05e2d3bafae10350814b79864e47fec15db7f2540650f63490ea07b028e35"
+        "source_sha256": "716c1960cefce907470b4fe8999f7ee769b44705b558669d86fc0dc6e559d2d5",
+        "tradingview_trade_export_sha256": "0bbf0c5af86d21017a882c5f3ccbf70d147c4232191f02a3faf51ba061746a7a"
       },
       "batch": 3,
       "category": "trade_feedback",
@@ -1599,9 +1599,9 @@
         "engine_trade_tape_sha256": "ab0b0e940d8a2327f5b7eb3e68e8e7d4769ddb8cd9b698c7c79028c5d9c5a00a",
         "generated_cpp_sha256": "0c3914bd62bad8c513f0f37b0370aae79b286746339176ae95cf715a8073b657",
         "inputs_sha256": "b06c4c6cee12c1dc855e7da92dc46d71734ff056d8bb3b4b28b3fe5d9bb91a01",
-        "readme_sha256": "4ae9f43e533ee0e03d8ef21834495eaf912e1ab5d96c0291f720adab7b276df9",
-        "source_sha256": "0a2d09ea74e981e3e8b6d2696fef03ae39753b3624f1bc0d104fea87e28c2b92",
-        "tradingview_trade_export_sha256": "abebc9b9652f6c5919d3dfbb23a26606c94cbd8c0668c889e00f13b39d440f66"
+        "readme_sha256": "afaa5bb404d266d1f14696ee42c22ca61804bf1615c126dfd9ea455fd5747d52",
+        "source_sha256": "9ba3226eed8f28ad00c5067fd860e5165a9fa1616930408436f6f8bf96d0a557",
+        "tradingview_trade_export_sha256": "a56c3493a47e2bad47851784283c0443fa018c652469022bdbda2059a7cca7f7"
       },
       "batch": 1,
       "category": "configurable_filter",
@@ -1645,8 +1645,8 @@
         "generated_cpp_sha256": "34c34d3ca5d876406793660ca797f04684a7490941b68642b2172a8ca6339188",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "2f61b8e292c61fd574574783ee4e43ba329514cb0df37b6648021e2a8e8bed8b",
-        "source_sha256": "94c7a0f733da94f92be3bef78d2e4d2e1643817313faddb32b0cc3e821776a1b",
-        "tradingview_trade_export_sha256": "32590a4010aa4a1777a1ea1518198267d00ce3530d4e07c2a2c5055faeb49dfd"
+        "source_sha256": "f0debdac23fe35dfe0f891f98486ec10ca1256ecbf9ddfd24b52a6c2a7de2671",
+        "tradingview_trade_export_sha256": "fd21acf8ac7e7a27d5da527054e1037b12f466387e489e8a8262e5f2271c2a58"
       },
       "batch": 2,
       "category": "text_configuration",
@@ -1685,8 +1685,8 @@
         "generated_cpp_sha256": "2b4e6381fb7ea0c5f0e4f9d97adabd5488af6741075a930adf36967315f96b53",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "029bcd9ebd2f2e105ae9c7c72d037884be3f57b84ed06b0e8ad1b0eefb44fa62",
-        "source_sha256": "35e53d7ce50f206ea6831f0e8f475d4d03e3ccb34282a1452ac3c62c2d2b0bf2",
-        "tradingview_trade_export_sha256": "ecddd778d780071707ef2224f496e4daa2a3ff3215e2a8ccb23791d8cd80f65e"
+        "source_sha256": "7f456cc0e31d388624c6f9fabc007a05d44c4ae8f6fc55182e1fa668fc93c451",
+        "tradingview_trade_export_sha256": "092faa2d5021172ce9556076e45df0d54e2f8bdfd6e9a59625a241fa0ec44270"
       },
       "batch": 1,
       "category": "cycle_trend",
@@ -1725,8 +1725,8 @@
         "generated_cpp_sha256": "c612214dab0bb00dff8244d5b413f539a61288826904881f18fa3c45a4533127",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "0217e30a9da6cae98998e17d1924d5e192f72070e7ba738ea5c17db40630c3e9",
-        "source_sha256": "9c7d4bb541eea8398e820a35d4de212ec366aa2c02a05b28e5b9a330652dcb4d",
-        "tradingview_trade_export_sha256": "03548a69ed304560975718190f9f291bd24400326b00737ea2f5edab27385c9a"
+        "source_sha256": "454ff937908bb5e0831ea519adf53a9e0bec4582b1a4f22e1aceddcc6f6459e2",
+        "tradingview_trade_export_sha256": "334d011727a3223341b213abc730414b7937f001c9802efd73ffebbe8295d047"
       },
       "batch": 1,
       "category": "volume_confirmation",
@@ -1765,8 +1765,8 @@
         "generated_cpp_sha256": "e1f45623d57a3dce6479880709e9bbcb769144130cba4f31a397d037603ebbf8",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "62e76a2688d429ba2a77171df48aab76459880e48781818a6ecfb3a582356ff5",
-        "source_sha256": "9f926330bac7f8c91cb20f47510d6cb44d98ef7ea8cc09fcfd52b582bc78e42f",
-        "tradingview_trade_export_sha256": "8486e30c0a77e4f7ee4d9e55c5abbc1708fce6080a062b5237c4d1d1b0937269"
+        "source_sha256": "877c3cbcd21d8bd9ea0a4f64c855d455f24c54215f312adb9618e3341aff9311",
+        "tradingview_trade_export_sha256": "f328e2938d704a8b4bbfa76c148b36082014103eb32b8146947b9d1c9760f1fc"
       },
       "batch": 1,
       "category": "robust_momentum",
@@ -1805,8 +1805,8 @@
         "generated_cpp_sha256": "9415eab4f637ac34512e8e01eadab6f9de41e778b8d63b80fd6ebdc6cdd82d77",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "2c2560376ce5ca6e9a0a3ee2cd112cb1c1d9a866a03ff6a36e67ecdabbc10960",
-        "source_sha256": "06d17c41b43ffdc0658091285fd040d7cd276baebb31adf96c3b7d0f30b651a5",
-        "tradingview_trade_export_sha256": "81bc7b12dc44c83b4a1949a1050d727a5b966ef4380361a59615a12b7fb0925e"
+        "source_sha256": "b119ac701e21900e13ed5351db849187f912a7619e4a04655ec1453b914a6ddc",
+        "tradingview_trade_export_sha256": "afb77a0aace8f523ca9d7bcd5b51fe3aef4a5f36176f452c8e1e9c5b321f5dab"
       },
       "batch": 1,
       "category": "volatility_breakout",
@@ -1843,8 +1843,8 @@
         "generated_cpp_sha256": "70a7c80a9df5110ceb0effc0e707c7bf5b05d3061e391eb82a249258e014d8cf",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "396cfa2e9e218f1cdee2a7a0e3e5b513537d29c2d32f8fd6bb70e01f842f9728",
-        "source_sha256": "a398f8a6cfaaee086ece76392d64f28836b0e0da6540728ead6a1f116d640027",
-        "tradingview_trade_export_sha256": "ad121b4aa595cfddfffe316fdb1557a9197f1cc0cf7dd760861cc1e883a55279"
+        "source_sha256": "066cfa272315731db187ffcc02d55d083454e7e54b30781cd11d45a119dfab4d",
+        "tradingview_trade_export_sha256": "c90845a5b6599607f6b0c7fd3d8d33eee4bd78534bf2edd82d1eab6d8271fa35"
       },
       "batch": 3,
       "category": "directional_regime",
@@ -1883,8 +1883,8 @@
         "generated_cpp_sha256": "bf2c32e4c4696d84917645f9eb41f1cc5b7f64289ffb829df9f3b0a234d6cb88",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "9923b659208b37abd07dc7682f9395054d3c1cb7f208969bad02d8fb0d5f6ffb",
-        "source_sha256": "b18c25a934c59029f87feef3993bfff3430f256635492aa61df63d47a01919be",
-        "tradingview_trade_export_sha256": "5d454eec435f5b9c07d35cace78e0e70bf0507762d67c8301e60f462906c1a74"
+        "source_sha256": "ba5be9f961156beb03871f993086a074f597240298893f4f3b427fc959d1c758",
+        "tradingview_trade_export_sha256": "3adf6b8285fd78776422ed45a488621afa227eee308336681a4769ccb32e7c4c"
       },
       "batch": 3,
       "category": "parabolic_rotation",
@@ -1921,8 +1921,8 @@
         "generated_cpp_sha256": "f8114323d5a4378478bdad1730c1dcf604841615f8cd3ff1fac092f0d32b2269",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "71174926c9c6384aab2cc314e2bc26a68bf5b941a57b5be42c80333960cacc3c",
-        "source_sha256": "4b925c6676c0af7036abbd16d2d49d5b2beae5025ceaba7d96e70861c8087315",
-        "tradingview_trade_export_sha256": "01d53ed2e3ae8477c37398e063cc59d3808209f31c989e84954453e68b8fb4c9"
+        "source_sha256": "cde69f0aeda78bd0ef732eb65da309ea11ddebe7beeae67923ff09b64150efb2",
+        "tradingview_trade_export_sha256": "1c7d746c6ede86c261ea65539afdf40594bfeb22ca0e52c431a48cf877104ac2"
       },
       "batch": 1,
       "category": "volume_weighted_trend",
@@ -1961,8 +1961,8 @@
         "generated_cpp_sha256": "6f43dd2f304fd466452f5a6a16c1522dddf6b64188e52bb454057c2954fed796",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "558a534228e5dc48b4389f8bdc4f40d80cb5b3afab5d867f52a1aca01516bfe9",
-        "source_sha256": "2cab6e61c76d261c64b1df4c0a7eae0ab8ba89d69a1cdd98208461d832d1ab2e",
-        "tradingview_trade_export_sha256": "69b67b938d79852bc6a71d592c32ba3422c48f1e0cae78a0fd2665a24ded420d"
+        "source_sha256": "27960c57e7db93d0c6848216a96eb41a4627b343076c65125d5a037f15f2adb6",
+        "tradingview_trade_export_sha256": "3128118c4b00153a6863bcbdf6c6aa7464229693d50de11054f4709864e106c1"
       },
       "batch": 1,
       "category": "adaptive_trend",
@@ -2001,8 +2001,8 @@
         "generated_cpp_sha256": "baec36b9032e62300f2ad3d78bc4c1357b960df7922d5616c9bcebed3fee6b76",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "e5a7c97d78a8c98e9288356b02e2a390ff03981c95a56fca7af423f1bd1d458f",
-        "source_sha256": "97df12180944f25f6c36f5ae93e62fd3c69c9410544692f66f5ed0870c659243",
-        "tradingview_trade_export_sha256": "3c207fbb9e42198e4c2e99b58ab3ba6c2be32b7a78a82b6154ec4bcaa2773fc5"
+        "source_sha256": "730ae7f5f6846cbc085ad3eb0a5f45693a717468cef5b4e1d384f723069822b4",
+        "tradingview_trade_export_sha256": "ca6bc2cf814955dc3659f7e4cf256150e366e40c47aa3fdce225165cbe12fcd2"
       },
       "batch": 1,
       "category": "trend_impulse",
@@ -2041,8 +2041,8 @@
         "generated_cpp_sha256": "3b68cc9a50112df08b2d718f7f61fa0c27a710cac0c713734df68ab1bc7a3a3d",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "aee7d58841605c6b8c5df8223af4e89a3076d4b84c8eea6dd26cc7bd64f86f15",
-        "source_sha256": "e8ab0bce5ae664c124d307019c92ab45916b375e6716699fb2fc526449c861a5",
-        "tradingview_trade_export_sha256": "e53b9fe91583e2eb3bc14f25203972e1b1242b9b8f877684d0ed61e6c5997c8a"
+        "source_sha256": "7dbc1314f44c3ea2d33eb521129f005610356d757ac5430976dd634a05a02233",
+        "tradingview_trade_export_sha256": "c5f287bcb59f1b14bad1eb504bde71f1ee8638ac25f4ece3de527aa04c51239b"
       },
       "batch": 1,
       "category": "volume_regime",
@@ -2081,8 +2081,8 @@
         "generated_cpp_sha256": "b8b630af9e13d6016dd9b0ee9299f36a5dca088fa3a6805f44cbf9924b53f078",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "899ebb4a77ee7295eeee48fb19f773f16d3a896db13ac35d2cac3b4c1be8139a",
-        "source_sha256": "98ffc741adb3997a95820841d034a49038fe88e949f3e80e8273c23d519f225d",
-        "tradingview_trade_export_sha256": "0bcdd6553113d0f7f56b7f7ea3855ebe9932e94221ce77cfe2cca45015aa7f31"
+        "source_sha256": "d5cae37525ed8fcf5cbc2492a153e66b02fd7f1aca4af01ee606092e3dd762b5",
+        "tradingview_trade_export_sha256": "c543d860a3579a2f9cfa0d7769b7c9f484d0101389c81758eaaf17ab72fafb31"
       },
       "batch": 3,
       "category": "smoothed_impulse",
@@ -2121,8 +2121,8 @@
         "generated_cpp_sha256": "7047c07423a6bfba408d9a2b0c5100144e7a7aa07d032979d3dca21cffa5f8bb",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "9efcf843eef54e4f629782d2a15fd641ce1e15e4ebede289d28186599af9855c",
-        "source_sha256": "b4a90ce8435b7b7627651f94b87e043cbcbba836bdec710e288b3922c27a3c35",
-        "tradingview_trade_export_sha256": "664446f6dcab88d003ef57ef46563eea747ccdae25a34ab35cdae775f37136ed"
+        "source_sha256": "11df6e8f07d052cc136d6ecc7cc127bc0370c4c8c02d7629e82e11109a4615e5",
+        "tradingview_trade_export_sha256": "0b20fdda4c7842d8a159aacb53bae9bdf0a1d00cd932a095a88d043310fbdd1f"
       },
       "batch": 1,
       "category": "rank_oscillator",
@@ -2161,8 +2161,8 @@
         "generated_cpp_sha256": "51670bb7d44e1757cc9a208f713bfca6c56b021dee0d9d082917dd3497f83604",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "4a5b78e929ff002f86dbfddbee0f595f04e213939561616ded9a04859984ed28",
-        "source_sha256": "0fec245041f2155661d81c2db02017e829ade3270914982e0208e7dd1650f057",
-        "tradingview_trade_export_sha256": "0d90fdaaa084c1a27ed46e263b71ea34af5aa49f248fcaa6ac47e72dd104a7de"
+        "source_sha256": "e46277239560b41fb7ad24353e0729bb864e2a28dcf00b6d4db9a3be5c67fc3c",
+        "tradingview_trade_export_sha256": "a883aac348ad6da5ca6a621eebc39f39b14b46e28374d6b71230c81097aab273"
       },
       "batch": 3,
       "category": "timeframe_adaptation",
@@ -2199,8 +2199,8 @@
         "generated_cpp_sha256": "5c11b9bb2eea85747376ded8265d8a7bfa6ec08834e59f61a1987be947333f27",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "245161e09534243074f252c0dc025af364fcbc29650dc2914d54117dc6f5dd28",
-        "source_sha256": "1b4b767690554064677bc3846d676c65f8cad775e6188fc2e518d1ab447c48af",
-        "tradingview_trade_export_sha256": "e1f1bd16d148eabc6e0a5fdfdc3c9b2d1f21565fb8eaec084fdf14665f9738d8"
+        "source_sha256": "b4c045cca788a72ce49c04df9c51089953a060775d675bed88e979fb51dde65a",
+        "tradingview_trade_export_sha256": "3070c1ce280cf0d2fa0bde187b1fe17406d879a266224eb2e0f768fd5a5a6c49"
       },
       "batch": 2,
       "category": "typed_control_flow",
@@ -2241,8 +2241,8 @@
         "generated_cpp_sha256": "6bf062709fb08d71eeeba37854e6a0cc50d3704033ab5d50a90ff4bd0cbc4894",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "41c5fcf845e1735366d78bcd4c1b38b695fa6252c2657872cd6ebcd1b5f652c6",
-        "source_sha256": "d936c9e7df2c360a9c10ee83a2ae5fd98822f5824bc7c60d668b0f0c6a61c283",
-        "tradingview_trade_export_sha256": "96c6f657feb3f97d4aea3b5fc5765580409730625a3a441fffa91ff74eda02b1"
+        "source_sha256": "a7ff0ccbb3b0443fbecda1a43f104a96254d336ae55221b6e37f0db879ccbd03",
+        "tradingview_trade_export_sha256": "3f1d8b9439b85eab5cc44e209f3b9ff57c16443ddcb727ef6fa670f1596b2e98"
       },
       "batch": 2,
       "category": "typed_factory",
@@ -2282,8 +2282,8 @@
         "generated_cpp_sha256": "9b7c2365d623758484a73db07d84af4e9166e7213d27d62855ecf3217b193204",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "a68dbe54f4f6a40f7cea493ab97ccab5516bc4d842962e5801519afcf381a7b4",
-        "source_sha256": "693d944d6c7d875971343095d5055799c78064f231cb59bf5c3153b4c52a27ec",
-        "tradingview_trade_export_sha256": "62127db9019cba414613979b9941f8170e0d3b5380cebfb1adf742e574c55e37"
+        "source_sha256": "75d1049bd7fd68a8a77a278ec72d924d9b85ebec920f8c1b1493e12692e32c41",
+        "tradingview_trade_export_sha256": "1f4a5629ce2c6d0c013df42141c052d0b29998ad43f2aca40d143cdb3abd29ca"
       },
       "batch": 2,
       "category": "typed_iteration",
@@ -2321,9 +2321,9 @@
         "engine_trade_tape_sha256": "c873b7b8cc560f1519c19aacd493d1fc297dd3d8ee63a2ec1e7fd7396a269051",
         "generated_cpp_sha256": "70e324727ff5a51e72f46e1d09ea8c938999750c3e79d5346e5e8cb2621c1d7d",
         "inputs_sha256": "7605104c67663986f3a3ce8aa99663f9e4f6b4bebfda64c2ba4b33da1ba04271",
-        "readme_sha256": "b2fd850e3486cb453f565f2f5eed9ad2fec94a2d6e720e3501d90a7266648f8c",
-        "source_sha256": "047389c0f0bf913c813a90618779e514ee3de5e74360a616a1ec3fbc3c0d5765",
-        "tradingview_trade_export_sha256": "76421b98c9f80efdf411eeceed14305c925f696b94ea49a4fee20380bfa8ccfe"
+        "readme_sha256": "0a028099cd901fc7c082ee676a2f2d50a91eea6ed9738a92b8c6dd2baca3d446",
+        "source_sha256": "67727123fa58150a51a52505028e257b1a82b94517a4524a79f8303cd4ca1a5c",
+        "tradingview_trade_export_sha256": "dd9302c0296861fb5b7c9a1dca3f47cdaa704a13f7524060e4eca03509746819"
       },
       "batch": 1,
       "category": "trend_state",
@@ -2362,8 +2362,8 @@
         "generated_cpp_sha256": "baf510c6296b328730cda2eb85c142c25b07385c09d6656fa594c93f8681c9f0",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "a0f01323b85ee425ee16257efcb7bbd26a8a759f0354dacdeb762b9ca06a7b8b",
-        "source_sha256": "b34bf9035906a880902c02121e3b6ae5470d9c02b03365063e6a6509cd1eba8c",
-        "tradingview_trade_export_sha256": "28b1d025161e565d632f6b08c3ea809c5213ac0fccae9c09ed61f3dbf4fa37aa"
+        "source_sha256": "8627405ad88730a6db18c416fb7d1479972b96403efc58fe8f16a1abcf739231",
+        "tradingview_trade_export_sha256": "a3fc83fda33c732197af754691f31f54a86d4877c8796d121a999f2ca797fb6d"
       },
       "batch": 2,
       "category": "typed_dispatch",
@@ -2402,8 +2402,8 @@
         "generated_cpp_sha256": "67f16e1163197d9750e779e145bbd4b1274775f7b37c07dda67edb1b3195610a",
         "inputs_sha256": "db06bf32aa9e2fa65cea8a3987995a80b04b89eeb481e8f93297715d7a5ca132",
         "readme_sha256": "c3ff90a1643ad5cc4f45c2928c4c8bd954fc53b852932ad48b52a142fd9a4efc",
-        "source_sha256": "bf5f336d179b42f4652fc7a695ed6949584a87ab42f661727bdbcab6db39db24",
-        "tradingview_trade_export_sha256": "b9400c32132e3ac2fc40e9d6cc6f93ce6f13a77d08fd2f6740dd478c2f1c6bf3"
+        "source_sha256": "cff58080978a5c98666006e8a6a0e434fac40a1b152aaa20f5d44d33d256b785",
+        "tradingview_trade_export_sha256": "031e15f7a4090d82a3ea1ed2c26785013c44db76d38ff8016f564ccac8c6588c"
       },
       "batch": 2,
       "category": "typed_multi_return",
@@ -2442,8 +2442,8 @@
         "generated_cpp_sha256": "7fc6f0a6fe831758cbd60d75d1df616a327889d049d712eed939759ed72a32ef",
         "inputs_sha256": "7bb21578dbf02a1b68831bb3acdb0f1119b2847496e5f3eb2f9e3dc99cf09476",
         "readme_sha256": "2fa60a9608a50a21a6b2dcbd4d4505ae695120b263e058b9b4242ce386015dde",
-        "source_sha256": "2498926117723eb8c933c19224335736e81bda08075a3f204cde3cfdeb998530",
-        "tradingview_trade_export_sha256": "d03743c0263848d820ba3bccf47dce57df272de5baa992019c36671a0495b765"
+        "source_sha256": "d152a8826de7cc4883503f77fa93ee20949a729eed7c6b181e840d4265fd2b8d",
+        "tradingview_trade_export_sha256": "a9cf6fb83830dc85d439ff1e47bbd0a7a2479e5d6d2495c98d2d9eca05f9443d"
       },
       "batch": 2,
       "category": "volume_flow",
