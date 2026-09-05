@@ -4,7 +4,7 @@
 // PineForge Corporate Strategy: Aurora Market Bracket
 // Independently authored for deterministic backtest and runtime coverage.
 strategy("PineForge — Aurora Market Bracket", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.percent_of_equity, default_qty_value=10,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

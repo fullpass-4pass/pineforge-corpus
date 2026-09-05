@@ -4,7 +4,7 @@
 // PineForge Corporate Strategy: Orbit MTF Trend
 // Higher-timeframe values use explicit gaps-off and lookahead-off semantics.
 strategy("PineForge — Orbit MTF Trend", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.percent_of_equity, default_qty_value=6,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

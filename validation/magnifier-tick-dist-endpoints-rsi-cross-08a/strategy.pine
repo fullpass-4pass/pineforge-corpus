@@ -18,7 +18,7 @@
 // trades.csv.
 //@version=6
 strategy("PF magnifier dist probe 08a - ENDPOINTS RSI cross", shorttitle="MAG_08a_END", overlay=true,
-     initial_capital=1000000, currency=currency.USD, use_bar_magnifier=true,
+     initial_capital=1000000, use_bar_magnifier=true,
      commission_type=strategy.commission.percent, commission_value=0, slippage=0,
      default_qty_type=strategy.fixed, default_qty_value=1, pyramiding=1,
      process_orders_on_close=false)

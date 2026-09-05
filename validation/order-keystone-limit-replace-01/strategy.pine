@@ -4,7 +4,7 @@
 // PineForge Corporate Strategy: Keystone Limit Pullback
 // A live pullback limit follows a rising trend and is cancelled when the trend fails.
 strategy("PineForge — Keystone Limit Pullback", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.percent_of_equity, default_qty_value=5,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

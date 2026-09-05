@@ -4,7 +4,7 @@
 // PineForge Corporate Strategy: Relay Enum Regime
 // An owned enum selects one of two coherent signal regimes at compile/runtime.
 strategy("PineForge — Relay Enum Regime", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.fixed, default_qty_value=2,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

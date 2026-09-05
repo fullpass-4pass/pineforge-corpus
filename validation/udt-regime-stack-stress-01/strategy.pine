@@ -18,7 +18,7 @@
 // - Pass `input.int` / scalars into `ta.*` lengths — UDT fields (e.g. `cfg.rsi_len`) are not yet
 //   valid `simple` length arguments for the transpiler.
 // - Avoid UDT methods, nested UDT fields, array<UDT>, and UDT returns from user functions.
-strategy("UDT Regime Stack (PF stress)", overlay=true, initial_capital=1000000, currency=currency.USD, process_orders_on_close=false, pyramiding=1, commission_type=strategy.commission.percent, commission_value=0, slippage=0, default_qty_type=strategy.fixed, default_qty_value=1)
+strategy("UDT Regime Stack (PF stress)", overlay=true, initial_capital=1000000, process_orders_on_close=false, pyramiding=1, commission_type=strategy.commission.percent, commission_value=0, slippage=0, default_qty_type=strategy.fixed, default_qty_value=1)
 
 // --- Enums (inputs + bookkeeping) ---
 enum Aggression

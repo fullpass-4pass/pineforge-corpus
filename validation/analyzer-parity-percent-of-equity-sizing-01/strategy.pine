@@ -24,7 +24,7 @@
 // data/ohlcv_ETH-USDT-USDT_15m.csv. Export "List of Trades" to
 // ``tv_trades.csv`` in this folder.
 //@version=6
-strategy("Parity probe 04 - percent_of_equity sizing", shorttitle="par_p04", overlay=true, initial_capital=1000000, currency=currency.USD, commission_type=strategy.commission.percent, commission_value=0, slippage=0, default_qty_type=strategy.percent_of_equity, default_qty_value=99, pyramiding=0, process_orders_on_close=false)
+strategy("Parity probe 04 - percent_of_equity sizing", shorttitle="par_p04", overlay=true, initial_capital=1000000, commission_type=strategy.commission.percent, commission_value=0, slippage=0, default_qty_type=strategy.percent_of_equity, default_qty_value=99, pyramiding=0, process_orders_on_close=false)
 
 // ---- engine -------------------------------------------------------
 // Wall-clock entry trigger: 00:00 UTC every Monday. Identical timing to

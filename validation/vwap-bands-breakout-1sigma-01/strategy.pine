@@ -5,7 +5,7 @@
 //@version=6
 strategy("VWAP Bands Breakout 1σ", overlay=true,
          default_qty_type=strategy.fixed, default_qty_value=1,
-         initial_capital=100000, currency=currency.USD)
+         initial_capital=100000)
 
 // VWAP Bands (3-tuple form): daily anchor, 1-sigma bands.
 // Entry: close breaks above upper_band (upside momentum beyond +1σ).

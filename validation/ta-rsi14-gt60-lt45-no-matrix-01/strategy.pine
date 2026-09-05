@@ -12,7 +12,7 @@
 // (the X7 typed-matrix codepath).
 //@version=6
 strategy("PF TA isolate 09 - RSI>60 entry, RSI<45 exit", shorttitle="TAI_09_RSI60_45",
-     overlay=true, initial_capital=1000000, currency=currency.USD,
+     overlay=true, initial_capital=1000000,
      commission_type=strategy.commission.percent, commission_value=0, slippage=0,
      default_qty_type=strategy.fixed, default_qty_value=1, pyramiding=1,
      process_orders_on_close=false)

@@ -4,7 +4,7 @@
 // PineForge Owned Strategy: Gyroscope CMO Median
 // A robust rolling center and bounded momentum jointly define the regime.
 strategy("PineForge — Gyroscope CMO Median", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.fixed, default_qty_value=2,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

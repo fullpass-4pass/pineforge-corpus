@@ -20,7 +20,7 @@
 // in this folder.
 //@version=6
 strategy("PF UDT probe 14 - method drives entry", shorttitle="UDT_p14_ENT", overlay=true,
-     initial_capital=1000000, currency=currency.USD,
+     initial_capital=1000000,
      commission_type=strategy.commission.percent, commission_value=0, slippage=0,
      default_qty_type=strategy.fixed, default_qty_value=1, pyramiding=1,
      process_orders_on_close=false)

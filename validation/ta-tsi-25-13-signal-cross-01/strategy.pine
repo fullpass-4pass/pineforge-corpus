@@ -8,7 +8,7 @@
 // TSI carries a known x100-scaling suspect that only a TV export can adjudicate.
 //@version=6
 strategy("PF TA isolate - TSI(25,13) signal cross", shorttitle="TAI_TSI",
-     overlay=false, initial_capital=1000000, currency=currency.USD,
+     overlay=false, initial_capital=1000000,
      commission_type=strategy.commission.percent, commission_value=0, slippage=0,
      default_qty_type=strategy.fixed, default_qty_value=1, pyramiding=1,
      process_orders_on_close=false)

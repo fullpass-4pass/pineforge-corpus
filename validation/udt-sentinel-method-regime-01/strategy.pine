@@ -5,7 +5,7 @@
 // Typed methods remain local; this strategy intentionally does not nest a typed
 // UDT method inside request.security.
 strategy("PineForge — Sentinel UDT Method", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.percent_of_equity, default_qty_value=6,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

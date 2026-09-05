@@ -21,7 +21,7 @@
 // leave defaults from script header. Export "List of trades" → tv_trades.csv.
 //@version=6
 strategy("PF probe kkb-probe-03-margin-100-pct", shorttitle="PF_kkb03_MGN",
-     overlay=true, initial_capital=1000000, currency=currency.USD,
+     overlay=true, initial_capital=1000000,
      commission_type=strategy.commission.percent, commission_value=0,
      slippage=0, default_qty_type=strategy.fixed, default_qty_value=1,
      pyramiding=1, process_orders_on_close=false,

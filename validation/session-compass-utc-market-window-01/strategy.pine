@@ -3,7 +3,7 @@
 // Copyright 2026 PineForge
 // PineForge Corporate Strategy: Compass Session Market
 strategy("PineForge — Compass Session Market", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.percent_of_equity, default_qty_value=7,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

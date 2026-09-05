@@ -4,7 +4,7 @@
 // PineForge Owned Strategy: Borough New York Session
 // An IANA New York session stays aligned through daylight-saving changes.
 strategy("PineForge — Borough New York Session", overlay=true,
-     initial_capital=100000, currency=currency.USD,
+     initial_capital=100000,
      default_qty_type=strategy.fixed, default_qty_value=2,
      pyramiding=0, commission_type=strategy.commission.percent,
      commission_value=0.05, slippage=1,

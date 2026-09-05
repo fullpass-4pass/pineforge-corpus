@@ -22,7 +22,7 @@
 // leave defaults from script header. Export "List of trades" → tv_trades.csv.
 //@version=6
 strategy("PF probe kanuck-probe-02-calc-on-every-tick", shorttitle="PF_kan02_TICK",
-     overlay=true, initial_capital=1000000, currency=currency.USD,
+     overlay=true, initial_capital=1000000,
      commission_type=strategy.commission.percent, commission_value=0,
      slippage=0, default_qty_type=strategy.fixed, default_qty_value=1,
      pyramiding=1, process_orders_on_close=false,

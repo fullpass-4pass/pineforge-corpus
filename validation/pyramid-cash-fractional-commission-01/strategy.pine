@@ -19,7 +19,7 @@
 // data/ohlcv_ETH-USDT-USDT_15m.csv. Manual TV capture later.
 //@version=6
 strategy("PF Pyramid carry 02 - cash fractional", shorttitle="PYR_p02_CASH", overlay=true,
-     initial_capital=1000000, currency=currency.USD,
+     initial_capital=1000000,
      commission_type=strategy.commission.cash_per_contract, commission_value=0.05, slippage=0,
      default_qty_type=strategy.cash, default_qty_value=50000, pyramiding=3,
      process_orders_on_close=false)

@@ -5,7 +5,7 @@
 //@version=6
 strategy("VWAP Bands Mean Reversion 2σ", overlay=true,
          default_qty_type=strategy.fixed, default_qty_value=1,
-         initial_capital=100000, currency=currency.USD)
+         initial_capital=100000)
 
 // VWAP Bands (3-tuple form): daily anchor, 2-sigma bands.
 // Pine v6 ta.vwap(source, anchor, stdev_mult) returns [vwap, upper, lower].
